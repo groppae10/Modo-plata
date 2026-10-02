@@ -54,6 +54,7 @@
     .balance h2 {
       font-size: 34px;
       margin-top: 8px;
+      margin-bottom: 12px;
     }
 
     .card {
@@ -101,6 +102,12 @@
 
     button:hover {
       opacity: .9;
+    }
+
+    .change-button {
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.3);
+      width: 100%;
     }
 
     .expense {
@@ -274,6 +281,7 @@
 
 <div class="app">
 
+  <!-- ENCABEZADO -->
   <div class="header">
     <h1>💰 Modo Plata</h1>
     <p>Entendé tu plata. Hacela rendir.</p>
@@ -282,357 +290,107 @@
   <!-- DINERO INICIAL -->
   <div class="card" id="startCard">
     <h3>¿Con cuánto arrancamos?</h3>
-    <p class="sub">Ingresá tu dinero disponible una sola vez.</p>
+    <p class="sub">Ingresá tu dinero disponible.</p>
 
     <div class="start-box">
-      <input id="initialMoney" type="number" placeholder="$ 500000">
-      <button onclick="startMoney()">Empezar</button>
+      <input
+        id="initialMoney"
+        type="number"
+        placeholder="$ 500000"
+      >
+
+      <button onclick="startMoney()">
+        Empezar
+      </button>
     </div>
   </div>
 
   <!-- SALDO -->
   <div class="balance">
+
     <small>Dinero disponible</small>
+
     <h2 id="balance">$0</h2>
+
+    <button
+      class="change-button"
+      onclick="changeStartingMoney()"
+    >
+      ⚙️ Cambiar dinero inicial
+    </button>
+
   </div>
 
   <!-- GASTOS -->
   <div class="card">
+
     <h3>🧾 Mis gastos</h3>
-    <p class="sub">Cargá un gasto y Modo Plata hace la cuenta.</p>
 
-    <div class="expense">
-      <div class="expense-name">🍔 Comida</div>
-      <input id="food" type="number" placeholder="$ 50.000">
-      <button onclick="addExpense('Comida','food')">Aceptar</button>
-    </div>
-
-    <div class="expense">
-      <div class="expense-name">🚗 Auto</div>
-      <input id="car" type="number" placeholder="$ 20.000">
-      <button onclick="addExpense('Auto','car')">Aceptar</button>
-    </div>
-
-    <div class="expense">
-      <div class="expense-name">🏠 Alquiler</div>
-      <input id="rent" type="number" placeholder="$ 300.000">
-      <button onclick="addExpense('Alquiler','rent')">Aceptar</button>
-    </div>
-
-    <div class="expense">
-      <div class="expense-name">➕ Otro</div>
-      <input id="other" type="number" placeholder="$ 10.000">
-      <button onclick="addExpense('Otro','other')">Aceptar</button>
-    </div>
-  </div>
-
-  <!-- ESTADÍSTICAS -->
-  <div class="card">
-    <div class="stats">
-      <div class="stat">
-        <small>Total gastado</small>
-        <strong id="spent">$0</strong>
-      </div>
-
-      <div class="stat">
-        <small>Movimientos</small>
-        <strong id="count">0</strong>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODO SECO -->
-  <div class="card dry" id="dryMode">
-    <h2>🚨 MODO SECO ACTIVADO</h2>
-    <p>Bueno hermano... hasta acá llegamos 😂</p>
-    <p>Ahora toca cuidar cada peso.</p>
-  </div>
-
-  <!-- HISTORIAL -->
-  <div class="card">
-    <h3>📋 Movimientos</h3>
-    <p class="sub">Acá queda registrado lo que vas gastando.</p>
-
-    <div id="history">
-      <p class="sub">Todavía no hay movimientos.</p>
-    </div>
-  </div>
-
-  <!-- MODO RENDIR -->
-  <div class="mode">
-    <h3>📈 Modo Rendir</h3>
-    <p>
-      Descubrí opciones para aprovechar mejor la plata que ya tenés.
+    <p class="sub">
+      Cargá un gasto y Modo Plata hace la cuenta.
     </p>
 
-    <button onclick="showInfo(
-      'Modo Rendir',
-      'Acá vamos a mostrar opciones para hacer rendir tu dinero, explicadas de forma simple y responsable. Sin promesas de ganancias.'
-    )">
-      Ver opciones
-    </button>
-  </div>
+    <div class="expense">
 
-  <!-- MODO GANAR -->
-  <div class="mode">
-    <h3>🌐 Modo Ganar</h3>
-    <p>
-      ¿Tenés un rato libre? Descubrí algunas formas de generar ingresos por internet.
-    </p>
-
-    <div class="earning">
-      <div>
-        <strong>🇦🇷 LifePoints</strong><br>
-        <small>Encuestas y recompensas</small>
+      <div class="expense-name">
+        🍔 Comida
       </div>
-      <button onclick="openEarn(
-        'LifePoints',
-        'Vas a salir de Modo Plata y entrar a LifePoints. Las encuestas y recompensas disponibles dependen de tu perfil.'
-      )">
-        Empezar
+
+      <input
+        id="food"
+        type="number"
+        placeholder="$ 50.000"
+      >
+
+      <button onclick="addExpense('Comida','food')">
+        Aceptar
       </button>
+
     </div>
 
-    <div class="earning">
-      <div>
-        <strong>🇦🇷 Ipsos iSay</strong><br>
-        <small>Encuestas y puntos</small>
+    <div class="expense">
+
+      <div class="expense-name">
+        🚗 Auto
       </div>
-      <button onclick="openEarn(
-        'Ipsos iSay',
-        'Vas a salir de Modo Plata y entrar a Ipsos iSay. Las oportunidades y recompensas pueden variar según tu perfil.'
-      )">
-        Empezar
+
+      <input
+        id="car"
+        type="number"
+        placeholder="$ 20.000"
+      >
+
+      <button onclick="addExpense('Auto','car')">
+        Aceptar
       </button>
+
     </div>
 
-    <div class="earning">
-      <div>
-        <strong>🇦🇷 Toluna</strong><br>
-        <small>Opiniones y recompensas</small>
+    <div class="expense">
+
+      <div class="expense-name">
+        🏠 Alquiler
       </div>
-      <button onclick="openEarn(
-        'Toluna',
-        'Vas a salir de Modo Plata y entrar a Toluna. Las encuestas y recompensas disponibles pueden variar según tu perfil.'
-      )">
-        Empezar
+
+      <input
+        id="rent"
+        type="number"
+        placeholder="$ 300.000"
+      >
+
+      <button onclick="addExpense('Alquiler','rent')">
+        Aceptar
       </button>
+
     </div>
-  </div>
 
-  <!-- FUTURO -->
-  <div class="mode future">
-    <h3>🚀 Se vienen cositas...</h3>
-    <p>
-      Estamos locos... y llegan cositas. 😎
-    </p>
-    <br>
-    <strong>💳 Próximamente: Billetera Modo Plata</strong>
-    <p>
-      Estamos pensando en algo mucho más grande.
-    </p>
-  </div>
+    <div class="expense">
 
-</div>
+      <div class="expense-name">
+        ➕ Otro
+      </div>
 
-<!-- MODAL -->
-<div class="modal-bg" id="modalBg">
-  <div class="modal">
-    <h3 id="modalTitle">Modo Plata</h3>
-    <p id="modalText"></p>
-
-    <div class="modal-buttons">
-      <button class="secondary" onclick="closeModal()">Volver</button>
-      <button id="modalAction">Continuar</button>
-    </div>
-  </div>
-</div>
-
-<script>
-
-  let data = {
-    balance: 0,
-    spent: 0,
-    count: 0,
-    history: []
-  };
-
-  let selectedUrl = "";
-
-  // CARGAR DATOS GUARDADOS
-  function loadData() {
-    const saved = localStorage.getItem("modoPlataData");
-
-    if (saved) {
-      data = JSON.parse(saved);
-    }
-
-    updateScreen();
-  }
-
-  // GUARDAR DATOS
-  function saveData() {
-    localStorage.setItem("modoPlataData", JSON.stringify(data));
-  }
-
-  // DINERO INICIAL
-  function startMoney() {
-
-    const amount = Number(document.getElementById("initialMoney").value);
-
-    if (!amount || amount <= 0) {
-      alert("Ingresá un monto válido.");
-      return;
-    }
-
-    data.balance = amount;
-
-    saveData();
-    updateScreen();
-
-    document.getElementById("startCard").style.display = "none";
-  }
-
-  // AGREGAR GASTO
-  function addExpense(category, inputId) {
-
-    const input = document.getElementById(inputId);
-    const amount = Number(input.value);
-
-    if (!amount || amount <= 0) {
-      alert("Ingresá un monto válido.");
-      return;
-    }
-
-    if (amount > data.balance) {
-      alert("No tenés suficiente dinero disponible.");
-      return;
-    }
-
-    data.balance -= amount;
-    data.spent += amount;
-    data.count++;
-
-    data.history.unshift({
-      category: category,
-      amount: amount,
-      date: new Date().toLocaleDateString("es-AR")
-    });
-
-    input.value = "";
-
-    saveData();
-    updateScreen();
-  }
-
-  // ACTUALIZAR PANTALLA
-  function updateScreen() {
-
-    document.getElementById("balance").textContent =
-      formatMoney(data.balance);
-
-    document.getElementById("spent").textContent =
-      formatMoney(data.spent);
-
-    document.getElementById("count").textContent =
-      data.count;
-
-    const history = document.getElementById("history");
-
-    if (data.history.length === 0) {
-
-      history.innerHTML =
-        '<p class="sub">Todavía no hay movimientos.</p>';
-
-    } else {
-
-      history.innerHTML = data.history.map(item => `
-        <div class="history-item">
-          <span>${item.category}</span>
-          <strong class="negative">
-            -${formatMoney(item.amount)}
-          </strong>
-        </div>
-      `).join("");
-    }
-
-    const dry = document.getElementById("dryMode");
-
-    if (data.balance === 0 && data.spent > 0) {
-      dry.style.display = "block";
-    } else {
-      dry.style.display = "none";
-    }
-
-    if (data.balance > 0) {
-      document.getElementById("startCard").style.display = "none";
-    }
-  }
-
-  // FORMATO DINERO
-  function formatMoney(amount) {
-
-    return "$" + Number(amount).toLocaleString("es-AR");
-  }
-
-  // INFORMACIÓN GENERAL
-  function showInfo(title, text) {
-
-    document.getElementById("modalTitle").textContent = title;
-    document.getElementById("modalText").textContent = text;
-
-    document.getElementById("modalAction").style.display = "none";
-
-    document.getElementById("modalBg").style.display = "flex";
-  }
-
-  // ABRIR PLATAFORMA
-  function openEarn(name, text) {
-
-    selectedUrl = "";
-
-    if (name === "LifePoints") {
-      selectedUrl = "https://www.lifepointspanel.com/es-ar/registration";
-    }
-
-    if (name === "Ipsos iSay") {
-      selectedUrl = "https://www.ipsosisay.com/es-ar";
-    }
-
-    if (name === "Toluna") {
-      selectedUrl = "https://www.toluna.com/es-AR/home";
-    }
-
-    document.getElementById("modalTitle").textContent = name;
-    document.getElementById("modalText").textContent = text;
-
-    const action = document.getElementById("modalAction");
-
-    action.style.display = "block";
-    action.textContent = "Ir al sitio";
-
-    action.onclick = function() {
-
-      if (selectedUrl) {
-        window.open(selectedUrl, "_blank");
-      }
-
-      closeModal();
-    };
-
-    document.getElementById("modalBg").style.display = "flex";
-  }
-
-  // CERRAR MODAL
-  function closeModal() {
-
-    document.getElementById("modalBg").style.display = "none";
-  }
-
-  // INICIAR
-  loadData();
-
-</script>
-
-</body>
-</html>
+      <input
+        id="other"
+        type="number"
+        placeholder="$ 10.
