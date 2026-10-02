@@ -1,294 +1,337 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Modo Plata</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modo Plata</title>
 
-<style>
-* {
-  box-sizing: border-box;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f4f6f8;
-  color: #17202a;
-}
+    body {
+      background: #f4f6f8;
+      color: #17202a;
+      padding: 20px;
+    }
 
-.container {
-  max-width: 650px;
-  margin: auto;
-  padding: 20px;
-}
+    .app {
+      max-width: 520px;
+      margin: auto;
+    }
 
-h1 {
-  text-align: center;
-  margin-bottom: 5px;
-}
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-.subtitle {
-  text-align: center;
-  color: #666;
-  margin-bottom: 20px;
-}
+    .header h1 {
+      font-size: 36px;
+      margin-bottom: 6px;
+    }
 
-.balance {
-  background: #111827;
-  color: white;
-  border-radius: 20px;
-  padding: 25px;
-  text-align: center;
-  margin-bottom: 20px;
-}
+    .header p {
+      color: #667085;
+    }
 
-.balance small {
-  opacity: .8;
-}
+    .balance {
+      background: #17202a;
+      color: white;
+      border-radius: 22px;
+      padding: 25px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,.12);
+    }
 
-.balance h2 {
-  font-size: 35px;
-  margin: 8px 0;
-}
+    .balance small {
+      opacity: .75;
+    }
 
-.card {
-  background: white;
-  border-radius: 18px;
-  padding: 18px;
-  margin-bottom: 15px;
-  box-shadow: 0 3px 12px rgba(0,0,0,.07);
-}
+    .balance h2 {
+      font-size: 34px;
+      margin-top: 8px;
+    }
 
-.card h3 {
-  margin-top: 0;
-}
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 18px;
+      box-shadow: 0 5px 18px rgba(0,0,0,.07);
+    }
 
-.row {
-  display: grid;
-  grid-template-columns: 1fr 130px 90px;
-  gap: 8px;
-  align-items: center;
-  margin-bottom: 10px;
-}
+    .card h3 {
+      margin-bottom: 6px;
+      font-size: 21px;
+    }
 
-input {
-  width: 100%;
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-}
+    .sub {
+      color: #667085;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
 
-button {
-  border: none;
-  border-radius: 10px;
-  padding: 12px;
-  font-weight: bold;
-  cursor: pointer;
-  background: #16a34a;
-  color: white;
-}
+    .start-box {
+      display: flex;
+      gap: 10px;
+    }
 
-button:hover {
-  opacity: .9;
-}
+    input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #d0d5dd;
+      border-radius: 12px;
+      font-size: 16px;
+      outline: none;
+    }
 
-.income {
-  display: grid;
-  grid-template-columns: 1fr 100px;
-  gap: 8px;
-}
+    button {
+      border: none;
+      border-radius: 12px;
+      padding: 13px 17px;
+      font-weight: bold;
+      cursor: pointer;
+      background: #17202a;
+      color: white;
+    }
 
-.task {
-  border: 1px solid #ddd;
-  border-radius: 14px;
-  padding: 15px;
-  margin-bottom: 10px;
-}
+    button:hover {
+      opacity: .9;
+    }
 
-.task-title {
-  font-weight: bold;
-  font-size: 17px;
-}
+    .expense {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 12px;
+    }
 
-.task-description {
-  color: #666;
-  font-size: 14px;
-  margin: 5px 0 12px;
-}
+    .expense-name {
+      width: 100px;
+      font-weight: bold;
+    }
 
-.task a {
-  display: inline-block;
-  text-decoration: none;
-  background: #2563eb;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 9px;
-  font-weight: bold;
-}
+    .expense button {
+      padding: 12px;
+      white-space: nowrap;
+    }
 
-.stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
 
-.stat {
-  background: #f8fafc;
-  padding: 15px;
-  border-radius: 12px;
-  text-align: center;
-}
+    .stat {
+      background: #f4f6f8;
+      border-radius: 15px;
+      padding: 15px;
+    }
 
-.history {
-  border-top: 1px solid #ddd;
-  margin-top: 15px;
-  padding-top: 10px;
-}
+    .stat small {
+      color: #667085;
+    }
 
-.history-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 0;
-  border-bottom: 1px solid #eee;
-}
+    .stat strong {
+      display: block;
+      font-size: 20px;
+      margin-top: 5px;
+    }
 
-.note {
-  font-size: 13px;
-  color: #666;
-  margin-top: 12px;
-  line-height: 1.4;
-}
+    .mode {
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 15px;
+      background: white;
+      border: 1px solid #e4e7ec;
+    }
 
-@media(max-width: 500px) {
-  .row {
-    grid-template-columns: 1fr 1fr;
-  }
+    .mode h3 {
+      margin-bottom: 7px;
+    }
 
-  .row button {
-    grid-column: 1 / -1;
-  }
+    .mode p {
+      color: #667085;
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
 
-  .income {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
+    .earning {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 13px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .earning:last-child {
+      border-bottom: none;
+    }
+
+    .earning button {
+      padding: 9px 12px;
+      font-size: 13px;
+    }
+
+    .future {
+      text-align: center;
+      background: #17202a;
+      color: white;
+    }
+
+    .future p {
+      color: #d0d5dd;
+    }
+
+    .dry {
+      display: none;
+      text-align: center;
+      background: #fff1f0;
+      border: 1px solid #ffccc7;
+    }
+
+    .dry h2 {
+      margin-bottom: 8px;
+    }
+
+    .history-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .history-item:last-child {
+      border-bottom: none;
+    }
+
+    .negative {
+      color: #d92d20;
+    }
+
+    .modal-bg {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.55);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      z-index: 10;
+    }
+
+    .modal {
+      background: white;
+      border-radius: 20px;
+      padding: 25px;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .modal h3 {
+      margin-bottom: 10px;
+    }
+
+    .modal p {
+      color: #667085;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .modal-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .modal-buttons button {
+      flex: 1;
+    }
+
+    .secondary {
+      background: #e4e7ec;
+      color: #17202a;
+    }
+
+    @media (max-width: 430px) {
+      .expense-name {
+        width: 85px;
+        font-size: 14px;
+      }
+
+      .expense button {
+        padding: 11px 9px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="app">
 
-  <h1>💰 Modo Plata</h1>
-  <div class="subtitle">
-    Controlá tu dinero y encontrá oportunidades para ganar más
-  </div>
-
-  <!-- DINERO DISPONIBLE -->
-  <div class="balance">
-    <small>Dinero disponible</small>
-    <h2 id="available">$0</h2>
-    <small>Total gastado: <span id="spent">$0</span></small>
+  <div class="header">
+    <h1>💰 Modo Plata</h1>
+    <p>Entendé tu plata. Hacela rendir.</p>
   </div>
 
   <!-- DINERO INICIAL -->
-  <div class="card">
-    <h3>💵 Dinero inicial</h3>
+  <div class="card" id="startCard">
+    <h3>¿Con cuánto arrancamos?</h3>
+    <p class="sub">Ingresá tu dinero disponible una sola vez.</p>
 
-    <form id="incomeForm" class="income">
-      <input
-        id="incomeInput"
-        type="number"
-        min="0"
-        placeholder="Ej: 200000"
-        inputmode="numeric"
-      >
+    <div class="start-box">
+      <input id="initialMoney" type="number" placeholder="$ 500000">
+      <button onclick="startMoney()">Empezar</button>
+    </div>
+  </div>
 
-      <button type="submit">
-        Aceptar
-      </button>
-    </form>
+  <!-- SALDO -->
+  <div class="balance">
+    <small>Dinero disponible</small>
+    <h2 id="balance">$0</h2>
   </div>
 
   <!-- GASTOS -->
   <div class="card">
-
     <h3>🧾 Mis gastos</h3>
+    <p class="sub">Cargá un gasto y Modo Plata hace la cuenta.</p>
 
-    <div class="row">
-      <strong>🍔 Comida</strong>
-
-      <input
-        class="expense"
-        data-name="Comida"
-        type="number"
-        min="0"
-        placeholder="$"
-        inputmode="numeric"
-      >
-
-      <button class="expenseButton">
-        Aceptar
-      </button>
+    <div class="expense">
+      <div class="expense-name">🍔 Comida</div>
+      <input id="food" type="number" placeholder="$ 50.000">
+      <button onclick="addExpense('Comida','food')">Aceptar</button>
     </div>
 
-    <div class="row">
-      <strong>🚗 Auto</strong>
-
-      <input
-        class="expense"
-        data-name="Auto"
-        type="number"
-        min="0"
-        placeholder="$"
-        inputmode="numeric"
-      >
-
-      <button class="expenseButton">
-        Aceptar
-      </button>
+    <div class="expense">
+      <div class="expense-name">🚗 Auto</div>
+      <input id="car" type="number" placeholder="$ 20.000">
+      <button onclick="addExpense('Auto','car')">Aceptar</button>
     </div>
 
-    <div class="row">
-      <strong>🏠 Alquiler</strong>
-
-      <input
-        class="expense"
-        data-name="Alquiler"
-        type="number"
-        min="0"
-        placeholder="$"
-        inputmode="numeric"
-      >
-
-      <button class="expenseButton">
-        Aceptar
-      </button>
+    <div class="expense">
+      <div class="expense-name">🏠 Alquiler</div>
+      <input id="rent" type="number" placeholder="$ 300.000">
+      <button onclick="addExpense('Alquiler','rent')">Aceptar</button>
     </div>
 
-    <div class="row">
-      <strong>📦 Otro</strong>
-
-      <input
-        class="expense"
-        data-name="Otro"
-        type="number"
-        min="0"
-        placeholder="$"
-        inputmode="numeric"
-      >
-
-      <button class="expenseButton">
-        Aceptar
-      </button>
+    <div class="expense">
+      <div class="expense-name">➕ Otro</div>
+      <input id="other" type="number" placeholder="$ 10.000">
+      <button onclick="addExpense('Otro','other')">Aceptar</button>
     </div>
+  </div>
 
+  <!-- ESTADÍSTICAS -->
+  <div class="card">
     <div class="stats">
       <div class="stat">
-        <small>Gastado</small>
-        <strong id="statSpent">$0</strong>
+        <small>Total gastado</small>
+        <strong id="spent">$0</strong>
       </div>
 
       <div class="stat">
@@ -296,240 +339,298 @@ button:hover {
         <strong id="count">0</strong>
       </div>
     </div>
-
   </div>
 
-  <!-- GANAR DINERO -->
-  <div class="card">
-
-    <h3>💰 Ganar dinero</h3>
-
-    <div class="task">
-
-      <div class="task-title">
-        📝 ySense
-      </div>
-
-      <div class="task-description">
-        Encuestas, ofertas y tareas remuneradas. La disponibilidad y recompensa dependen de tu perfil y ubicación.
-      </div>
-
-      <a
-        href="https://www.ysense.com/paid-surveys"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Hacer tareas →
-      </a>
-
-    </div>
-
-    <div class="task">
-
-      <div class="task-title">
-        🤖 Toloka
-      </div>
-
-      <div class="task-description">
-        Plataforma de microtareas. Podés registrarte y consultar qué tareas están disponibles para vos.
-      </div>
-
-      <a
-        href="https://toloka.ai/get-started"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Ver tareas →
-      </a>
-
-    </div>
-
-    <div class="note">
-      ℹ️ Modo Plata no promete una cantidad fija de dinero.
-      Las tareas, recompensas y condiciones dependen de cada plataforma.
-    </div>
-
+  <!-- MODO SECO -->
+  <div class="card dry" id="dryMode">
+    <h2>🚨 MODO SECO ACTIVADO</h2>
+    <p>Bueno hermano... hasta acá llegamos 😂</p>
+    <p>Ahora toca cuidar cada peso.</p>
   </div>
 
   <!-- HISTORIAL -->
   <div class="card">
-
     <h3>📋 Movimientos</h3>
+    <p class="sub">Acá queda registrado lo que vas gastando.</p>
 
     <div id="history">
-      Todavía no hay movimientos.
+      <p class="sub">Todavía no hay movimientos.</p>
+    </div>
+  </div>
+
+  <!-- MODO RENDIR -->
+  <div class="mode">
+    <h3>📈 Modo Rendir</h3>
+    <p>
+      Descubrí opciones para aprovechar mejor la plata que ya tenés.
+    </p>
+
+    <button onclick="showInfo(
+      'Modo Rendir',
+      'Acá vamos a mostrar opciones para hacer rendir tu dinero, explicadas de forma simple y responsable. Sin promesas de ganancias.'
+    )">
+      Ver opciones
+    </button>
+  </div>
+
+  <!-- MODO GANAR -->
+  <div class="mode">
+    <h3>🌐 Modo Ganar</h3>
+    <p>
+      ¿Tenés un rato libre? Descubrí algunas formas de generar ingresos por internet.
+    </p>
+
+    <div class="earning">
+      <div>
+        <strong>🇦🇷 LifePoints</strong><br>
+        <small>Encuestas y recompensas</small>
+      </div>
+      <button onclick="openEarn(
+        'LifePoints',
+        'Vas a salir de Modo Plata y entrar a LifePoints. Las encuestas y recompensas disponibles dependen de tu perfil.'
+      )">
+        Empezar
+      </button>
     </div>
 
+    <div class="earning">
+      <div>
+        <strong>🇦🇷 Ipsos iSay</strong><br>
+        <small>Encuestas y puntos</small>
+      </div>
+      <button onclick="openEarn(
+        'Ipsos iSay',
+        'Vas a salir de Modo Plata y entrar a Ipsos iSay. Las oportunidades y recompensas pueden variar según tu perfil.'
+      )">
+        Empezar
+      </button>
+    </div>
+
+    <div class="earning">
+      <div>
+        <strong>🇦🇷 Toluna</strong><br>
+        <small>Opiniones y recompensas</small>
+      </div>
+      <button onclick="openEarn(
+        'Toluna',
+        'Vas a salir de Modo Plata y entrar a Toluna. Las encuestas y recompensas disponibles pueden variar según tu perfil.'
+      )">
+        Empezar
+      </button>
+    </div>
+  </div>
+
+  <!-- FUTURO -->
+  <div class="mode future">
+    <h3>🚀 Se vienen cositas...</h3>
+    <p>
+      Estamos locos... y llegan cositas. 😎
+    </p>
+    <br>
+    <strong>💳 Próximamente: Billetera Modo Plata</strong>
+    <p>
+      Estamos pensando en algo mucho más grande.
+    </p>
   </div>
 
 </div>
 
+<!-- MODAL -->
+<div class="modal-bg" id="modalBg">
+  <div class="modal">
+    <h3 id="modalTitle">Modo Plata</h3>
+    <p id="modalText"></p>
+
+    <div class="modal-buttons">
+      <button class="secondary" onclick="closeModal()">Volver</button>
+      <button id="modalAction">Continuar</button>
+    </div>
+  </div>
+</div>
+
 <script>
 
-let available = 0;
-let spent = 0;
-let count = 0;
+  let data = {
+    balance: 0,
+    spent: 0,
+    count: 0,
+    history: []
+  };
 
-const availableElement =
-  document.getElementById("available");
+  let selectedUrl = "";
 
-const spentElement =
-  document.getElementById("spent");
+  // CARGAR DATOS GUARDADOS
+  function loadData() {
+    const saved = localStorage.getItem("modoPlataData");
 
-const statSpentElement =
-  document.getElementById("statSpent");
-
-const countElement =
-  document.getElementById("count");
-
-const historyElement =
-  document.getElementById("history");
-
-
-function money(number) {
-
-  return new Intl.NumberFormat(
-    "es-AR",
-    {
-      style: "currency",
-      currency: "ARS",
-      maximumFractionDigits: 0
+    if (saved) {
+      data = JSON.parse(saved);
     }
-  ).format(number);
 
-}
+    updateScreen();
+  }
 
+  // GUARDAR DATOS
+  function saveData() {
+    localStorage.setItem("modoPlataData", JSON.stringify(data));
+  }
 
-function updateScreen() {
+  // DINERO INICIAL
+  function startMoney() {
 
-  availableElement.textContent =
-    money(available);
+    const amount = Number(document.getElementById("initialMoney").value);
 
-  spentElement.textContent =
-    money(spent);
-
-  statSpentElement.textContent =
-    money(spent);
-
-  countElement.textContent =
-    count;
-
-}
-
-
-document
-  .getElementById("incomeForm")
-  .addEventListener("submit", function(event) {
-
-    event.preventDefault();
-
-    const input =
-      document.getElementById("incomeInput");
-
-    const value =
-      Number(input.value);
-
-    if (!Number.isFinite(value) || value <= 0) {
-
+    if (!amount || amount <= 0) {
       alert("Ingresá un monto válido.");
-
       return;
     }
 
-    available = value;
+    data.balance = amount;
 
-    spent = 0;
-
-    count = 0;
-
-    historyElement.innerHTML =
-      "Todavía no hay movimientos.";
-
+    saveData();
     updateScreen();
+
+    document.getElementById("startCard").style.display = "none";
+  }
+
+  // AGREGAR GASTO
+  function addExpense(category, inputId) {
+
+    const input = document.getElementById(inputId);
+    const amount = Number(input.value);
+
+    if (!amount || amount <= 0) {
+      alert("Ingresá un monto válido.");
+      return;
+    }
+
+    if (amount > data.balance) {
+      alert("No tenés suficiente dinero disponible.");
+      return;
+    }
+
+    data.balance -= amount;
+    data.spent += amount;
+    data.count++;
+
+    data.history.unshift({
+      category: category,
+      amount: amount,
+      date: new Date().toLocaleDateString("es-AR")
+    });
 
     input.value = "";
 
-});
+    saveData();
+    updateScreen();
+  }
 
+  // ACTUALIZAR PANTALLA
+  function updateScreen() {
 
-document
-  .querySelectorAll(".expenseButton")
-  .forEach(function(button) {
+    document.getElementById("balance").textContent =
+      formatMoney(data.balance);
 
-    button.addEventListener("click", function() {
+    document.getElementById("spent").textContent =
+      formatMoney(data.spent);
 
-      const row =
-        button.closest(".row");
+    document.getElementById("count").textContent =
+      data.count;
 
-      const input =
-        row.querySelector(".expense");
+    const history = document.getElementById("history");
 
-      const name =
-        input.dataset.name;
+    if (data.history.length === 0) {
 
-      const value =
-        Number(input.value);
+      history.innerHTML =
+        '<p class="sub">Todavía no hay movimientos.</p>';
 
-      if (!Number.isFinite(value) || value <= 0) {
+    } else {
 
-        alert("Ingresá un monto válido.");
+      history.innerHTML = data.history.map(item => `
+        <div class="history-item">
+          <span>${item.category}</span>
+          <strong class="negative">
+            -${formatMoney(item.amount)}
+          </strong>
+        </div>
+      `).join("");
+    }
 
-        return;
+    const dry = document.getElementById("dryMode");
+
+    if (data.balance === 0 && data.spent > 0) {
+      dry.style.display = "block";
+    } else {
+      dry.style.display = "none";
+    }
+
+    if (data.balance > 0) {
+      document.getElementById("startCard").style.display = "none";
+    }
+  }
+
+  // FORMATO DINERO
+  function formatMoney(amount) {
+
+    return "$" + Number(amount).toLocaleString("es-AR");
+  }
+
+  // INFORMACIÓN GENERAL
+  function showInfo(title, text) {
+
+    document.getElementById("modalTitle").textContent = title;
+    document.getElementById("modalText").textContent = text;
+
+    document.getElementById("modalAction").style.display = "none";
+
+    document.getElementById("modalBg").style.display = "flex";
+  }
+
+  // ABRIR PLATAFORMA
+  function openEarn(name, text) {
+
+    selectedUrl = "";
+
+    if (name === "LifePoints") {
+      selectedUrl = "https://www.lifepointspanel.com/es-ar/registration";
+    }
+
+    if (name === "Ipsos iSay") {
+      selectedUrl = "https://www.ipsosisay.com/es-ar";
+    }
+
+    if (name === "Toluna") {
+      selectedUrl = "https://www.toluna.com/es-AR/home";
+    }
+
+    document.getElementById("modalTitle").textContent = name;
+    document.getElementById("modalText").textContent = text;
+
+    const action = document.getElementById("modalAction");
+
+    action.style.display = "block";
+    action.textContent = "Ir al sitio";
+
+    action.onclick = function() {
+
+      if (selectedUrl) {
+        window.open(selectedUrl, "_blank");
       }
 
-      if (value > available) {
+      closeModal();
+    };
 
-        alert(
-          "Ese gasto supera tu dinero disponible."
-        );
+    document.getElementById("modalBg").style.display = "flex";
+  }
 
-        return;
-      }
+  // CERRAR MODAL
+  function closeModal() {
 
-      available -= value;
+    document.getElementById("modalBg").style.display = "none";
+  }
 
-      spent += value;
-
-      count++;
-
-      if (
-        historyElement.textContent.includes(
-          "Todavía no hay movimientos"
-        )
-      ) {
-
-        historyElement.innerHTML = "";
-
-      }
-
-      const movement =
-        document.createElement("div");
-
-      movement.className =
-        "history-item";
-
-      movement.innerHTML =
-        "<span>" +
-        name +
-        "</span>" +
-        "<strong>− " +
-        money(value) +
-        "</strong>";
-
-      historyElement.prepend(
-        movement
-      );
-
-      input.value = "";
-
-      updateScreen();
-
-    });
-
-});
-
-
-updateScreen();
+  // INICIAR
+  loadData();
 
 </script>
 
