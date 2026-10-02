@@ -1,196 +1,535 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Modo Plata</title>
+
 <style>
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#101315;
-color:white;
+* {
+  box-sizing: border-box;
 }
-main{
-max-width:700px;
-margin:auto;
-padding:25px;
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  color: #17202a;
 }
-h1{font-size:38px}
-.card{
-background:#191e20;
-border-radius:18px;
-padding:20px;
-margin:15px 0;
-border:1px solid #29302e;
+
+.container {
+  max-width: 650px;
+  margin: auto;
+  padding: 20px;
 }
-input,select,button{
-width:100%;
-padding:14px;
-margin:6px 0;
-border-radius:10px;
-border:1px solid #444;
-box-sizing:border-box;
-font-size:16px;
+
+h1 {
+  text-align: center;
+  margin-bottom: 5px;
 }
-button{
-background:#8df0b0;
-color:#102017;
-font-weight:bold;
-border:0;
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 20px;
 }
-.green{color:#8df0b0}
-.red{color:#ff9b9b}
+
+.balance {
+  background: #111827;
+  color: white;
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.balance small {
+  opacity: .8;
+}
+
+.balance h2 {
+  font-size: 35px;
+  margin: 8px 0;
+}
+
+.card {
+  background: white;
+  border-radius: 18px;
+  padding: 18px;
+  margin-bottom: 15px;
+  box-shadow: 0 3px 12px rgba(0,0,0,.07);
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 130px 90px;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  background: #16a34a;
+  color: white;
+}
+
+button:hover {
+  opacity: .9;
+}
+
+.income {
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  gap: 8px;
+}
+
+.task {
+  border: 1px solid #ddd;
+  border-radius: 14px;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.task-title {
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.task-description {
+  color: #666;
+  font-size: 14px;
+  margin: 5px 0 12px;
+}
+
+.task a {
+  display: inline-block;
+  text-decoration: none;
+  background: #2563eb;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 9px;
+  font-weight: bold;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.stat {
+  background: #f8fafc;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.history {
+  border-top: 1px solid #ddd;
+  margin-top: 15px;
+  padding-top: 10px;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.note {
+  font-size: 13px;
+  color: #666;
+  margin-top: 12px;
+  line-height: 1.4;
+}
+
+@media(max-width: 500px) {
+  .row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .row button {
+    grid-column: 1 / -1;
+  }
+
+  .income {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
 </head>
 
 <body>
-<main>
 
-<h1>💸 Modo Plata</h1>
-<p>Ordená tu plata, controlá tus gastos y alcanzá tus metas.</p>
+<div class="container">
 
-<div class="card">
-<h2>📊 Mi dinero</h2>
+  <h1>💰 Modo Plata</h1>
+  <div class="subtitle">
+    Controlá tu dinero y encontrá oportunidades para ganar más
+  </div>
 
-<p>Ingresos: <strong class="green" id="ingresos">$0</strong></p>
-<p>Gastos: <strong class="red" id="gastos">$0</strong></p>
-<p>Disponible: <strong id="saldo">$0</strong></p>
+  <!-- DINERO DISPONIBLE -->
+  <div class="balance">
+    <small>Dinero disponible</small>
+    <h2 id="available">$0</h2>
+    <small>Total gastado: <span id="spent">$0</span></small>
+  </div>
+
+  <!-- DINERO INICIAL -->
+  <div class="card">
+    <h3>💵 Dinero inicial</h3>
+
+    <form id="incomeForm" class="income">
+      <input
+        id="incomeInput"
+        type="number"
+        min="0"
+        placeholder="Ej: 200000"
+        inputmode="numeric"
+      >
+
+      <button type="submit">
+        Aceptar
+      </button>
+    </form>
+  </div>
+
+  <!-- GASTOS -->
+  <div class="card">
+
+    <h3>🧾 Mis gastos</h3>
+
+    <div class="row">
+      <strong>🍔 Comida</strong>
+
+      <input
+        class="expense"
+        data-name="Comida"
+        type="number"
+        min="0"
+        placeholder="$"
+        inputmode="numeric"
+      >
+
+      <button class="expenseButton">
+        Aceptar
+      </button>
+    </div>
+
+    <div class="row">
+      <strong>🚗 Auto</strong>
+
+      <input
+        class="expense"
+        data-name="Auto"
+        type="number"
+        min="0"
+        placeholder="$"
+        inputmode="numeric"
+      >
+
+      <button class="expenseButton">
+        Aceptar
+      </button>
+    </div>
+
+    <div class="row">
+      <strong>🏠 Alquiler</strong>
+
+      <input
+        class="expense"
+        data-name="Alquiler"
+        type="number"
+        min="0"
+        placeholder="$"
+        inputmode="numeric"
+      >
+
+      <button class="expenseButton">
+        Aceptar
+      </button>
+    </div>
+
+    <div class="row">
+      <strong>📦 Otro</strong>
+
+      <input
+        class="expense"
+        data-name="Otro"
+        type="number"
+        min="0"
+        placeholder="$"
+        inputmode="numeric"
+      >
+
+      <button class="expenseButton">
+        Aceptar
+      </button>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <small>Gastado</small>
+        <strong id="statSpent">$0</strong>
+      </div>
+
+      <div class="stat">
+        <small>Movimientos</small>
+        <strong id="count">0</strong>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- GANAR DINERO -->
+  <div class="card">
+
+    <h3>💰 Ganar dinero</h3>
+
+    <div class="task">
+
+      <div class="task-title">
+        📝 ySense
+      </div>
+
+      <div class="task-description">
+        Encuestas, ofertas y tareas remuneradas. La disponibilidad y recompensa dependen de tu perfil y ubicación.
+      </div>
+
+      <a
+        href="https://www.ysense.com/paid-surveys"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Hacer tareas →
+      </a>
+
+    </div>
+
+    <div class="task">
+
+      <div class="task-title">
+        🤖 Toloka
+      </div>
+
+      <div class="task-description">
+        Plataforma de microtareas. Podés registrarte y consultar qué tareas están disponibles para vos.
+      </div>
+
+      <a
+        href="https://toloka.ai/get-started"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Ver tareas →
+      </a>
+
+    </div>
+
+    <div class="note">
+      ℹ️ Modo Plata no promete una cantidad fija de dinero.
+      Las tareas, recompensas y condiciones dependen de cada plataforma.
+    </div>
+
+  </div>
+
+  <!-- HISTORIAL -->
+  <div class="card">
+
+    <h3>📋 Movimientos</h3>
+
+    <div id="history">
+      Todavía no hay movimientos.
+    </div>
+
+  </div>
+
 </div>
-
-<div class="card">
-<h2>💵 Registrar movimiento</h2>
-
-<input id="monto" type="number" placeholder="Monto">
-
-<select id="tipo">
-<option value="ingreso">Dinero recibido</option>
-<option value="gasto">Dinero gastado</option>
-</select>
-
-<input id="detalle" placeholder="Ej: sueldo, comida, nafta">
-
-<button onclick="registrar()">Registrar</button>
-</div>
-
-<div class="card">
-<h2>🎯 Meta de ahorro</h2>
-
-<input id="meta" type="number" value="500000">
-
-<button onclick="guardarMeta()">Guardar meta</button>
-
-<p id="metaTexto">Meta: $500.000</p>
-</div>
-
-<div class="card">
-<h2>💡 Ideas para ganar más</h2>
-
-<p>🚗 Hacer viajes o repartos extra.</p>
-<p>📦 Vender cosas que ya no usás.</p>
-<p>🛠️ Ofrecer un servicio que sepas hacer.</p>
-</div>
-
-<div class="card">
-<h2>🛡️ Seguridad primero</h2>
-
-<p>
-Esta versión es una demo. No recibe ni guarda dinero real.
-Los datos se guardan solamente en este dispositivo.
-</p>
-</div>
-
-<div class="card">
-<h2>🚀 Modo Plata</h2>
-
-<p>
-Estamos construyendo una aplicación para ayudar a las personas
-a ordenar sus ingresos, gastos y objetivos.
-</p>
-
-<button onclick="compartir()">📲 Compartir Modo Plata</button>
-</div>
-
-</main>
 
 <script>
 
-let ingresos=0;
-let gastos=0;
-let meta=500000;
+let available = 0;
+let spent = 0;
+let count = 0;
 
-function dinero(numero){
-return new Intl.NumberFormat("es-AR",{
-style:"currency",
-currency:"ARS",
-maximumFractionDigits:0
-}).format(numero);
-}
+const availableElement =
+  document.getElementById("available");
 
-function actualizar(){
+const spentElement =
+  document.getElementById("spent");
 
-document.getElementById("ingresos").innerText=dinero(ingresos);
-document.getElementById("gastos").innerText=dinero(gastos);
-document.getElementById("saldo").innerText=dinero(ingresos-gastos);
+const statSpentElement =
+  document.getElementById("statSpent");
 
-document.getElementById("metaTexto").innerText=
-"Meta: "+dinero(meta);
+const countElement =
+  document.getElementById("count");
 
-}
+const historyElement =
+  document.getElementById("history");
 
-function registrar(){
 
-let monto=Number(document.getElementById("monto").value);
-let tipo=document.getElementById("tipo").value;
+function money(number) {
 
-if(!monto){
-alert("Ingresá un monto");
-return;
-}
-
-if(tipo==="ingreso"){
-ingresos+=monto;
-}else{
-gastos+=monto;
-}
-
-document.getElementById("monto").value="";
-actualizar();
+  return new Intl.NumberFormat(
+    "es-AR",
+    {
+      style: "currency",
+      currency: "ARS",
+      maximumFractionDigits: 0
+    }
+  ).format(number);
 
 }
 
-function guardarMeta(){
 
-let nueva=Number(document.getElementById("meta").value);
+function updateScreen() {
 
-if(nueva>0){
-meta=nueva;
-actualizar();
+  availableElement.textContent =
+    money(available);
+
+  spentElement.textContent =
+    money(spent);
+
+  statSpentElement.textContent =
+    money(spent);
+
+  countElement.textContent =
+    count;
+
 }
 
-}
 
-function compartir(){
+document
+  .getElementById("incomeForm")
+  .addEventListener("submit", function(event) {
 
-let texto=
-"💸 Probá Modo Plata: una app para ordenar tu plata y controlar tus gastos.";
+    event.preventDefault();
 
-if(navigator.share){
-navigator.share({
-title:"Modo Plata",
-text:texto,
-url:window.location.href
+    const input =
+      document.getElementById("incomeInput");
+
+    const value =
+      Number(input.value);
+
+    if (!Number.isFinite(value) || value <= 0) {
+
+      alert("Ingresá un monto válido.");
+
+      return;
+    }
+
+    available = value;
+
+    spent = 0;
+
+    count = 0;
+
+    historyElement.innerHTML =
+      "Todavía no hay movimientos.";
+
+    updateScreen();
+
+    input.value = "";
+
 });
-}else{
-navigator.clipboard.writeText(
-texto+" "+window.location.href
-);
-alert("Enlace copiado");
-}
 
-}
 
-actualizar();
+document
+  .querySelectorAll(".expenseButton")
+  .forEach(function(button) {
+
+    button.addEventListener("click", function() {
+
+      const row =
+        button.closest(".row");
+
+      const input =
+        row.querySelector(".expense");
+
+      const name =
+        input.dataset.name;
+
+      const value =
+        Number(input.value);
+
+      if (!Number.isFinite(value) || value <= 0) {
+
+        alert("Ingresá un monto válido.");
+
+        return;
+      }
+
+      if (value > available) {
+
+        alert(
+          "Ese gasto supera tu dinero disponible."
+        );
+
+        return;
+      }
+
+      available -= value;
+
+      spent += value;
+
+      count++;
+
+      if (
+        historyElement.textContent.includes(
+          "Todavía no hay movimientos"
+        )
+      ) {
+
+        historyElement.innerHTML = "";
+
+      }
+
+      const movement =
+        document.createElement("div");
+
+      movement.className =
+        "history-item";
+
+      movement.innerHTML =
+        "<span>" +
+        name +
+        "</span>" +
+        "<strong>− " +
+        money(value) +
+        "</strong>";
+
+      historyElement.prepend(
+        movement
+      );
+
+      input.value = "";
+
+      updateScreen();
+
+    });
+
+});
+
+
+updateScreen();
 
 </script>
 
