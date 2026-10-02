@@ -1,287 +1,226 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modo Plata</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modo Plata</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
+<style>
+*{box-sizing:border-box;font-family:Arial,sans-serif}
 
-    body {
-      background: #f4f6f8;
-      color: #17202a;
-      padding: 20px;
-    }
+body{
+  margin:0;
+  padding:20px;
+  background:#f4f6f8;
+  color:#17202a;
+}
 
-    .app {
-      max-width: 520px;
-      margin: auto;
-    }
+.app{
+  max-width:520px;
+  margin:auto;
+}
 
-    .header {
-      text-align: center;
-      margin-bottom: 20px;
-    }
+.header{
+  text-align:center;
+  margin-bottom:20px;
+}
 
-    .header h1 {
-      font-size: 36px;
-      margin-bottom: 6px;
-    }
+.header h1{
+  font-size:36px;
+  margin:0 0 6px;
+}
 
-    .header p {
-      color: #667085;
-    }
+.header p{
+  color:#667085;
+}
 
-    .balance {
-      background: #17202a;
-      color: white;
-      border-radius: 22px;
-      padding: 25px;
-      margin-bottom: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,.12);
-    }
+.card,.mode{
+  background:white;
+  border-radius:20px;
+  padding:20px;
+  margin-bottom:18px;
+  box-shadow:0 5px 18px rgba(0,0,0,.07);
+}
 
-    .balance small {
-      opacity: .75;
-    }
+.card h3,.mode h3{
+  margin-top:0;
+}
 
-    .balance h2 {
-      font-size: 34px;
-      margin-top: 8px;
-      margin-bottom: 12px;
-    }
+.sub{
+  color:#667085;
+  font-size:14px;
+}
 
-    .card {
-      background: white;
-      border-radius: 20px;
-      padding: 20px;
-      margin-bottom: 18px;
-      box-shadow: 0 5px 18px rgba(0,0,0,.07);
-    }
+.balance{
+  background:#17202a;
+  color:white;
+  border-radius:22px;
+  padding:25px;
+  margin-bottom:20px;
+}
 
-    .card h3 {
-      margin-bottom: 6px;
-      font-size: 21px;
-    }
+.balance h2{
+  font-size:34px;
+  margin:8px 0 15px;
+}
 
-    .sub {
-      color: #667085;
-      font-size: 14px;
-      margin-bottom: 15px;
-    }
+input{
+  width:100%;
+  padding:13px;
+  border:1px solid #d0d5dd;
+  border-radius:12px;
+  font-size:16px;
+}
 
-    .start-box {
-      display: flex;
-      gap: 10px;
-    }
+button{
+  border:0;
+  border-radius:12px;
+  padding:13px 16px;
+  background:#17202a;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
 
-    input {
-      width: 100%;
-      padding: 13px;
-      border: 1px solid #d0d5dd;
-      border-radius: 12px;
-      font-size: 16px;
-      outline: none;
-    }
+.start-row,.expense{
+  display:flex;
+  gap:9px;
+  align-items:center;
+  margin-top:12px;
+}
 
-    button {
-      border: none;
-      border-radius: 12px;
-      padding: 13px 17px;
-      font-weight: bold;
-      cursor: pointer;
-      background: #17202a;
-      color: white;
-    }
+.start-row button{
+  white-space:nowrap;
+}
 
-    button:hover {
-      opacity: .9;
-    }
+.expense-name{
+  width:95px;
+  font-weight:bold;
+}
 
-    .change-button {
-      background: rgba(255,255,255,.15);
-      border: 1px solid rgba(255,255,255,.3);
-      width: 100%;
-    }
+.expense button{
+  white-space:nowrap;
+  padding:12px 10px;
+}
 
-    .expense {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      margin-bottom: 12px;
-    }
+.change{
+  width:100%;
+  background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.3);
+}
 
-    .expense-name {
-      width: 100px;
-      font-weight: bold;
-    }
+.stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
 
-    .expense button {
-      padding: 12px;
-      white-space: nowrap;
-    }
+.stat{
+  background:#f4f6f8;
+  border-radius:15px;
+  padding:15px;
+}
 
-    .stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
+.stat strong{
+  display:block;
+  font-size:20px;
+  margin-top:5px;
+}
 
-    .stat {
-      background: #f4f6f8;
-      border-radius: 15px;
-      padding: 15px;
-    }
+.history-item{
+  display:flex;
+  justify-content:space-between;
+  padding:10px 0;
+  border-bottom:1px solid #eee;
+}
 
-    .stat small {
-      color: #667085;
-    }
+.negative{
+  color:#d92d20;
+}
 
-    .stat strong {
-      display: block;
-      font-size: 20px;
-      margin-top: 5px;
-    }
+.earning{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  padding:13px 0;
+  border-bottom:1px solid #eee;
+}
 
-    .mode {
-      border-radius: 18px;
-      padding: 20px;
-      margin-bottom: 15px;
-      background: white;
-      border: 1px solid #e4e7ec;
-    }
+.earning button{
+  padding:9px 12px;
+}
 
-    .mode h3 {
-      margin-bottom: 7px;
-    }
+.future{
+  background:#17202a;
+  color:white;
+  text-align:center;
+}
 
-    .mode p {
-      color: #667085;
-      font-size: 14px;
-      margin-bottom: 14px;
-    }
+.future p{
+  color:#d0d5dd;
+}
 
-    .earning {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      padding: 13px 0;
-      border-bottom: 1px solid #eee;
-    }
+.dry{
+  display:none;
+  text-align:center;
+  background:#fff1f0;
+  border:1px solid #ffccc7;
+}
 
-    .earning:last-child {
-      border-bottom: none;
-    }
+.modal-bg{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
 
-    .earning button {
-      padding: 9px 12px;
-      font-size: 13px;
-    }
+.modal{
+  background:white;
+  padding:25px;
+  border-radius:20px;
+  max-width:400px;
+  width:100%;
+}
 
-    .future {
-      text-align: center;
-      background: #17202a;
-      color: white;
-    }
+.modal-buttons{
+  display:flex;
+  gap:10px;
+}
 
-    .future p {
-      color: #d0d5dd;
-    }
+.modal-buttons button{
+  flex:1;
+}
 
-    .dry {
-      display: none;
-      text-align: center;
-      background: #fff1f0;
-      border: 1px solid #ffccc7;
-    }
+.secondary{
+  background:#e4e7ec;
+  color:#17202a;
+}
 
-    .dry h2 {
-      margin-bottom: 8px;
-    }
+@media(max-width:430px){
+  .expense-name{
+    width:82px;
+    font-size:14px;
+  }
 
-    .history-item {
-      display: flex;
-      justify-content: space-between;
-      padding: 10px 0;
-      border-bottom: 1px solid #eee;
-    }
+  .expense{
+    gap:6px;
+  }
 
-    .history-item:last-child {
-      border-bottom: none;
-    }
-
-    .negative {
-      color: #d92d20;
-    }
-
-    .modal-bg {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,.55);
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      z-index: 10;
-    }
-
-    .modal {
-      background: white;
-      border-radius: 20px;
-      padding: 25px;
-      max-width: 400px;
-      width: 100%;
-    }
-
-    .modal h3 {
-      margin-bottom: 10px;
-    }
-
-    .modal p {
-      color: #667085;
-      line-height: 1.5;
-      margin-bottom: 20px;
-    }
-
-    .modal-buttons {
-      display: flex;
-      gap: 10px;
-    }
-
-    .modal-buttons button {
-      flex: 1;
-    }
-
-    .secondary {
-      background: #e4e7ec;
-      color: #17202a;
-    }
-
-    @media (max-width: 430px) {
-      .expense-name {
-        width: 85px;
-        font-size: 14px;
-      }
-
-      .expense button {
-        padding: 11px 9px;
-      }
-    }
-  </style>
+  .expense button{
+    padding:11px 8px;
+  }
+}
+</style>
 </head>
 
 <body>
 
 <div class="app">
 
-  <!-- ENCABEZADO -->
   <div class="header">
     <h1>💰 Modo Plata</h1>
     <p>Entendé tu plata. Hacela rendir.</p>
@@ -289,21 +228,30 @@
 
   <!-- DINERO INICIAL -->
   <div class="card" id="startCard">
-    <h3>¿Con cuánto arrancamos?</h3>
-    <p class="sub">Ingresá tu dinero disponible.</p>
 
-    <div class="start-box">
+    <h3>💰 Dinero inicial</h3>
+
+    <p class="sub">
+      Poné con cuánto dinero empezás.
+    </p>
+
+    <div class="start-row">
+
       <input
         id="initialMoney"
         type="number"
-        placeholder="$ 500000"
+        inputmode="numeric"
+        placeholder="Ej: 500000"
       >
 
       <button onclick="startMoney()">
-        Empezar
+        Aceptar
       </button>
+
     </div>
+
   </div>
+
 
   <!-- SALDO -->
   <div class="balance">
@@ -312,14 +260,12 @@
 
     <h2 id="balance">$0</h2>
 
-    <button
-      class="change-button"
-      onclick="changeStartingMoney()"
-    >
+    <button class="change" onclick="changeStartingMoney()">
       ⚙️ Cambiar dinero inicial
     </button>
 
   </div>
+
 
   <!-- GASTOS -->
   <div class="card">
@@ -327,19 +273,19 @@
     <h3>🧾 Mis gastos</h3>
 
     <p class="sub">
-      Cargá un gasto y Modo Plata hace la cuenta.
+      Escribí cuánto gastaste y tocá Aceptar.
     </p>
+
 
     <div class="expense">
 
-      <div class="expense-name">
-        🍔 Comida
-      </div>
+      <div class="expense-name">🍔 Comida</div>
 
       <input
         id="food"
         type="number"
-        placeholder="$ 50.000"
+        inputmode="numeric"
+        placeholder="$"
       >
 
       <button onclick="addExpense('Comida','food')">
@@ -348,16 +294,16 @@
 
     </div>
 
+
     <div class="expense">
 
-      <div class="expense-name">
-        🚗 Auto
-      </div>
+      <div class="expense-name">🚗 Auto</div>
 
       <input
         id="car"
         type="number"
-        placeholder="$ 20.000"
+        inputmode="numeric"
+        placeholder="$"
       >
 
       <button onclick="addExpense('Auto','car')">
@@ -366,16 +312,16 @@
 
     </div>
 
+
     <div class="expense">
 
-      <div class="expense-name">
-        🏠 Alquiler
-      </div>
+      <div class="expense-name">🏠 Alquiler</div>
 
       <input
         id="rent"
         type="number"
-        placeholder="$ 300.000"
+        inputmode="numeric"
+        placeholder="$"
       >
 
       <button onclick="addExpense('Alquiler','rent')">
@@ -384,13 +330,572 @@
 
     </div>
 
+
     <div class="expense">
 
-      <div class="expense-name">
-        ➕ Otro
-      </div>
+      <div class="expense-name">➕ Otro</div>
 
       <input
         id="other"
         type="number"
-        placeholder="$ 10.
+        inputmode="numeric"
+        placeholder="$"
+      >
+
+      <button onclick="addExpense('Otro','other')">
+        Aceptar
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- ESTADÍSTICAS -->
+  <div class="card">
+
+    <div class="stats">
+
+      <div class="stat">
+        <small>Total gastado</small>
+        <strong id="spent">$0</strong>
+      </div>
+
+      <div class="stat">
+        <small>Movimientos</small>
+        <strong id="count">0</strong>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- MODO SECO -->
+  <div class="card dry" id="dryMode">
+
+    <h2>🚨 MODO SECO</h2>
+
+    <p>
+      Bueno hermano... hasta acá llegamos 😂
+    </p>
+
+    <p>
+      Ahora toca cuidar cada peso.
+    </p>
+
+  </div>
+
+
+  <!-- HISTORIAL -->
+  <div class="card">
+
+    <h3>📋 Movimientos</h3>
+
+    <div id="history">
+      <p class="sub">Todavía no hay movimientos.</p>
+    </div>
+
+  </div>
+
+
+  <!-- MODO RENDIR -->
+  <div class="mode">
+
+    <h3>📈 Modo Rendir</h3>
+
+    <p>
+      Descubrí opciones para aprovechar mejor la plata que ya tenés.
+    </p>
+
+    <button onclick="showInfo(
+      'Modo Rendir',
+      'Acá vamos a mostrar opciones para hacer rendir tu dinero de manera simple y responsable, sin promesas de ganancias.'
+    )">
+      Ver opciones
+    </button>
+
+  </div>
+
+
+  <!-- MODO GANAR -->
+  <div class="mode">
+
+    <h3>🌐 Modo Ganar</h3>
+
+    <p>
+      ¿Tenés un rato libre? Descubrí formas de generar ingresos por internet.
+    </p>
+
+
+    <div class="earning">
+
+      <div>
+        <strong>🇦🇷 LifePoints</strong><br>
+        <small>Encuestas y recompensas</small>
+      </div>
+
+      <button onclick="openEarn(
+        'LifePoints',
+        'Vas a salir de Modo Plata y entrar a LifePoints.'
+      )">
+        Empezar
+      </button>
+
+    </div>
+
+
+    <div class="earning">
+
+      <div>
+        <strong>🇦🇷 Ipsos iSay</strong><br>
+        <small>Encuestas y puntos</small>
+      </div>
+
+      <button onclick="openEarn(
+        'Ipsos iSay',
+        'Vas a salir de Modo Plata y entrar a Ipsos iSay.'
+      )">
+        Empezar
+      </button>
+
+    </div>
+
+
+    <div class="earning">
+
+      <div>
+        <strong>🇦🇷 Toluna</strong><br>
+        <small>Opiniones y recompensas</small>
+      </div>
+
+      <button onclick="openEarn(
+        'Toluna',
+        'Vas a salir de Modo Plata y entrar a Toluna.'
+      )">
+        Empezar
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- FUTURO -->
+  <div class="mode future">
+
+    <h3>🚀 Estamos locos...</h3>
+
+    <p>
+      Y llegan cositas. 😎
+    </p>
+
+    <br>
+
+    <strong>💳 Próximamente: Billetera Modo Plata</strong>
+
+    <p>
+      Estamos pensando en algo mucho más grande.
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- MODAL -->
+
+<div class="modal-bg" id="modalBg">
+
+  <div class="modal">
+
+    <h3 id="modalTitle"></h3>
+
+    <p id="modalText"></p>
+
+    <div class="modal-buttons">
+
+      <button
+        class="secondary"
+        onclick="closeModal()">
+        Volver
+      </button>
+
+      <button
+        id="modalAction">
+        Continuar
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+let data = {
+  balance: 0,
+  spent: 0,
+  count: 0,
+  history: []
+};
+
+let selectedUrl = "";
+
+
+/* GUARDAR */
+
+function saveData(){
+
+  localStorage.setItem(
+    "modoPlataData",
+    JSON.stringify(data)
+  );
+
+}
+
+
+/* CARGAR */
+
+function loadData(){
+
+  const saved =
+    localStorage.getItem("modoPlataData");
+
+  if(saved){
+
+    try{
+
+      data = JSON.parse(saved);
+
+    }catch(error){
+
+      data = {
+        balance:0,
+        spent:0,
+        count:0,
+        history:[]
+      };
+
+    }
+
+  }
+
+  updateScreen();
+
+}
+
+
+/* DINERO INICIAL */
+
+function startMoney(){
+
+  const input =
+    document.getElementById("initialMoney");
+
+  const amount =
+    Number(input.value);
+
+  if(!amount || amount <= 0){
+
+    alert("Poné un monto válido.");
+
+    return;
+
+  }
+
+  data.balance = amount;
+
+  data.spent = 0;
+
+  data.count = 0;
+
+  data.history = [];
+
+  saveData();
+
+  updateScreen();
+
+  input.value = "";
+
+}
+
+
+/* CAMBIAR DINERO INICIAL */
+
+function changeStartingMoney(){
+
+  const current =
+    data.balance + data.spent;
+
+  const newAmount =
+    prompt(
+      "¿Con cuánto querés comenzar?",
+      current
+    );
+
+  if(newAmount === null){
+    return;
+  }
+
+  const amount =
+    Number(newAmount);
+
+  if(!amount || amount <= 0){
+
+    alert("Poné un monto válido.");
+
+    return;
+
+  }
+
+  data.balance = amount;
+
+  data.spent = 0;
+
+  data.count = 0;
+
+  data.history = [];
+
+  saveData();
+
+  updateScreen();
+
+  alert("Listo 💰 Nuevo período iniciado.");
+
+}
+
+
+/* AGREGAR GASTO */
+
+function addExpense(category,inputId){
+
+  const input =
+    document.getElementById(inputId);
+
+  const amount =
+    Number(input.value);
+
+  if(!amount || amount <= 0){
+
+    alert("Poné un monto válido.");
+
+    return;
+
+  }
+
+  if(amount > data.balance){
+
+    alert("No tenés suficiente dinero disponible.");
+
+    return;
+
+  }
+
+  data.balance -= amount;
+
+  data.spent += amount;
+
+  data.count++;
+
+  data.history.unshift({
+
+    category: category,
+
+    amount: amount,
+
+    date: new Date().toLocaleDateString("es-AR")
+
+  });
+
+  input.value = "";
+
+  saveData();
+
+  updateScreen();
+
+}
+
+
+/* ACTUALIZAR */
+
+function updateScreen(){
+
+  document.getElementById("balance").textContent =
+    formatMoney(data.balance);
+
+  document.getElementById("spent").textContent =
+    formatMoney(data.spent);
+
+  document.getElementById("count").textContent =
+    data.count;
+
+
+  const startCard =
+    document.getElementById("startCard");
+
+  if(data.balance > 0 || data.spent > 0){
+
+    startCard.style.display = "none";
+
+  }else{
+
+    startCard.style.display = "block";
+
+  }
+
+
+  const history =
+    document.getElementById("history");
+
+
+  if(data.history.length === 0){
+
+    history.innerHTML =
+      '<p class="sub">Todavía no hay movimientos.</p>';
+
+  }else{
+
+    history.innerHTML =
+      data.history.map(item => `
+
+        <div class="history-item">
+
+          <span>
+            ${item.category}
+          </span>
+
+          <strong class="negative">
+            -${formatMoney(item.amount)}
+          </strong>
+
+        </div>
+
+      `).join("");
+
+  }
+
+
+  const dry =
+    document.getElementById("dryMode");
+
+  if(data.balance === 0 && data.spent > 0){
+
+    dry.style.display = "block";
+
+  }else{
+
+    dry.style.display = "none";
+
+  }
+
+}
+
+
+/* FORMATO DINERO */
+
+function formatMoney(amount){
+
+  return "$" +
+    Number(amount).toLocaleString("es-AR");
+
+}
+
+
+/* MODAL */
+
+function showInfo(title,text){
+
+  document.getElementById("modalTitle")
+    .textContent = title;
+
+  document.getElementById("modalText")
+    .textContent = text;
+
+  document.getElementById("modalAction")
+    .style.display = "none";
+
+  document.getElementById("modalBg")
+    .style.display = "flex";
+
+}
+
+
+/* MODO GANAR */
+
+function openEarn(name,text){
+
+  if(name === "LifePoints"){
+
+    selectedUrl =
+      "https://www.lifepointspanel.com/es-ar/registration";
+
+  }
+
+  if(name === "Ipsos iSay"){
+
+    selectedUrl =
+      "https://www.ipsosisay.com/es-ar";
+
+  }
+
+  if(name === "Toluna"){
+
+    selectedUrl =
+      "https://www.toluna.com/es-AR/home";
+
+  }
+
+
+  document.getElementById("modalTitle")
+    .textContent = name;
+
+  document.getElementById("modalText")
+    .textContent = text +
+    " Las oportunidades y recompensas dependen de cada plataforma y perfil.";
+
+  const action =
+    document.getElementById("modalAction");
+
+  action.style.display = "block";
+
+  action.textContent = "Ir al sitio";
+
+  action.onclick = function(){
+
+    window.open(
+      selectedUrl,
+      "_blank"
+    );
+
+    closeModal();
+
+  };
+
+
+  document.getElementById("modalBg")
+    .style.display = "flex";
+
+}
+
+
+/* CERRAR */
+
+function closeModal(){
+
+  document.getElementById("modalBg")
+    .style.display = "none";
+
+}
+
+
+/* INICIAR */
+
+loadData();
+
+</script>
+
+</body>
+</html>
