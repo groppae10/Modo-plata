@@ -3,7 +3,6 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Modo Plata</title>
@@ -211,6 +210,50 @@ color:white;
 color:#dcfce7;
 }
 
+/* ================= PRESUPUESTO ================= */
+
+.presupuesto-destacado{
+background:linear-gradient(135deg,#1e3a8a,#2563eb);
+color:white;
+}
+
+.presupuesto-destacado .pequeno{
+color:#dbeafe;
+}
+
+.presupuesto-ok{
+background:#dcfce7;
+color:#166534;
+padding:14px;
+border-radius:14px;
+margin-top:12px;
+font-weight:700;
+}
+
+.presupuesto-alerta{
+background:#fef3c7;
+color:#92400e;
+padding:14px;
+border-radius:14px;
+margin-top:12px;
+font-weight:700;
+}
+
+.presupuesto-peligro{
+background:#fee2e2;
+color:#991b1b;
+padding:14px;
+border-radius:14px;
+margin-top:12px;
+font-weight:700;
+}
+
+.numero-presupuesto{
+font-size:30px;
+font-weight:800;
+margin:8px 0;
+}
+
 .navegacion{
 position:fixed;
 bottom:0;
@@ -279,7 +322,6 @@ font-weight:600;
 
 </header>
 
-
 <div class="container">
 
 
@@ -336,6 +378,104 @@ id="mensajeIngresoMensual"
 class="pequeno"
 style="margin-top:10px;"
 ></p>
+
+</div>
+
+
+<!-- ================= PRESUPUESTO ================= -->
+
+<div class="card presupuesto-destacado">
+
+<h2>📅 Presupuesto mensual inteligente</h2>
+
+<p class="pequeno">
+Calculá cuánto podés gastar por día sin quedarte corto antes de cobrar.
+</p>
+
+<label>🧾 Gastos fijos del mes</label>
+
+<input
+type="number"
+id="gastosFijos"
+placeholder="Ej: alquiler, servicios, cuotas"
+>
+
+<label>🏦 Ahorro que querés reservar</label>
+
+<input
+type="number"
+id="ahorroPlaneado"
+placeholder="Ej: 300000"
+>
+
+<button
+class="azul"
+onclick="guardarPresupuesto()"
+>
+💾 GUARDAR PRESUPUESTO
+</button>
+
+</div>
+
+
+<div class="card">
+
+<h2>🎯 Tu presupuesto</h2>
+
+<div class="resumen">
+
+<div>
+<span class="pequeno">Ingreso</span>
+<strong id="presupuestoIngreso">$0</strong>
+</div>
+
+<div>
+<span class="pequeno">Gastos fijos</span>
+<strong id="presupuestoFijos" class="gasto">$0</strong>
+</div>
+
+<div>
+<span class="pequeno">Gastos realizados</span>
+<strong id="presupuestoVariables" class="gasto">$0</strong>
+</div>
+
+<div>
+<span class="pequeno">Ahorro planeado</span>
+<strong id="presupuestoAhorro" class="ahorro">$0</strong>
+</div>
+
+</div>
+
+<hr>
+
+<p>
+💰 Dinero disponible:
+</p>
+
+<div
+class="numero-presupuesto"
+id="presupuestoDisponible"
+>
+$0
+</div>
+
+<p>
+📆 Días hasta el próximo cobro:
+<strong id="diasCobro">0</strong>
+</p>
+
+<p>
+🎯 Límite recomendado por día:
+</p>
+
+<div
+class="numero-presupuesto"
+id="limiteDiario"
+>
+$0
+</div>
+
+<div id="estadoPresupuesto"></div>
 
 </div>
 
@@ -440,7 +580,6 @@ onclick="mostrarSeccion('ahorrar')"
 </div>
 
 
-
 <!-- ================= GANAR ================= -->
 
 <div id="ganar" class="seccion">
@@ -538,7 +677,6 @@ style="margin-top:10px;"
 </div>
 
 </div>
-
 
 
 <!-- ================= HACER PLATA ================= -->
@@ -665,7 +803,6 @@ style="margin-top:12px;"
 </div>
 
 
-
 <!-- ================= GASTAR ================= -->
 
 <div id="gastar" class="seccion">
@@ -709,7 +846,6 @@ onclick="agregarGasto()"
 </div>
 
 </div>
-
 
 
 <!-- ================= AHORRAR ================= -->
@@ -769,7 +905,6 @@ Todavía no tenés un objetivo.
 </div>
 
 </div>
-
 
 
 <!-- ================= STATS ================= -->
@@ -833,7 +968,6 @@ Acá vamos a ir incorporando estadísticas cada vez más completas.
 </div>
 
 </div>
-
 
 
 <!-- ================= PRO ================= -->
@@ -922,14 +1056,14 @@ onclick="alert('📊 Próximamente: estadísticas avanzadas')"
 <h2>📅 Presupuesto mensual</h2>
 
 <p class="pequeno">
-Organizá cuánto podés gastar durante todo el mes.
+Ahora podés controlar tu presupuesto mensual, gastos y límite diario.
 </p>
 
 <button
 class="azul"
-onclick="alert('📅 Próximamente: presupuesto mensual')"
+onclick="mostrarSeccion('inicio')"
 >
-💰 PRÓXIMAMENTE
+📅 ABRIR PRESUPUESTO
 </button>
 
 </div>
@@ -991,7 +1125,6 @@ onclick="alert('🚀 Próximamente: Modo Profesional')"
 </div>
 
 </div>
-
 
 
 <!-- ================= NAVEGACIÓN ================= -->
@@ -1064,7 +1197,6 @@ Pro
 </div>
 
 
-
 <script>
 
 /* ================= DATOS ================= */
@@ -1074,18 +1206,15 @@ JSON.parse(
 localStorage.getItem("modoPlataMovimientos")
 ) || [];
 
-
 let gastos =
 JSON.parse(
 localStorage.getItem("modoPlataGastos")
 ) || [];
 
-
 let meta =
 Number(
 localStorage.getItem("modoPlataMeta")
 ) || 0;
-
 
 let objetivo =
 JSON.parse(
@@ -1096,16 +1225,27 @@ meta:0,
 ahorro:0
 };
 
-
 let ingresoMensual =
 Number(
 localStorage.getItem("modoPlataIngresoMensual")
 ) || 0;
 
-
 let diaCobro =
 Number(
 localStorage.getItem("modoPlataDiaCobro")
+) || 0;
+
+
+/* ================= PRESUPUESTO ================= */
+
+let gastosFijos =
+Number(
+localStorage.getItem("modoPlataGastosFijos")
+) || 0;
+
+let ahorroPlaneado =
+Number(
+localStorage.getItem("modoPlataAhorroPlaneado")
 ) || 0;
 
 
@@ -1153,88 +1293,320 @@ Number(gasto.monto || 0);
 }
 
 
+/* ================= DÍAS HASTA COBRO ================= */
+
+function calcularDiasHastaCobro(){
+
+if(!diaCobro || diaCobro<1){
+return 30;
+}
+
+let hoy = new Date();
+
+let diaActual = hoy.getDate();
+
+let año = hoy.getFullYear();
+
+let mes = hoy.getMonth();
+
+let ultimoDiaMes =
+new Date(año,mes+1,0).getDate();
+
+let diaPago =
+Math.min(diaCobro,ultimoDiaMes);
+
+let fechaCobro;
+
+if(diaActual < diaPago){
+
+fechaCobro =
+new Date(año,mes,diaPago);
+
+}else{
+
+fechaCobro =
+new Date(año,mes+1,Math.min(
+diaCobro,
+new Date(año,mes+2,0).getDate()
+));
+
+}
+
+let diferencia =
+fechaCobro.getTime()-hoy.getTime();
+
+let dias =
+Math.ceil(
+diferencia/(1000*60*60*24)
+);
+
+return Math.max(1,dias);
+
+}
+
+
+/* ================= PRESUPUESTO ================= */
+
+function actualizarPresupuesto(){
+
+let totalGastos =
+calcularGastos();
+
+let disponible =
+ingresoMensual -
+gastosFijos -
+totalGastos -
+ahorroPlaneado;
+
+let dias =
+calcularDiasHastaCobro();
+
+let limite =
+disponible>0
+? disponible/dias
+: 0;
+
+
+document.getElementById(
+"presupuestoIngreso"
+).textContent =
+"$"+formatoDinero(ingresoMensual);
+
+
+document.getElementById(
+"presupuestoFijos"
+).textContent =
+"$"+formatoDinero(gastosFijos);
+
+
+document.getElementById(
+"presupuestoVariables"
+).textContent =
+"$"+formatoDinero(totalGastos);
+
+
+document.getElementById(
+"presupuestoAhorro"
+).textContent =
+"$"+formatoDinero(ahorroPlaneado);
+
+
+document.getElementById(
+"presupuestoDisponible"
+).textContent =
+"$"+formatoDinero(disponible);
+
+
+document.getElementById(
+"diasCobro"
+).textContent =
+dias;
+
+
+document.getElementById(
+"limiteDiario"
+).textContent =
+"$"+formatoDinero(limite);
+
+
+let estado =
+document.getElementById(
+"estadoPresupuesto"
+);
+
+
+if(ingresoMensual<=0){
+
+estado.className="presupuesto-alerta";
+
+estado.innerHTML =
+"⚠️ Primero configurá tu ingreso mensual.";
+
+return;
+
+}
+
+
+if(disponible<=0){
+
+estado.className="presupuesto-peligro";
+
+estado.innerHTML =
+"🚨 Tu presupuesto está comprometido. Revisá tus gastos fijos, gastos realizados y ahorro planeado.";
+
+}
+
+else if(limite<10000){
+
+estado.className="presupuesto-alerta";
+
+estado.innerHTML =
+"⚠️ Tu límite diario está bastante ajustado. Conviene controlar los gastos.";
+
+}
+
+else{
+
+estado.className="presupuesto-ok";
+
+estado.innerHTML =
+"✅ Vas bien. Tu límite recomendado es de $" +
+formatoDinero(limite) +
+" por día hasta el próximo cobro.";
+
+}
+
+}
+
+
+/* ================= GUARDAR PRESUPUESTO ================= */
+
+function guardarPresupuesto(){
+
+gastosFijos =
+Number(
+document.getElementById("gastosFijos").value
+) || 0;
+
+ahorroPlaneado =
+Number(
+document.getElementById("ahorroPlaneado").value
+) || 0;
+
+
+localStorage.setItem(
+"modoPlataGastosFijos",
+gastosFijos
+);
+
+localStorage.setItem(
+"modoPlataAhorroPlaneado",
+ahorroPlaneado
+);
+
+
+actualizarPantalla();
+
+
+alert("✅ Presupuesto mensual guardado.");
+
+}
+
+
 /* ================= PANTALLA ================= */
 
 function actualizarPantalla(){
 
-let total = calcularTotal();
+let total =
+calcularTotal();
 
-let totalGastos = calcularGastos();
+let totalGastos =
+calcularGastos();
 
 let disponible =
-ingresoMensual - totalGastos;
+ingresoMensual-totalGastos;
 
 
-document.getElementById("totalGanado")
-.textContent =
+document.getElementById(
+"totalGanado"
+).textContent =
 formatoDinero(total);
 
 
-document.getElementById("resumenIngreso")
-.textContent =
-"$" + formatoDinero(ingresoMensual);
+document.getElementById(
+"resumenIngreso"
+).textContent =
+"$"+formatoDinero(ingresoMensual);
 
 
-document.getElementById("resumenGastos")
-.textContent =
-"$" + formatoDinero(totalGastos);
+document.getElementById(
+"resumenGastos"
+).textContent =
+"$"+formatoDinero(totalGastos);
 
 
-document.getElementById("resumenDisponible")
-.textContent =
-"$" + formatoDinero(disponible);
+document.getElementById(
+"resumenDisponible"
+).textContent =
+"$"+formatoDinero(disponible);
 
 
-document.getElementById("resumenAhorro")
-.textContent =
-"$" + formatoDinero(objetivo.ahorro);
+document.getElementById(
+"resumenAhorro"
+).textContent =
+"$"+formatoDinero(objetivo.ahorro);
 
 
-document.getElementById("statsIngresos")
-.textContent =
-"$" + formatoDinero(total);
+document.getElementById(
+"statsIngresos"
+).textContent =
+"$"+formatoDinero(total);
 
 
-document.getElementById("statsGastos")
-.textContent =
-"$" + formatoDinero(totalGastos);
+document.getElementById(
+"statsGastos"
+).textContent =
+"$"+formatoDinero(totalGastos);
 
 
-document.getElementById("statsSaldo")
-.textContent =
-"$" + formatoDinero(total-totalGastos);
+document.getElementById(
+"statsSaldo"
+).textContent =
+"$"+formatoDinero(total-totalGastos);
 
 
-document.getElementById("statsMovimientos")
-.textContent =
+document.getElementById(
+"statsMovimientos"
+).textContent =
 movimientos.length;
 
 
-document.getElementById("statGanado")
-.textContent =
-"$" + formatoDinero(total);
+document.getElementById(
+"statGanado"
+).textContent =
+"$"+formatoDinero(total);
 
 
-document.getElementById("statGastado")
-.textContent =
-"$" + formatoDinero(totalGastos);
+document.getElementById(
+"statGastado"
+).textContent =
+"$"+formatoDinero(totalGastos);
 
 
-document.getElementById("statDisponible")
-.textContent =
-"$" + formatoDinero(total-totalGastos);
+document.getElementById(
+"statDisponible"
+).textContent =
+"$"+formatoDinero(total-totalGastos);
 
 
-document.getElementById("meta")
-.value = meta || "";
+document.getElementById(
+"meta"
+).value =
+meta || "";
 
 
-document.getElementById("ingresoMensual")
-.value = ingresoMensual || "";
+document.getElementById(
+"ingresoMensual"
+).value =
+ingresoMensual || "";
 
 
-document.getElementById("diaCobro")
-.value = diaCobro || "";
+document.getElementById(
+"diaCobro"
+).value =
+diaCobro || "";
+
+
+document.getElementById(
+"gastosFijos"
+).value =
+gastosFijos || "";
+
+
+document.getElementById(
+"ahorroPlaneado"
+).value =
+ahorroPlaneado || "";
 
 
 mostrarMovimientos();
@@ -1244,6 +1616,8 @@ mostrarGastos();
 mostrarObjetivo();
 
 verificarMeta();
+
+actualizarPresupuesto();
 
 }
 
@@ -1263,8 +1637,9 @@ document.getElementById("unidades").value
 ) || 0;
 
 
-document.getElementById("totalGanado")
-.textContent =
+document.getElementById(
+"totalGanado"
+).textContent =
 formatoDinero(precio*unidades);
 
 }
@@ -1326,8 +1701,9 @@ guardarDatos();
 actualizarPantalla();
 
 
-document.getElementById("mensajeGanar")
-.textContent =
+document.getElementById(
+"mensajeGanar"
+).textContent =
 "✅ Ingreso agregado correctamente.";
 
 }
@@ -1384,11 +1760,13 @@ actualizarPantalla();
 
 function reiniciarContador(){
 
-document.getElementById("precio")
-.value = 20000;
+document.getElementById(
+"precio"
+).value=20000;
 
-document.getElementById("unidades")
-.value = 1;
+document.getElementById(
+"unidades"
+).value=1;
 
 calcularContador();
 
@@ -1411,8 +1789,9 @@ meta
 );
 
 
-document.getElementById("mensajeMeta")
-.textContent =
+document.getElementById(
+"mensajeMeta"
+).textContent =
 "✅ Meta guardada.";
 
 verificarMeta();
@@ -1470,7 +1849,9 @@ elemento.className="pequeno";
 function mostrarMovimientos(){
 
 let lista =
-document.getElementById("listaMovimientos");
+document.getElementById(
+"listaMovimientos"
+);
 
 
 if(movimientos.length===0){
@@ -1535,12 +1916,15 @@ lista.appendChild(div);
 function agregarGasto(){
 
 let nombre =
-document.getElementById("nombreGasto")
-.value.trim();
+document.getElementById(
+"nombreGasto"
+).value.trim();
 
 let monto =
 Number(
-document.getElementById("montoGasto").value
+document.getElementById(
+"montoGasto"
+).value
 ) || 0;
 
 
@@ -1578,11 +1962,13 @@ guardarDatos();
 actualizarPantalla();
 
 
-document.getElementById("nombreGasto")
-.value="";
+document.getElementById(
+"nombreGasto"
+).value="";
 
-document.getElementById("montoGasto")
-.value="";
+document.getElementById(
+"montoGasto"
+).value="";
 
 }
 
@@ -1592,7 +1978,9 @@ document.getElementById("montoGasto")
 function mostrarGastos(){
 
 let lista =
-document.getElementById("listaGastos");
+document.getElementById(
+"listaGastos"
+);
 
 
 if(!lista){
@@ -1655,17 +2043,22 @@ lista.appendChild(div);
 function guardarObjetivo(){
 
 let nombre =
-document.getElementById("nombreObjetivo")
-.value.trim();
+document.getElementById(
+"nombreObjetivo"
+).value.trim();
 
 let monto =
 Number(
-document.getElementById("montoObjetivo").value
+document.getElementById(
+"montoObjetivo"
+).value
 ) || 0;
 
 let ahorro =
 Number(
-document.getElementById("ahorroActual").value
+document.getElementById(
+"ahorroActual"
+).value
 ) || 0;
 
 
@@ -1698,7 +2091,9 @@ actualizarPantalla();
 function mostrarObjetivo(){
 
 let elemento =
-document.getElementById("objetivoMostrar");
+document.getElementById(
+"objetivoMostrar"
+);
 
 
 if(!elemento){
@@ -1761,13 +2156,17 @@ function guardarIngresoMensual(){
 
 ingresoMensual =
 Number(
-document.getElementById("ingresoMensual").value
+document.getElementById(
+"ingresoMensual"
+).value
 ) || 0;
 
 
 diaCobro =
 Number(
-document.getElementById("diaCobro").value
+document.getElementById(
+"diaCobro"
+).value
 ) || 0;
 
 
@@ -1798,7 +2197,9 @@ actualizarPantalla();
 function mostrarIdeas(categoria){
 
 let contenido =
-document.getElementById("ideasPlata");
+document.getElementById(
+"ideasPlata"
+);
 
 
 let ideas = {
@@ -1934,12 +2335,16 @@ function calcularGananciaIdea(){
 
 let ganancia =
 Number(
-document.getElementById("gananciaIdea").value
+document.getElementById(
+"gananciaIdea"
+).value
 ) || 0;
 
 let trabajos =
 Number(
-document.getElementById("trabajosSemana").value
+document.getElementById(
+"trabajosSemana"
+).value
 ) || 0;
 
 
@@ -2016,6 +2421,12 @@ $${formatoDinero(ingresos)}
 💸 Gastos:
 $${formatoDinero(gastosTotal)}
 
+🧾 Gastos fijos:
+$${formatoDinero(gastosFijos)}
+
+🏦 Ahorro planeado:
+$${formatoDinero(ahorroPlaneado)}
+
 💵 Disponible del ingreso mensual:
 $${formatoDinero(saldo)}
 
@@ -2024,6 +2435,14 @@ $${formatoDinero(ahorro)}
 
 🎯 Meta del día:
 $${formatoDinero(meta)}
+
+🎯 Límite diario recomendado:
+$${formatoDinero(
+ingresoMensual-gastosFijos-gastosTotal-ahorroPlaneado > 0
+?
+(ingresoMensual-gastosFijos-gastosTotal-ahorroPlaneado)/calcularDiasHastaCobro()
+:0
+)}
 
 📋 Cantidad de ingresos registrados:
 ${movimientos.length}
@@ -2158,6 +2577,16 @@ localStorage.setItem(
 JSON.stringify(objetivo)
 );
 
+localStorage.setItem(
+"modoPlataGastosFijos",
+gastosFijos
+);
+
+localStorage.setItem(
+"modoPlataAhorroPlaneado",
+ahorroPlaneado
+);
+
 }
 
 
@@ -2242,7 +2671,6 @@ document
 "input",
 calcularContador
 );
-
 
 document
 .getElementById("unidades")
