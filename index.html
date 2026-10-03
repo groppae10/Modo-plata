@@ -1,912 +1,1094 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modo Plata 💰</title>
 
-  <title>Modo Plata</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
+body{
+  background:linear-gradient(160deg,#07100d,#10151b 55%,#171126);
+  color:#fff;
+  padding:18px;
+  max-width:650px;
+  margin:auto;
+  min-height:100vh;
+  padding-bottom:40px
+}
 
-    body {
-      background: #f4f5f7;
-      color: #222;
-      padding: 20px;
-      max-width: 600px;
-      margin: auto;
-    }
+header{text-align:center;padding:18px 5px 25px}
+header .logo{font-size:42px}
+header h1{font-size:34px;margin:5px 0}
+header p{color:#9ca7a9}
 
-    header {
-      text-align: center;
-      margin-bottom: 25px;
-    }
+.card{
+  background:rgba(22,27,31,.94);
+  border:1px solid rgba(255,255,255,.07);
+  padding:20px;
+  border-radius:22px;
+  margin-bottom:18px;
+  box-shadow:0 12px 35px rgba(0,0,0,.25)
+}
 
-    header h1 {
-      font-size: 32px;
-      margin-bottom: 8px;
-    }
+.card h3{font-size:21px;margin-bottom:8px}
+.sub{color:#929b9f;line-height:1.45;margin-bottom:15px}
 
-    header p {
-      color: #666;
-      font-size: 16px;
-    }
+.balance{
+  background:linear-gradient(135deg,#102b22,#10191a,#21172c);
+  border:1px solid rgba(70,255,180,.18);
+  padding:25px;
+  border-radius:25px;
+  margin-bottom:18px;
+  text-align:center
+}
 
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 18px;
-      margin-bottom: 18px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    }
+.balance small{color:#9ba7a4}
+.balance h2{
+  font-size:42px;
+  margin:9px 0 17px;
+  color:#5effb8
+}
 
-    .card h3 {
-      margin-bottom: 8px;
-      font-size: 21px;
-    }
+input,textarea{
+  width:100%;
+  padding:14px;
+  background:#0d1215;
+  color:#fff;
+  border:1px solid #30383b;
+  border-radius:13px;
+  font-size:16px;
+  margin-bottom:10px;
+  outline:none
+}
 
-    .sub {
-      color: #777;
-      margin-bottom: 15px;
-    }
+textarea{min-height:100px;resize:vertical}
+input:focus,textarea:focus{border-color:#42e99d}
 
-    .balance {
-      background: #171717;
-      color: white;
-      padding: 25px;
-      border-radius: 20px;
-      margin-bottom: 18px;
-      text-align: center;
-    }
+button{
+  width:100%;
+  border:0;
+  padding:14px;
+  border-radius:13px;
+  background:linear-gradient(135deg,#35e99a,#16b878);
+  color:#03130c;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer
+}
 
-    .balance small {
-      color: #bbb;
-      font-size: 14px;
-    }
+button:active{transform:scale(.98)}
 
-    .balance h2 {
-      font-size: 38px;
-      margin: 8px 0 15px;
-    }
+.change{
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  font-size:13px
+}
 
-    input {
-      width: 100%;
-      padding: 14px;
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      font-size: 17px;
-      margin-bottom: 10px;
-    }
+.expense{
+  background:rgba(255,255,255,.025);
+  padding:14px;
+  border-radius:16px;
+  margin-bottom:12px
+}
 
-    button {
-      width: 100%;
-      border: none;
-      padding: 14px;
-      border-radius: 12px;
-      background: #111;
-      color: white;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+.expense-title{font-weight:bold;margin-bottom:9px}
 
-    button:active {
-      transform: scale(0.98);
-    }
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:9px;
+  margin-top:14px
+}
 
-    .change {
-      background: #333;
-      font-size: 14px;
-      padding: 11px;
-    }
+.stat{
+  background:#101518;
+  border:1px solid rgba(255,255,255,.06);
+  padding:14px 5px;
+  border-radius:15px;
+  text-align:center
+}
 
-    .expense {
-      margin-bottom: 12px;
-    }
+.stat strong{display:block;font-size:16px;margin-bottom:5px}
+.stat span{font-size:11px;color:#7d878a}
 
-    .expense:last-child {
-      margin-bottom: 0;
-    }
+.history-item{
+  padding:13px 0;
+  border-bottom:1px solid rgba(255,255,255,.07)
+}
 
-    .expense-title {
-      font-weight: bold;
-      margin-bottom: 7px;
-    }
+.history-item:last-child{border-bottom:0}
+.history-item strong{display:block;margin-bottom:4px}
+.history-item small{color:#778084}
 
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
+.dry{
+  display:none;
+  background:#291114;
+  border:1px solid #ff5555;
+  color:#ff9696;
+  padding:20px;
+  border-radius:20px;
+  margin-bottom:18px;
+  text-align:center
+}
 
-    .stat {
-      background: #f1f1f1;
-      padding: 15px 8px;
-      border-radius: 14px;
-      text-align: center;
-    }
+.dry h2{margin-bottom:7px}
 
-    .stat strong {
-      display: block;
-      font-size: 20px;
-      margin-bottom: 5px;
-    }
+.section-label{
+  color:#59f5b5;
+  font-size:11px;
+  font-weight:bold;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  display:block;
+  margin-bottom:7px
+}
 
-    .stat span {
-      color: #777;
-      font-size: 12px;
-    }
+/* CONSULTA */
 
-    .history-item {
-      padding: 12px 0;
-      border-bottom: 1px solid #eee;
-    }
+.consult{
+  background:
+    radial-gradient(circle at 90% 0%,rgba(121,82,255,.25),transparent 35%),
+    linear-gradient(135deg,#17152a,#10191b);
+  border:1px solid rgba(130,100,255,.2)
+}
 
-    .history-item:last-child {
-      border-bottom: none;
-    }
+.consult-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:10px
+}
 
-    .history-item strong {
-      display: block;
-    }
+.consult-icon{
+  width:45px;
+  height:45px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(120,90,255,.15);
+  border-radius:14px;
+  font-size:24px
+}
 
-    .history-item small {
-      color: #888;
-    }
+.options{
+  display:none;
+  margin-top:18px
+}
 
-    .dry {
-      display: none;
-      background: #fff0f0;
-      border: 2px solid #ff4d4d;
-      color: #c40000;
-      padding: 20px;
-      border-radius: 18px;
-      margin-bottom: 18px;
-      text-align: center;
-    }
+.option{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.07);
+  padding:15px;
+  border-radius:16px;
+  margin-top:10px
+}
 
-    .dry h2 {
-      margin-bottom: 8px;
-    }
+.option h4{margin-bottom:6px}
+.option p{color:#aeb6b9;line-height:1.45;font-size:14px}
 
-    .earn-card {
-      background: #f7f7f7;
-      padding: 15px;
-      border-radius: 14px;
-      margin-top: 12px;
-    }
+.advice{
+  display:none;
+  background:linear-gradient(135deg,#103426,#12251f);
+  border:1px solid rgba(80,255,180,.2);
+  padding:17px;
+  border-radius:17px;
+  margin-top:15px;
+  line-height:1.5
+}
 
-    .earn-card h4 {
-      margin-bottom: 6px;
-    }
+.earn-card{
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(255,255,255,.06);
+  padding:15px;
+  border-radius:17px;
+  margin-top:12px
+}
 
-    .earn-card p {
-      color: #666;
-      font-size: 14px;
-      margin-bottom: 12px;
-    }
+.earn-card h4{margin-bottom:7px}
+.earn-card p{
+  color:#929b9f;
+  font-size:14px;
+  line-height:1.45;
+  margin-bottom:12px
+}
 
-    .earn-card button {
-      background: #222;
-    }
+.earn-card button{
+  background:linear-gradient(135deg,#735fff,#9655ff);
+  color:#fff
+}
 
-    .future {
-      text-align: center;
-      background: linear-gradient(135deg, #171717, #333);
-      color: white;
-      padding: 25px;
-      border-radius: 20px;
-    }
+.future{
+  text-align:center;
+  background:linear-gradient(135deg,#171717,#302d45);
+  padding:26px;
+  border-radius:23px;
+  margin-bottom:18px
+}
 
-    .future h2 {
-      margin-bottom: 10px;
-    }
+.future h2{margin-bottom:8px}
+.future p{color:#c5c7cd;margin-top:6px}
 
-    .future p {
-      color: #ddd;
-      margin-bottom: 7px;
-    }
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.7);
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:10
+}
 
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      z-index: 1000;
-    }
+.modal-box{
+  background:#181d20;
+  border:1px solid #333;
+  padding:23px;
+  border-radius:20px;
+  width:100%;
+  max-width:400px
+}
 
-    .modal-box {
-      background: white;
-      padding: 25px;
-      border-radius: 20px;
-      max-width: 400px;
-      width: 100%;
-    }
+.modal-box h3{margin-bottom:10px}
+.modal-box p{color:#a8b0b2;line-height:1.5;margin-bottom:17px}
 
-    .modal-box h3 {
-      margin-bottom: 10px;
-    }
+.close{
+  background:#333;
+  color:#fff;
+  margin-top:8px
+}
 
-    .modal-box p {
-      color: #666;
-      line-height: 1.5;
-      margin-bottom: 18px;
-    }
-
-    .modal-box .close {
-      background: #ddd;
-      color: #222;
-      margin-top: 8px;
-    }
-
-    footer {
-      text-align: center;
-      color: #999;
-      font-size: 13px;
-      padding: 25px 0;
-    }
-  </style>
+footer{
+  text-align:center;
+  color:#626b6e;
+  font-size:12px;
+  padding:15px
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <h1>💰 Modo Plata</h1>
-    <p>Entendé tu plata. Hacela rendir.</p>
-  </header>
+<header>
+  <div class="logo">💰</div>
+  <h1>Modo Plata</h1>
+  <p>Entendé tu plata. Hacela rendir.</p>
+</header>
 
-  <!-- DINERO INICIAL -->
-  <div class="card" id="startCard">
-    <h3>💰 Dinero inicial</h3>
+<!-- DINERO INICIAL -->
 
-    <p class="sub">
-      Poné con cuánto dinero empezás.
+<div class="card" id="startCard">
+  <h3>💰 Dinero inicial</h3>
+  <p class="sub">Poné con cuánto dinero empezás.</p>
+
+  <input id="initialMoney"
+         type="number"
+         inputmode="numeric"
+         placeholder="Ej: 500000">
+
+  <button onclick="startMoney()">Aceptar 💚</button>
+</div>
+
+<!-- SALDO -->
+
+<div class="balance">
+  <small>DINERO DISPONIBLE</small>
+
+  <h2 id="balance">$0</h2>
+
+  <button class="change" onclick="changeStartingMoney()">
+    ⚙️ Cambiar dinero inicial
+  </button>
+</div>
+
+<!-- MODO SECO -->
+
+<div class="dry" id="dryMode">
+  <h2>🚨 MODO SECO</h2>
+  <p>Bueno hermano... hasta acá llegamos 😂</p>
+  <p>Ahora toca cuidar cada peso.</p>
+</div>
+
+<!-- CONSULTA -->
+
+<div class="card consult">
+
+  <div class="consult-title">
+    <div class="consult-icon">🧠</div>
+
+    <div>
+      <span class="section-label">Modo Cash</span>
+      <h3>💬 Consultá a Modo Plata</h3>
+    </div>
+  </div>
+
+  <p class="sub">
+    Contame qué querés hacer con tu plata y te muestro distintas opciones para que puedas decidir.
+  </p>
+
+  <textarea
+    id="question"
+    placeholder="Ej: Tengo $500000 y faltan 15 días para cobrar. Quiero comprar algo de $120000..."
+  ></textarea>
+
+  <button onclick="consultCash()">
+    ✨ Ayudame a decidir
+  </button>
+
+  <div class="advice" id="advice"></div>
+
+  <div class="options" id="options">
+
+    <div class="option">
+      <h4>🟢 Opción 1 — Cuidar el cash</h4>
+      <p id="option1"></p>
+    </div>
+
+    <div class="option">
+      <h4>🔵 Opción 2 — Hacerlo ahora</h4>
+      <p id="option2"></p>
+    </div>
+
+    <div class="option">
+      <h4>🟣 Opción 3 — Punto medio</h4>
+      <p id="option3"></p>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- GASTOS -->
+
+<div class="card">
+
+  <span class="section-label">Controlá tus gastos</span>
+
+  <h3>💸 Registrar gasto</h3>
+
+  <p class="sub">
+    Poné cuánto gastaste y aceptá.
+  </p>
+
+  <div class="expense">
+    <div class="expense-title">🍔 Comida</div>
+    <input id="food" type="number" inputmode="numeric" placeholder="$ Ej: 15000">
+    <button onclick="addExpense('Comida','food')">Aceptar</button>
+  </div>
+
+  <div class="expense">
+    <div class="expense-title">🚗 Auto</div>
+    <input id="car" type="number" inputmode="numeric" placeholder="$ Ej: 20000">
+    <button onclick="addExpense('Auto','car')">Aceptar</button>
+  </div>
+
+  <div class="expense">
+    <div class="expense-title">🏠 Alquiler</div>
+    <input id="rent" type="number" inputmode="numeric" placeholder="$ Ej: 300000">
+    <button onclick="addExpense('Alquiler','rent')">Aceptar</button>
+  </div>
+
+  <div class="expense">
+    <div class="expense-title">➕ Otro</div>
+    <input id="other" type="number" inputmode="numeric" placeholder="$ Ej: 10000">
+    <button onclick="addExpense('Otro','other')">Aceptar</button>
+  </div>
+
+</div>
+
+<!-- ESTADÍSTICAS -->
+
+<div class="card">
+
+  <span class="section-label">Tus números</span>
+
+  <h3>📊 Resumen</h3>
+
+  <div class="stats">
+
+    <div class="stat">
+      <strong id="statBalance">$0</strong>
+      <span>Disponible</span>
+    </div>
+
+    <div class="stat">
+      <strong id="spent">$0</strong>
+      <span>Gastado</span>
+    </div>
+
+    <div class="stat">
+      <strong id="count">0</strong>
+      <span>Movimientos</span>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- HISTORIAL -->
+
+<div class="card">
+
+  <span class="section-label">Movimientos</span>
+
+  <h3>📋 Historial</h3>
+
+  <div id="history">
+    <p style="color:#777;margin-top:10px">
+      Todavía no tenés movimientos.
+    </p>
+  </div>
+
+</div>
+
+<!-- MODO RENDIR -->
+
+<div class="card">
+
+  <span class="section-label">Hacé rendir tu plata</span>
+
+  <h3>📈 Modo Rendir</h3>
+
+  <p class="sub">
+    Ideas simples para cuidar mejor tu dinero.
+  </p>
+
+  <div class="earn-card">
+    <h4>💡 Separá primero</h4>
+    <p>
+      Antes de gastar, separá una parte para tus objetivos o ahorro.
+    </p>
+  </div>
+
+  <div class="earn-card">
+    <h4>🛒 Compará precios</h4>
+    <p>
+      Comparar antes de comprar puede ayudarte a gastar menos.
+    </p>
+  </div>
+
+  <div class="earn-card">
+    <h4>📅 Ponete un límite</h4>
+    <p>
+      Dividir tu dinero por semanas puede ayudarte a llegar mejor a fin de mes.
+    </p>
+  </div>
+
+</div>
+
+<!-- MODO GANAR -->
+
+<div class="card">
+
+  <span class="section-label">Buscá ingresos extra</span>
+
+  <h3>💻 Modo Ganar</h3>
+
+  <p class="sub">
+    Opciones para buscar ingresos extra por internet.
+  </p>
+
+  <div class="earn-card">
+
+    <h4>🇦🇷 LifePoints</h4>
+
+    <p>
+      Encuestas y recompensas. Las oportunidades dependen de tu perfil.
     </p>
 
-    <input
-      id="initialMoney"
-      type="number"
-      inputmode="numeric"
-      placeholder="Ej: 500000"
-    >
-
-    <button onclick="startMoney()">
-      Aceptar
+    <button onclick="openEarn(
+      'LifePoints',
+      'Podés participar en encuestas y obtener recompensas según las oportunidades disponibles para tu perfil.',
+      'https://www.lifepointspanel.com/es-ar/registration'
+    )">
+      Empezar
     </button>
+
   </div>
 
-  <!-- DINERO DISPONIBLE -->
-  <div class="balance">
-    <small>Dinero disponible</small>
+  <div class="earn-card">
 
-    <h2 id="balance">$0</h2>
+    <h4>🇦🇷 Ipsos iSay</h4>
 
-    <button class="change" onclick="changeStartingMoney()">
-      ⚙️ Cambiar dinero inicial
+    <p>
+      Encuestas y puntos por participar en estudios.
+    </p>
+
+    <button onclick="openEarn(
+      'Ipsos iSay',
+      'Podés participar en encuestas y acumular puntos según las oportunidades disponibles.',
+      'https://www.ipsosisay.com/es-ar'
+    )">
+      Empezar
     </button>
+
   </div>
 
-  <!-- MODO SECO -->
-  <div class="dry" id="dryMode">
-    <h2>🚨 MODO SECO</h2>
+  <div class="earn-card">
+
+    <h4>🇦🇷 Toluna</h4>
 
     <p>
-      Bueno hermano... hasta acá llegamos 😂
+      Opiniones, encuestas y recompensas.
     </p>
 
-    <p>
-      Ahora toca cuidar cada peso.
-    </p>
-  </div>
-
-  <!-- GASTOS -->
-  <div class="card">
-    <h3>💸 Registrar gasto</h3>
-
-    <p class="sub">
-      Poné cuánto gastaste y aceptá.
-    </p>
-
-    <div class="expense">
-      <div class="expense-title">🍔 Comida</div>
-
-      <input
-        id="food"
-        type="number"
-        inputmode="numeric"
-        placeholder="$ Ej: 15000"
-      >
-
-      <button onclick="addExpense('Comida', 'food')">
-        Aceptar
-      </button>
-    </div>
-
-    <div class="expense">
-      <div class="expense-title">🚗 Auto</div>
-
-      <input
-        id="car"
-        type="number"
-        inputmode="numeric"
-        placeholder="$ Ej: 20000"
-      >
-
-      <button onclick="addExpense('Auto', 'car')">
-        Aceptar
-      </button>
-    </div>
-
-    <div class="expense">
-      <div class="expense-title">🏠 Alquiler</div>
-
-      <input
-        id="rent"
-        type="number"
-        inputmode="numeric"
-        placeholder="$ Ej: 300000"
-      >
-
-      <button onclick="addExpense('Alquiler', 'rent')">
-        Aceptar
-      </button>
-    </div>
-
-    <div class="expense">
-      <div class="expense-title">➕ Otro</div>
-
-      <input
-        id="other"
-        type="number"
-        inputmode="numeric"
-        placeholder="$ Ej: 10000"
-      >
-
-      <button onclick="addExpense('Otro', 'other')">
-        Aceptar
-      </button>
-    </div>
-  </div>
-
-  <!-- ESTADÍSTICAS -->
-  <div class="card">
-    <h3>📊 Tus números</h3>
-
-    <div class="stats">
-
-      <div class="stat">
-        <strong id="statBalance">$0</strong>
-        <span>Disponible</span>
-      </div>
-
-      <div class="stat">
-        <strong id="spent">$0</strong>
-        <span>Gastado</span>
-      </div>
-
-      <div class="stat">
-        <strong id="count">0</strong>
-        <span>Movimientos</span>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- HISTORIAL -->
-  <div class="card">
-    <h3>📋 Historial</h3>
-
-    <div id="history">
-      <p style="color:#888; margin-top:10px;">
-        Todavía no tenés movimientos.
-      </p>
-    </div>
-  </div>
-
-  <!-- MODO RENDIR -->
-  <div class="card">
-    <h3>📈 Modo Rendir</h3>
-
-    <p class="sub">
-      Ideas para cuidar y aprovechar mejor tu plata.
-    </p>
-
-    <div class="earn-card">
-      <h4>💡 Separá primero</h4>
-      <p>
-        Antes de gastar, separá una parte para tus objetivos o ahorro.
-      </p>
-    </div>
-
-    <div class="earn-card">
-      <h4>🛒 Compará precios</h4>
-      <p>
-        Comparar antes de comprar puede ayudarte a gastar menos.
-      </p>
-    </div>
-
-    <div class="earn-card">
-      <h4>📅 Ponete un límite</h4>
-      <p>
-        Dividir tu dinero por semanas puede ayudarte a llegar mejor a fin de mes.
-      </p>
-    </div>
-  </div>
-
-  <!-- MODO GANAR -->
-  <div class="card">
-    <h3>💻 Modo Ganar</h3>
-
-    <p class="sub">
-      Opciones reales para buscar ingresos extra por internet.
-    </p>
-
-    <div class="earn-card">
-      <h4>🇦🇷 LifePoints</h4>
-
-      <p>
-        Encuestas y recompensas. Las oportunidades dependen de tu perfil.
-      </p>
-
-      <button onclick="openEarn(
-        'LifePoints',
-        'Podés participar en encuestas y obtener recompensas según las oportunidades disponibles para tu perfil.',
-        'https://www.lifepointspanel.com/es-ar/registration'
-      )">
-        Empezar
-      </button>
-    </div>
-
-    <div class="earn-card">
-      <h4>🇦🇷 Ipsos iSay</h4>
-
-      <p>
-        Encuestas y puntos por participar en estudios.
-      </p>
-
-      <button onclick="openEarn(
-        'Ipsos iSay',
-        'Plataforma de encuestas donde podés acumular puntos según las oportunidades disponibles.',
-        'https://www.ipsosisay.com/es-ar'
-      )">
-        Empezar
-      </button>
-    </div>
-
-    <div class="earn-card">
-      <h4>🇦🇷 Toluna</h4>
-
-      <p>
-        Opiniones, encuestas y recompensas.
-      </p>
-
-      <button onclick="openEarn(
-        'Toluna',
-        'Podés participar en encuestas y actividades y recibir recompensas según las condiciones de la plataforma.',
-        'https://www.toluna.com/es-AR/home'
-      )">
-        Empezar
-      </button>
-    </div>
-
-    <p style="color:#888; font-size:12px; margin-top:15px;">
-      ⚠️ Las oportunidades y recompensas pueden variar. No hay ingresos garantizados.
-    </p>
-  </div>
-
-  <!-- FUTURO -->
-  <div class="future">
-    <h2>🚀 Estamos locos...</h2>
-
-    <p>
-      Y llegan cositas. 😎
-    </p>
-
-    <p>
-      💳 Próximamente: <strong>Billetera Modo Plata</strong>
-    </p>
-  </div>
-
-  <footer>
-    Modo Plata 💰
-  </footer>
-
-  <!-- MODAL -->
-  <div class="modal" id="modal">
-
-    <div class="modal-box">
-
-      <h3 id="modalTitle">
-        Modo Ganar
-      </h3>
-
-      <p id="modalText">
-        Información.
-      </p>
-
-      <button id="modalLink">
-        Ir al sitio
-      </button>
-
-      <button class="close" onclick="closeModal()">
-        Cerrar
-      </button>
-
-    </div>
+    <button onclick="openEarn(
+      'Toluna',
+      'Podés participar en encuestas y actividades y recibir recompensas según las condiciones de la plataforma.',
+      'https://www.toluna.com/es-AR/home'
+    )">
+      Empezar
+    </button>
 
   </div>
 
-  <script>
+  <p style="color:#687276;font-size:12px;margin-top:15px">
+    ⚠️ Las oportunidades y recompensas pueden variar. No hay ingresos garantizados.
+  </p>
 
-    let data = {
-      balance: 0,
-      spent: 0,
-      count: 0,
-      history: []
-    };
+</div>
 
+<!-- FUTURO -->
 
-    // FORMATEAR DINERO
-    function formatMoney(amount) {
+<div class="future">
 
-      return new Intl.NumberFormat("es-AR", {
-        style: "currency",
-        currency: "ARS",
-        maximumFractionDigits: 0
-      }).format(amount);
+  <div style="font-size:38px">🚀</div>
 
-    }
+  <h2>Estamos locos...</h2>
 
+  <p>Y llegan cositas. 😎</p>
 
-    // GUARDAR
-    function saveData() {
+  <p>
+    💳 Próximamente:
+    <strong>Billetera Modo Plata</strong>
+  </p>
 
-      localStorage.setItem(
-        "modoPlataData",
-        JSON.stringify(data)
-      );
+</div>
 
-    }
+<footer>
+  Modo Plata 💰 · Cuidá el cash.
+</footer>
 
+<!-- MODAL -->
 
-    // CARGAR
-    function loadData() {
+<div class="modal" id="modal">
 
-      const saved =
-        localStorage.getItem("modoPlataData");
+  <div class="modal-box">
 
-      if (saved) {
+    <h3 id="modalTitle">Modo Ganar</h3>
 
-        try {
+    <p id="modalText">Información.</p>
 
-          data = JSON.parse(saved);
+    <button id="modalLink">Ir al sitio 🚀</button>
 
-        } catch (error) {
+    <button class="close" onclick="closeModal()">
+      Cerrar
+    </button>
 
-          data = {
-            balance: 0,
-            spent: 0,
-            count: 0,
-            history: []
-          };
+  </div>
 
-        }
+</div>
 
-      }
+<script>
 
-      updateScreen();
-
-    }
+let data = {
+  balance: 0,
+  spent: 0,
+  count: 0,
+  history: []
+};
 
 
-    // INICIAR DINERO
-    function startMoney() {
+/* DINERO */
 
-      const input =
-        document.getElementById("initialMoney");
+function formatMoney(amount){
 
-      const amount =
-        Number(input.value);
+  return new Intl.NumberFormat("es-AR",{
+    style:"currency",
+    currency:"ARS",
+    maximumFractionDigits:0
+  }).format(amount);
 
-      if (!amount || amount <= 0) {
-
-        alert("Poné un monto válido.");
-
-        return;
-
-      }
-
-      data.balance = amount;
-
-      data.spent = 0;
-
-      data.count = 0;
-
-      data.history = [];
-
-      saveData();
-
-      updateScreen();
-
-      input.value = "";
-
-    }
+}
 
 
-    // CAMBIAR DINERO INICIAL
-    function changeStartingMoney() {
+function saveData(){
 
-      const confirmChange =
-        confirm(
-          "¿Querés cambiar el dinero inicial? Esto comenzará un nuevo período y borrará los gastos actuales."
-        );
+  localStorage.setItem(
+    "modoPlataData",
+    JSON.stringify(data)
+  );
 
-      if (!confirmChange) {
+}
 
-        return;
 
-      }
+function loadData(){
+
+  const saved =
+    localStorage.getItem("modoPlataData");
+
+  if(saved){
+
+    try{
+
+      data = JSON.parse(saved);
+
+    }catch(error){
 
       data = {
-        balance: 0,
-        spent: 0,
-        count: 0,
-        history: []
+        balance:0,
+        spent:0,
+        count:0,
+        history:[]
       };
 
-      saveData();
+    }
 
-      updateScreen();
+  }
 
-      document.getElementById("initialMoney").focus();
+  updateScreen();
+
+}
+
+
+function startMoney(){
+
+  const input =
+    document.getElementById("initialMoney");
+
+  const amount =
+    Number(input.value);
+
+  if(!amount || amount <= 0){
+
+    alert("Poné un monto válido.");
+
+    return;
+
+  }
+
+  data.balance = amount;
+  data.spent = 0;
+  data.count = 0;
+  data.history = [];
+
+  saveData();
+  updateScreen();
+
+  input.value = "";
+
+}
+
+
+function changeStartingMoney(){
+
+  if(!confirm(
+    "¿Querés cambiar el dinero inicial? Esto borrará los gastos actuales."
+  )) return;
+
+  data = {
+    balance:0,
+    spent:0,
+    count:0,
+    history:[]
+  };
+
+  saveData();
+  updateScreen();
+
+  document.getElementById("initialMoney").focus();
+
+}
+
+
+/* GASTOS */
+
+function addExpense(category,inputId){
+
+  const input =
+    document.getElementById(inputId);
+
+  const amount =
+    Number(input.value);
+
+  if(!amount || amount <= 0){
+
+    alert("Poné un monto válido.");
+
+    return;
+
+  }
+
+  if(data.balance <= 0){
+
+    alert("No tenés dinero disponible.");
+
+    return;
+
+  }
+
+  if(amount > data.balance){
+
+    alert("Ese gasto supera el dinero disponible.");
+
+    return;
+
+  }
+
+  data.balance -= amount;
+  data.spent += amount;
+  data.count += 1;
+
+  data.history.unshift({
+    category:category,
+    amount:amount,
+    date:new Date().toLocaleString("es-AR")
+  });
+
+  saveData();
+  updateScreen();
+
+  input.value = "";
+
+}
+
+
+/* PANTALLA */
+
+function updateScreen(){
+
+  document.getElementById("balance").textContent =
+    formatMoney(data.balance);
+
+  document.getElementById("statBalance").textContent =
+    formatMoney(data.balance);
+
+  document.getElementById("spent").textContent =
+    formatMoney(data.spent);
+
+  document.getElementById("count").textContent =
+    data.count;
+
+
+  const startCard =
+    document.getElementById("startCard");
+
+  startCard.style.display =
+    (
+      data.balance > 0 ||
+      data.spent > 0 ||
+      data.count > 0
+    )
+    ? "none"
+    : "block";
+
+
+  const dry =
+    document.getElementById("dryMode");
+
+  dry.style.display =
+    data.balance <= 0 && data.count > 0
+    ? "block"
+    : "none";
+
+
+  const history =
+    document.getElementById("history");
+
+
+  if(!data.history || data.history.length === 0){
+
+    history.innerHTML =
+      '<p style="color:#777;margin-top:10px">Todavía no tenés movimientos.</p>';
+
+    return;
+
+  }
+
+
+  history.innerHTML =
+    data.history.map(item => {
+
+      return `
+        <div class="history-item">
+          <strong>
+            ${getEmoji(item.category)}
+            ${item.category} —
+            ${formatMoney(item.amount)}
+          </strong>
+
+          <small>${item.date}</small>
+        </div>
+      `;
+
+    }).join("");
+
+}
+
+
+function getEmoji(category){
+
+  if(category === "Comida") return "🍔";
+  if(category === "Auto") return "🚗";
+  if(category === "Alquiler") return "🏠";
+
+  return "➕";
+
+}
+
+
+/* MODO CASH */
+
+function consultCash(){
+
+  const text =
+    document.getElementById("question").value
+    .trim();
+
+  const advice =
+    document.getElementById("advice");
+
+  const options =
+    document.getElementById("options");
+
+  if(!text){
+
+    advice.style.display = "block";
+
+    advice.innerHTML =
+      "💬 Contame un poco más. Por ejemplo: <b>“Tengo $500.000, faltan 15 días para cobrar y quiero comprar algo de $120.000.”</b>";
+
+    options.style.display = "none";
+
+    return;
+
+  }
+
+
+  /*
+    Buscamos números escritos en la consulta.
+  */
+
+  const numbers =
+    text.match(/\d[\d\.\,]*/g) || [];
+
+  let values =
+    numbers
+      .map(n => Number(
+        n.replace(/\./g,"").replace(",",".")
+      ))
+      .filter(n => n > 0);
+
+
+  let available =
+    data.balance > 0
+    ? data.balance
+    : null;
+
+  let days = null;
+  let purchase = null;
+
+
+  /*
+    Si hay varios números intentamos
+    interpretar días y compra.
+  */
+
+  const dayMatch =
+    text.match(/(\d+)\s*d[ií]as/i);
+
+  if(dayMatch){
+
+    days = Number(dayMatch[1]);
+
+  }
+
+
+  if(values.length){
+
+    const possibleMoney =
+      values.filter(v => v > 1000);
+
+    if(!available && possibleMoney.length){
+
+      available = possibleMoney[0];
 
     }
 
+    if(possibleMoney.length > 1){
 
-    // AGREGAR GASTO
-    function addExpense(category, inputId) {
+      purchase =
+        possibleMoney[possibleMoney.length - 1];
 
-      const input =
-        document.getElementById(inputId);
+      if(purchase === available){
 
-      const amount =
-        Number(input.value);
-
-      if (!amount || amount <= 0) {
-
-        alert("Poné un monto válido.");
-
-        return;
+        purchase = null;
 
       }
-
-      if (data.balance <= 0) {
-
-        alert("No tenés dinero disponible.");
-
-        return;
-
-      }
-
-      if (amount > data.balance) {
-
-        alert(
-          "Ese gasto supera el dinero disponible."
-        );
-
-        return;
-
-      }
-
-      data.balance -= amount;
-
-      data.spent += amount;
-
-      data.count += 1;
-
-      data.history.unshift({
-
-        category: category,
-
-        amount: amount,
-
-        date: new Date().toLocaleString("es-AR")
-
-      });
-
-      saveData();
-
-      updateScreen();
-
-      input.value = "";
 
     }
 
-
-    // ACTUALIZAR PANTALLA
-    function updateScreen() {
-
-      const balance =
-        document.getElementById("balance");
-
-      const statBalance =
-        document.getElementById("statBalance");
-
-      const spent =
-        document.getElementById("spent");
-
-      const count =
-        document.getElementById("count");
-
-      const startCard =
-        document.getElementById("startCard");
-
-      const dryMode =
-        document.getElementById("dryMode");
+  }
 
 
-      balance.textContent =
-        formatMoney(data.balance);
+  /*
+    RESPUESTA
+  */
+
+  let message =
+    "🧠 <strong>Yo lo pensaría así:</strong><br><br>";
+
+  if(available){
+
+    message +=
+      "💰 Tenés aproximadamente <strong>" +
+      formatMoney(available) +
+      "</strong> para manejar.<br><br>";
+
+  }else{
+
+    message +=
+      "💰 Para ayudarte mejor, podés usar el saldo que ya cargaste o contarme cuánto dinero tenés.<br><br>";
+
+  }
 
 
-      statBalance.textContent =
-        formatMoney(data.balance);
+  if(days && available){
+
+    const daily =
+      available / days;
+
+    message +=
+      "📅 Si faltan <strong>" +
+      days +
+      " días</strong>, tu promedio sería de aproximadamente <strong>" +
+      formatMoney(daily) +
+      " por día</strong>.<br><br>";
+
+  }
 
 
-      spent.textContent =
-        formatMoney(data.spent);
+  if(purchase && available){
 
+    if(purchase <= available){
 
-      count.textContent =
-        data.count;
+      const remaining =
+        available - purchase;
 
+      message +=
+        "🛍️ Si hacés esa compra, te quedarían aproximadamente <strong>" +
+        formatMoney(remaining) +
+        "</strong>.<br><br>";
 
-      // MOSTRAR / OCULTAR DINERO INICIAL
-      if (data.balance > 0 || data.spent > 0 || data.count > 0) {
+    }else{
 
-        startCard.style.display = "none";
-
-      } else {
-
-        startCard.style.display = "block";
-
-      }
-
-
-      // MODO SECO
-      if (data.balance <= 0 && data.count > 0) {
-
-        dryMode.style.display = "block";
-
-      } else {
-
-        dryMode.style.display = "none";
-
-      }
-
-
-      // HISTORIAL
-      const history =
-        document.getElementById("history");
-
-
-      if (!data.history || data.history.length === 0) {
-
-        history.innerHTML =
-          '<p style="color:#888; margin-top:10px;">Todavía no tenés movimientos.</p>';
-
-        return;
-
-      }
-
-
-      history.innerHTML =
-        data.history.map(item => {
-
-          return `
-            <div class="history-item">
-              <strong>
-                ${getCategoryEmoji(item.category)}
-                ${item.category} — ${formatMoney(item.amount)}
-              </strong>
-
-              <small>
-                ${item.date}
-              </small>
-            </div>
-          `;
-
-        }).join("");
+      message +=
+        "⚠️ Esa compra supera el dinero que tenés disponible.<br><br>";
 
     }
 
+  }
 
-    // EMOJIS
-    function getCategoryEmoji(category) {
 
-      if (category === "Comida") {
+  message +=
+    "No se trata de prohibirte gastar. La idea es que veas qué pasa antes de decidir.";
 
-        return "🍔";
+  advice.innerHTML = message;
+  advice.style.display = "block";
 
-      }
 
-      if (category === "Auto") {
+  /*
+    OPCIONES
+  */
 
-        return "🚗";
+  let o1 =
+    "Si no es urgente, podés esperar y mantener más efectivo disponible. Es la opción que más protege tu colchón.";
 
-      }
+  let o2 =
+    "Podés hacerlo ahora si es una compra importante para vos, pero después tendrías menos margen para los próximos gastos.";
 
-      if (category === "Alquiler") {
+  let o3 =
+    "Podés esperar unos días, reducir algún gasto y volver a calcular. Así buscás un punto medio.";
 
-        return "🏠";
+  if(days && available){
 
-      }
+    const daily =
+      available / days;
 
-      return "➕";
+    o1 +=
+      " Tu objetivo sería conservar el mayor margen posible.";
+
+    o2 +=
+      " Después tendrías que manejarte con un promedio menor al de " +
+      formatMoney(daily) +
+      " diarios.";
+
+    o3 +=
+      " Volvé a calcular cuando cambie tu saldo.";
+
+  }
+
+
+  document.getElementById("option1").innerHTML = o1;
+  document.getElementById("option2").innerHTML = o2;
+  document.getElementById("option3").innerHTML = o3;
+
+  options.style.display = "block";
+
+}
+
+
+/* MODO GANAR */
+
+function openEarn(title,text,url){
+
+  document.getElementById("modalTitle").textContent =
+    title;
+
+  document.getElementById("modalText").textContent =
+    text;
+
+  document.getElementById("modalLink").onclick =
+    function(){
+
+      window.open(url,"_blank");
+
+    };
+
+  document.getElementById("modal").style.display =
+    "flex";
+
+}
+
+
+function closeModal(){
+
+  document.getElementById("modal").style.display =
+    "none";
+
+}
+
+
+document.getElementById("modal").addEventListener(
+  "click",
+  function(event){
+
+    if(event.target === this){
+
+      closeModal();
 
     }
 
-
-    // ABRIR MODAL
-    function openEarn(title, text, url) {
-
-      document.getElementById("modalTitle").textContent =
-        title;
-
-      document.getElementById("modalText").textContent =
-        text;
-
-      const link =
-        document.getElementById("modalLink");
-
-      link.onclick = function() {
-
-        window.open(url, "_blank");
-
-      };
-
-      document.getElementById("modal").style.display =
-        "flex";
-
-    }
+  }
+);
 
 
-    // CERRAR MODAL
-    function closeModal() {
+/* INICIAR */
 
-      document.getElementById("modal").style.display =
-        "none";
+loadData();
 
-    }
-
-
-    // CERRAR MODAL TOCANDO AFUERA
-    document.getElementById("modal").addEventListener(
-      "click",
-      function(event) {
-
-        if (event.target === this) {
-
-          closeModal();
-
-        }
-
-      }
-    );
-
-
-    // INICIAR APP
-    loadData();
-
-  </script>
+</script>
 
 </body>
 </html>
