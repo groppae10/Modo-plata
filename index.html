@@ -3,1090 +3,2043 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Modo Plata 💰</title>
+
+<title>Modo Plata</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial,sans-serif;
+}
 
 body{
-  background:linear-gradient(160deg,#07100d,#10151b 55%,#171126);
-  color:#fff;
-  padding:18px;
-  max-width:650px;
-  margin:auto;
-  min-height:100vh;
-  padding-bottom:40px
+background:#f4f6f8;
+color:#222;
+padding-bottom:90px;
 }
 
-header{text-align:center;padding:18px 5px 25px}
-header .logo{font-size:42px}
-header h1{font-size:34px;margin:5px 0}
-header p{color:#9ca7a9}
+header{
+background:#111827;
+color:white;
+text-align:center;
+padding:25px 15px;
+}
+
+header h1{
+font-size:32px;
+}
+
+header p{
+margin-top:8px;
+opacity:.8;
+}
+
+.container{
+max-width:700px;
+margin:auto;
+padding:20px;
+}
 
 .card{
-  background:rgba(22,27,31,.94);
-  border:1px solid rgba(255,255,255,.07);
-  padding:20px;
-  border-radius:22px;
-  margin-bottom:18px;
-  box-shadow:0 12px 35px rgba(0,0,0,.25)
+background:white;
+border-radius:18px;
+padding:22px;
+margin-bottom:18px;
+box-shadow:0 5px 18px rgba(0,0,0,.08);
 }
 
-.card h3{font-size:21px;margin-bottom:8px}
-.sub{color:#929b9f;line-height:1.45;margin-bottom:15px}
-
-.balance{
-  background:linear-gradient(135deg,#102b22,#10191a,#21172c);
-  border:1px solid rgba(70,255,180,.18);
-  padding:25px;
-  border-radius:25px;
-  margin-bottom:18px;
-  text-align:center
+h2{
+margin-bottom:15px;
 }
 
-.balance small{color:#9ba7a4}
-.balance h2{
-  font-size:42px;
-  margin:9px 0 17px;
-  color:#5effb8
+input,select{
+width:100%;
+padding:14px;
+margin:7px 0;
+border:1px solid #ddd;
+border-radius:12px;
+font-size:16px;
 }
-
-input,textarea{
-  width:100%;
-  padding:14px;
-  background:#0d1215;
-  color:#fff;
-  border:1px solid #30383b;
-  border-radius:13px;
-  font-size:16px;
-  margin-bottom:10px;
-  outline:none
-}
-
-textarea{min-height:100px;resize:vertical}
-input:focus,textarea:focus{border-color:#42e99d}
 
 button{
-  width:100%;
-  border:0;
-  padding:14px;
-  border-radius:13px;
-  background:linear-gradient(135deg,#35e99a,#16b878);
-  color:#03130c;
-  font-size:16px;
-  font-weight:bold;
-  cursor:pointer
+width:100%;
+border:none;
+padding:15px;
+border-radius:12px;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
+margin-top:8px;
 }
 
-button:active{transform:scale(.98)}
-
-.change{
-  background:rgba(255,255,255,.08);
-  color:#fff;
-  font-size:13px
+.ganar{
+background:#16a34a;
+color:white;
 }
 
-.expense{
-  background:rgba(255,255,255,.025);
-  padding:14px;
-  border-radius:16px;
-  margin-bottom:12px
+.restar{
+background:#dc2626;
+color:white;
 }
 
-.expense-title{font-weight:bold;margin-bottom:9px}
-
-.stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:9px;
-  margin-top:14px
+.secundario{
+background:#e5e7eb;
+color:#111827;
 }
 
-.stat{
-  background:#101518;
-  border:1px solid rgba(255,255,255,.06);
-  padding:14px 5px;
-  border-radius:15px;
-  text-align:center
+.azul{
+background:#2563eb;
+color:white;
 }
 
-.stat strong{display:block;font-size:16px;margin-bottom:5px}
-.stat span{font-size:11px;color:#7d878a}
-
-.history-item{
-  padding:13px 0;
-  border-bottom:1px solid rgba(255,255,255,.07)
+.amarillo{
+background:#f59e0b;
+color:white;
 }
 
-.history-item:last-child{border-bottom:0}
-.history-item strong{display:block;margin-bottom:4px}
-.history-item small{color:#778084}
-
-.dry{
-  display:none;
-  background:#291114;
-  border:1px solid #ff5555;
-  color:#ff9696;
-  padding:20px;
-  border-radius:20px;
-  margin-bottom:18px;
-  text-align:center
+.total{
+font-size:36px;
+font-weight:bold;
+color:#16a34a;
+margin:10px 0;
 }
 
-.dry h2{margin-bottom:7px}
-
-.section-label{
-  color:#59f5b5;
-  font-size:11px;
-  font-weight:bold;
-  text-transform:uppercase;
-  letter-spacing:1px;
-  display:block;
-  margin-bottom:7px
+.contador{
+font-size:26px;
+font-weight:bold;
+margin:10px 0;
 }
 
-/* CONSULTA */
-
-.consult{
-  background:
-    radial-gradient(circle at 90% 0%,rgba(121,82,255,.25),transparent 35%),
-    linear-gradient(135deg,#17152a,#10191b);
-  border:1px solid rgba(130,100,255,.2)
+.mensaje{
+background:#ecfdf5;
+color:#166534;
+padding:14px;
+border-radius:12px;
+margin-top:12px;
+display:none;
+text-align:center;
+font-weight:bold;
 }
 
-.consult-title{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin-bottom:10px
+.movimiento{
+padding:14px 0;
+border-bottom:1px solid #eee;
 }
 
-.consult-icon{
-  width:45px;
-  height:45px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:rgba(120,90,255,.15);
-  border-radius:14px;
-  font-size:24px
+.movimiento:last-child{
+border-bottom:none;
 }
 
-.options{
-  display:none;
-  margin-top:18px
+.pequeno{
+color:#6b7280;
+font-size:14px;
 }
 
-.option{
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.07);
-  padding:15px;
-  border-radius:16px;
-  margin-top:10px
+.resumen{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+margin-top:15px;
 }
 
-.option h4{margin-bottom:6px}
-.option p{color:#aeb6b9;line-height:1.45;font-size:14px}
-
-.advice{
-  display:none;
-  background:linear-gradient(135deg,#103426,#12251f);
-  border:1px solid rgba(80,255,180,.2);
-  padding:17px;
-  border-radius:17px;
-  margin-top:15px;
-  line-height:1.5
+.mini-card{
+background:#f8fafc;
+padding:15px;
+border-radius:14px;
+text-align:center;
 }
 
-.earn-card{
-  background:rgba(255,255,255,.035);
-  border:1px solid rgba(255,255,255,.06);
-  padding:15px;
-  border-radius:17px;
-  margin-top:12px
+.mini-numero{
+font-size:22px;
+font-weight:bold;
+margin-top:5px;
 }
 
-.earn-card h4{margin-bottom:7px}
-.earn-card p{
-  color:#929b9f;
-  font-size:14px;
-  line-height:1.45;
-  margin-bottom:12px
+.fecha{
+color:#9ca3af;
+font-size:12px;
+margin-top:4px;
 }
 
-.earn-card button{
-  background:linear-gradient(135deg,#735fff,#9655ff);
-  color:#fff
+.seccion{
+display:none;
 }
 
-.future{
-  text-align:center;
-  background:linear-gradient(135deg,#171717,#302d45);
-  padding:26px;
-  border-radius:23px;
-  margin-bottom:18px
+.seccion.activa{
+display:block;
 }
 
-.future h2{margin-bottom:8px}
-.future p{color:#c5c7cd;margin-top:6px}
-
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.7);
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  z-index:10
+.inicio-numero{
+font-size:38px;
+font-weight:bold;
+margin:10px 0;
 }
 
-.modal-box{
-  background:#181d20;
-  border:1px solid #333;
-  padding:23px;
-  border-radius:20px;
-  width:100%;
-  max-width:400px
+.verde{
+color:#16a34a;
 }
 
-.modal-box h3{margin-bottom:10px}
-.modal-box p{color:#a8b0b2;line-height:1.5;margin-bottom:17px}
-
-.close{
-  background:#333;
-  color:#fff;
-  margin-top:8px
+.rojo{
+color:#dc2626;
 }
 
-footer{
-  text-align:center;
-  color:#626b6e;
-  font-size:12px;
-  padding:15px
+.azul-texto{
+color:#2563eb;
 }
+
+.barra{
+height:14px;
+background:#e5e7eb;
+border-radius:20px;
+overflow:hidden;
+margin:12px 0;
+}
+
+.barra-interna{
+height:100%;
+width:0%;
+background:#16a34a;
+transition:.3s;
+}
+
+.navegacion{
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+height:75px;
+background:white;
+border-top:1px solid #ddd;
+display:flex;
+justify-content:space-around;
+z-index:1000;
+}
+
+.navegacion button{
+background:white;
+color:#6b7280;
+font-size:12px;
+padding:5px 2px;
+margin:0;
+}
+
+.navegacion button.activo{
+color:#111827;
+font-weight:bold;
+}
+
+.navegacion span{
+display:block;
+font-size:22px;
+margin-bottom:2px;
+}
+
+.categoria{
+padding:12px;
+background:#f8fafc;
+border-radius:12px;
+margin-bottom:8px;
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">💰</div>
-  <h1>Modo Plata</h1>
-  <p>Entendé tu plata. Hacela rendir.</p>
+
+<h1>💰 Modo Plata</h1>
+
+<p>Tu dinero, más fácil de controlar</p>
+
 </header>
 
-<!-- DINERO INICIAL -->
 
-<div class="card" id="startCard">
-  <h3>💰 Dinero inicial</h3>
-  <p class="sub">Poné con cuánto dinero empezás.</p>
+<div class="container">
 
-  <input id="initialMoney"
-         type="number"
-         inputmode="numeric"
-         placeholder="Ej: 500000">
 
-  <button onclick="startMoney()">Aceptar 💚</button>
-</div>
+<!-- ================= INICIO ================= -->
 
-<!-- SALDO -->
-
-<div class="balance">
-  <small>DINERO DISPONIBLE</small>
-
-  <h2 id="balance">$0</h2>
-
-  <button class="change" onclick="changeStartingMoney()">
-    ⚙️ Cambiar dinero inicial
-  </button>
-</div>
-
-<!-- MODO SECO -->
-
-<div class="dry" id="dryMode">
-  <h2>🚨 MODO SECO</h2>
-  <p>Bueno hermano... hasta acá llegamos 😂</p>
-  <p>Ahora toca cuidar cada peso.</p>
-</div>
-
-<!-- CONSULTA -->
-
-<div class="card consult">
-
-  <div class="consult-title">
-    <div class="consult-icon">🧠</div>
-
-    <div>
-      <span class="section-label">Modo Cash</span>
-      <h3>💬 Consultá a Modo Plata</h3>
-    </div>
-  </div>
-
-  <p class="sub">
-    Contame qué querés hacer con tu plata y te muestro distintas opciones para que puedas decidir.
-  </p>
-
-  <textarea
-    id="question"
-    placeholder="Ej: Tengo $500000 y faltan 15 días para cobrar. Quiero comprar algo de $120000..."
-  ></textarea>
-
-  <button onclick="consultCash()">
-    ✨ Ayudame a decidir
-  </button>
-
-  <div class="advice" id="advice"></div>
-
-  <div class="options" id="options">
-
-    <div class="option">
-      <h4>🟢 Opción 1 — Cuidar el cash</h4>
-      <p id="option1"></p>
-    </div>
-
-    <div class="option">
-      <h4>🔵 Opción 2 — Hacerlo ahora</h4>
-      <p id="option2"></p>
-    </div>
-
-    <div class="option">
-      <h4>🟣 Opción 3 — Punto medio</h4>
-      <p id="option3"></p>
-    </div>
-
-  </div>
-
-</div>
-
-<!-- GASTOS -->
+<div id="inicio" class="seccion activa">
 
 <div class="card">
 
-  <span class="section-label">Controlá tus gastos</span>
+<h2>🏠 Resumen</h2>
 
-  <h3>💸 Registrar gasto</h3>
+<p class="pequeno">
+Tu situación financiera
+</p>
 
-  <p class="sub">
-    Poné cuánto gastaste y aceptá.
-  </p>
+<div class="inicio-numero">
+$<span id="saldoInicio">0</span>
+</div>
 
-  <div class="expense">
-    <div class="expense-title">🍔 Comida</div>
-    <input id="food" type="number" inputmode="numeric" placeholder="$ Ej: 15000">
-    <button onclick="addExpense('Comida','food')">Aceptar</button>
-  </div>
+<p class="pequeno">
+Saldo disponible
+</p>
 
-  <div class="expense">
-    <div class="expense-title">🚗 Auto</div>
-    <input id="car" type="number" inputmode="numeric" placeholder="$ Ej: 20000">
-    <button onclick="addExpense('Auto','car')">Aceptar</button>
-  </div>
+<div class="resumen">
 
-  <div class="expense">
-    <div class="expense-title">🏠 Alquiler</div>
-    <input id="rent" type="number" inputmode="numeric" placeholder="$ Ej: 300000">
-    <button onclick="addExpense('Alquiler','rent')">Aceptar</button>
-  </div>
+<div class="mini-card">
 
-  <div class="expense">
-    <div class="expense-title">➕ Otro</div>
-    <input id="other" type="number" inputmode="numeric" placeholder="$ Ej: 10000">
-    <button onclick="addExpense('Otro','other')">Aceptar</button>
-  </div>
+<div class="pequeno">
+💰 Ingresos
+</div>
+
+<div class="mini-numero verde">
+$<span id="inicioIngresos">0</span>
+</div>
 
 </div>
 
-<!-- ESTADÍSTICAS -->
+
+<div class="mini-card">
+
+<div class="pequeno">
+💸 Gastos
+</div>
+
+<div class="mini-numero rojo">
+$<span id="inicioGastos">0</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 
 <div class="card">
 
-  <span class="section-label">Tus números</span>
+<h2>🎯 Meta del día</h2>
 
-  <h3>📊 Resumen</h3>
+<div class="total">
+$<span id="inicioMetaProgreso">0</span>
+</div>
 
-  <div class="stats">
+<p class="pequeno">
+Meta: $<span id="inicioMeta">0</span>
+</p>
 
-    <div class="stat">
-      <strong id="statBalance">$0</strong>
-      <span>Disponible</span>
-    </div>
+<div class="barra">
 
-    <div class="stat">
-      <strong id="spent">$0</strong>
-      <span>Gastado</span>
-    </div>
-
-    <div class="stat">
-      <strong id="count">0</strong>
-      <span>Movimientos</span>
-    </div>
-
-  </div>
+<div
+id="barraInicio"
+class="barra-interna">
+</div>
 
 </div>
 
-<!-- HISTORIAL -->
+</div>
+
 
 <div class="card">
 
-  <span class="section-label">Movimientos</span>
+<h2>🏦 Ahorro</h2>
 
-  <h3>📋 Historial</h3>
+<p class="pequeno">
+<span id="inicioObjetivo">
+Todavía no tenés un objetivo.
+</span>
+</p>
 
-  <div id="history">
-    <p style="color:#777;margin-top:10px">
-      Todavía no tenés movimientos.
-    </p>
-  </div>
+<div class="total azul-texto">
+$<span id="inicioAhorro">0</span>
+</div>
+
+<button
+class="azul"
+onclick="mostrarSeccion('ahorrar')">
+
+🏦 Ir a mis ahorros
+
+</button>
 
 </div>
 
-<!-- MODO RENDIR -->
+</div>
+
+
+
+<!-- ================= GANAR ================= -->
+
+<div id="ganar" class="seccion">
+
 
 <div class="card">
 
-  <span class="section-label">Hacé rendir tu plata</span>
+<h2>💵 Modo Ganar</h2>
 
-  <h3>📈 Modo Rendir</h3>
+<p class="pequeno">
+Registrá tus trabajos, ventas o servicios.
+</p>
 
-  <p class="sub">
-    Ideas simples para cuidar mejor tu dinero.
-  </p>
 
-  <div class="earn-card">
-    <h4>💡 Separá primero</h4>
-    <p>
-      Antes de gastar, separá una parte para tus objetivos o ahorro.
-    </p>
-  </div>
+<select id="actividad">
 
-  <div class="earn-card">
-    <h4>🛒 Compará precios</h4>
-    <p>
-      Comparar antes de comprar puede ayudarte a gastar menos.
-    </p>
-  </div>
+<option value="Peluquería">
+✂️ Peluquería
+</option>
 
-  <div class="earn-card">
-    <h4>📅 Ponete un límite</h4>
-    <p>
-      Dividir tu dinero por semanas puede ayudarte a llegar mejor a fin de mes.
-    </p>
-  </div>
+<option value="Venta de comidas">
+🍔 Venta de comidas
+</option>
+
+<option value="Venta de productos">
+🛒 Venta de productos
+</option>
+
+<option value="Viajes / Repartos">
+🚗 Viajes / Repartos
+</option>
+
+<option value="Servicios">
+🔧 Servicios
+</option>
+
+<option value="Trabajos">
+📦 Trabajos
+</option>
+
+<option value="Freelance">
+💻 Freelance
+</option>
+
+<option value="Otro">
+➕ Otro
+</option>
+
+</select>
+
+
+<input
+type="text"
+id="nombreTrabajo"
+placeholder="Ej: Corte de pelo, hamburguesa, viaje..."
+>
+
+
+<input
+type="number"
+id="precio"
+placeholder="Precio por unidad"
+value="20000"
+min="1"
+>
+
+
+<input
+type="number"
+id="unidades"
+placeholder="Cantidad"
+value="1"
+min="1"
+>
+
+
+<div class="contador">
+
+👤 Unidades:
+<span id="cantidad">
+0
+</span>
 
 </div>
 
-<!-- MODO GANAR -->
+
+<div class="total">
+
+$<span id="total">
+0
+</span>
+
+</div>
+
+
+<button
+class="ganar"
+onclick="sumarIngreso()">
+
+➕ SUMAR INGRESO
+
+</button>
+
+
+<button
+class="restar"
+onclick="restarIngreso()">
+
+➖ RESTAR ÚLTIMO INGRESO
+
+</button>
+
+
+<button
+class="secundario"
+onclick="reiniciarContador()">
+
+🔄 Reiniciar día
+
+</button>
+
+
+<div
+id="mensajeMeta"
+class="mensaje">
+
+🎉 ¡META DEL DÍA CUMPLIDA!
+
+</div>
+
+
+<div class="resumen">
+
+<div class="mini-card">
+
+<div class="pequeno">
+Trabajos
+</div>
+
+<div
+class="mini-numero"
+id="cantidadTrabajos">
+
+0
+
+</div>
+
+</div>
+
+
+<div class="mini-card">
+
+<div class="pequeno">
+Ingresos
+</div>
+
+<div class="mini-numero">
+
+$<span id="ingresosResumen">
+0
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- META ORIGINAL -->
 
 <div class="card">
 
-  <span class="section-label">Buscá ingresos extra</span>
+<h2>🎯 Meta del día</h2>
 
-  <h3>💻 Modo Ganar</h3>
 
-  <p class="sub">
-    Opciones para buscar ingresos extra por internet.
-  </p>
+<input
+type="number"
+id="meta"
+placeholder="Ej: 100000"
+min="0"
+>
 
-  <div class="earn-card">
 
-    <h4>🇦🇷 LifePoints</h4>
+<p class="pequeno">
+Progreso de tu meta
+</p>
 
-    <p>
-      Encuestas y recompensas. Las oportunidades dependen de tu perfil.
-    </p>
 
-    <button onclick="openEarn(
-      'LifePoints',
-      'Podés participar en encuestas y obtener recompensas según las oportunidades disponibles para tu perfil.',
-      'https://www.lifepointspanel.com/es-ar/registration'
-    )">
-      Empezar
-    </button>
+<div class="total">
 
-  </div>
-
-  <div class="earn-card">
-
-    <h4>🇦🇷 Ipsos iSay</h4>
-
-    <p>
-      Encuestas y puntos por participar en estudios.
-    </p>
-
-    <button onclick="openEarn(
-      'Ipsos iSay',
-      'Podés participar en encuestas y acumular puntos según las oportunidades disponibles.',
-      'https://www.ipsosisay.com/es-ar'
-    )">
-      Empezar
-    </button>
-
-  </div>
-
-  <div class="earn-card">
-
-    <h4>🇦🇷 Toluna</h4>
-
-    <p>
-      Opiniones, encuestas y recompensas.
-    </p>
-
-    <button onclick="openEarn(
-      'Toluna',
-      'Podés participar en encuestas y actividades y recibir recompensas según las condiciones de la plataforma.',
-      'https://www.toluna.com/es-AR/home'
-    )">
-      Empezar
-    </button>
-
-  </div>
-
-  <p style="color:#687276;font-size:12px;margin-top:15px">
-    ⚠️ Las oportunidades y recompensas pueden variar. No hay ingresos garantizados.
-  </p>
+$<span id="progreso">
+0
+</span>
 
 </div>
 
-<!-- FUTURO -->
 
-<div class="future">
+<div class="barra">
 
-  <div style="font-size:38px">🚀</div>
-
-  <h2>Estamos locos...</h2>
-
-  <p>Y llegan cositas. 😎</p>
-
-  <p>
-    💳 Próximamente:
-    <strong>Billetera Modo Plata</strong>
-  </p>
+<div
+id="barraMeta"
+class="barra-interna">
+</div>
 
 </div>
 
-<footer>
-  Modo Plata 💰 · Cuidá el cash.
-</footer>
+</div>
 
-<!-- MODAL -->
 
-<div class="modal" id="modal">
 
-  <div class="modal-box">
+<!-- MOVIMIENTOS ORIGINAL -->
 
-    <h3 id="modalTitle">Modo Ganar</h3>
+<div class="card">
 
-    <p id="modalText">Información.</p>
+<h2>📋 Movimientos de hoy</h2>
 
-    <button id="modalLink">Ir al sitio 🚀</button>
+<div id="listaMovimientos">
 
-    <button class="close" onclick="closeModal()">
-      Cerrar
-    </button>
-
-  </div>
+<p class="pequeno">
+Todavía no registraste ingresos.
+</p>
 
 </div>
+
+</div>
+
+</div>
+
+
+
+<!-- ================= GASTAR ================= -->
+
+<div id="gastar" class="seccion">
+
+<div class="card">
+
+<h2>💸 Modo Gastar</h2>
+
+<p class="pequeno">
+Registrá tus gastos para saber dónde se va tu dinero.
+</p>
+
+
+<select id="categoriaGasto">
+
+<option>🍔 Comida</option>
+
+<option>🏠 Casa</option>
+
+<option>🚗 Transporte</option>
+
+<option>👕 Ropa</option>
+
+<option>👨‍👩‍👧 Familia</option>
+
+<option>📱 Tecnología</option>
+
+<option>🎮 Entretenimiento</option>
+
+<option>📦 Otros</option>
+
+</select>
+
+
+<input
+type="text"
+id="descripcionGasto"
+placeholder="¿En qué gastaste?"
+>
+
+
+<input
+type="number"
+id="montoGasto"
+placeholder="Monto"
+min="1"
+>
+
+
+<button
+class="restar"
+onclick="sumarGasto()">
+
+➕ REGISTRAR GASTO
+
+</button>
+
+</div>
+
+
+<div class="card">
+
+<h2>📋 Gastos registrados</h2>
+
+<div id="listaGastos">
+
+<p class="pequeno">
+Todavía no registraste gastos.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ================= AHORRAR ================= -->
+
+<div id="ahorrar" class="seccion">
+
+<div class="card">
+
+<h2>🏦 Modo Ahorrar</h2>
+
+<p class="pequeno">
+Elegí algo que quieras conseguir y empezá a guardar plata.
+</p>
+
+
+<input
+type="text"
+id="nombreObjetivo"
+placeholder="Ej: Auto, viaje, casa..."
+>
+
+
+<input
+type="number"
+id="montoObjetivo"
+placeholder="¿Cuánto necesitás?"
+min="1"
+>
+
+
+<button
+class="azul"
+onclick="crearObjetivo()">
+
+🎯 CREAR OBJETIVO
+
+</button>
+
+</div>
+
+
+<div class="card">
+
+<h2 id="tituloObjetivo">
+🎯 Sin objetivo
+</h2>
+
+
+<div class="total azul-texto">
+
+$<span id="ahorroActual">
+0
+</span>
+
+</div>
+
+
+<p class="pequeno">
+
+Objetivo:
+$<span id="objetivoTotal">
+0
+</span>
+
+</p>
+
+
+<div class="barra">
+
+<div
+id="barraAhorro"
+class="barra-interna">
+</div>
+
+</div>
+
+
+<button
+class="azul"
+onclick="agregarAhorro()">
+
+➕ AGREGAR AHORRO
+
+</button>
+
+
+<button
+class="secundario"
+onclick="reiniciarAhorro()">
+
+🔄 Reiniciar objetivo
+
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- ================= STATS ================= -->
+
+<div id="stats" class="seccion">
+
+<div class="card">
+
+<h2>📊 Estadísticas</h2>
+
+<div class="resumen">
+
+<div class="mini-card">
+
+<div class="pequeno">
+💰 Ingresos
+</div>
+
+<div class="mini-numero verde">
+$<span id="statsIngresos">
+0
+</span>
+</div>
+
+</div>
+
+
+<div class="mini-card">
+
+<div class="pequeno">
+💸 Gastos
+</div>
+
+<div class="mini-numero rojo">
+$<span id="statsGastos">
+0
+</span>
+</div>
+
+</div>
+
+
+<div class="mini-card">
+
+<div class="pequeno">
+🏦 Ahorro
+</div>
+
+<div class="mini-numero azul-texto">
+$<span id="statsAhorro">
+0
+</span>
+</div>
+
+</div>
+
+
+<div class="mini-card">
+
+<div class="pequeno">
+📋 Movimientos
+</div>
+
+<div
+class="mini-numero"
+id="statsMovimientos">
+
+0
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>📈 Resumen</h2>
+
+<p class="pequeno">
+Ingresos registrados
+</p>
+
+<div class="total verde">
+$<span id="statsIngresoGrande">
+0
+</span>
+</div>
+
+<p class="pequeno">
+Gastos registrados
+</p>
+
+<div class="total rojo">
+$<span id="statsGastoGrande">
+0
+</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ================= MENU ================= -->
+
+<div class="navegacion">
+
+<button
+id="navInicio"
+class="activo"
+onclick="mostrarSeccion('inicio')">
+
+<span>🏠</span>
+Inicio
+
+</button>
+
+
+<button
+id="navGanar"
+onclick="mostrarSeccion('ganar')">
+
+<span>💰</span>
+Ganar
+
+</button>
+
+
+<button
+id="navGastar"
+onclick="mostrarSeccion('gastar')">
+
+<span>💸</span>
+Gastar
+
+</button>
+
+
+<button
+id="navAhorrar"
+onclick="mostrarSeccion('ahorrar')">
+
+<span>🏦</span>
+Ahorrar
+
+</button>
+
+
+<button
+id="navStats"
+onclick="mostrarSeccion('stats')">
+
+<span>📊</span>
+Stats
+
+</button>
+
+</div>
+
+
 
 <script>
 
-let data = {
-  balance: 0,
-  spent: 0,
-  count: 0,
-  history: []
+/* ==================================================
+   MODO PLATA
+   DATOS
+================================================== */
+
+
+/*
+IMPORTANTE:
+Mantenemos las mismas claves que tenía
+la versión anterior para no perder los datos.
+*/
+
+let movimientos = JSON.parse(
+localStorage.getItem("modoPlataMovimientos")
+) || [];
+
+
+let meta = Number(
+localStorage.getItem("modoPlataMeta")
+) || 0;
+
+
+let gastos = JSON.parse(
+localStorage.getItem("modoPlataGastos")
+) || [];
+
+
+let objetivo = JSON.parse(
+localStorage.getItem("modoPlataObjetivo")
+) || {
+
+nombre:"",
+meta:0,
+ahorro:0
+
 };
 
 
-/* DINERO */
 
-function formatMoney(amount){
+/* ==================================================
+   DINERO
+================================================== */
 
-  return new Intl.NumberFormat("es-AR",{
-    style:"currency",
-    currency:"ARS",
-    maximumFractionDigits:0
-  }).format(amount);
+function formatoDinero(numero){
 
-}
-
-
-function saveData(){
-
-  localStorage.setItem(
-    "modoPlataData",
-    JSON.stringify(data)
-  );
+return Number(numero).toLocaleString("es-AR");
 
 }
 
 
-function loadData(){
 
-  const saved =
-    localStorage.getItem("modoPlataData");
+/* ==================================================
+   TOTALES
+================================================== */
 
-  if(saved){
+function calcularTotal(){
 
-    try{
-
-      data = JSON.parse(saved);
-
-    }catch(error){
-
-      data = {
-        balance:0,
-        spent:0,
-        count:0,
-        history:[]
-      };
-
-    }
-
-  }
-
-  updateScreen();
+return movimientos.reduce(
+(total,movimiento)=>
+total + movimiento.total,
+0
+);
 
 }
 
 
-function startMoney(){
+function calcularCantidad(){
 
-  const input =
-    document.getElementById("initialMoney");
-
-  const amount =
-    Number(input.value);
-
-  if(!amount || amount <= 0){
-
-    alert("Poné un monto válido.");
-
-    return;
-
-  }
-
-  data.balance = amount;
-  data.spent = 0;
-  data.count = 0;
-  data.history = [];
-
-  saveData();
-  updateScreen();
-
-  input.value = "";
+return movimientos.reduce(
+(cantidad,movimiento)=>
+cantidad + movimiento.unidades,
+0
+);
 
 }
 
 
-function changeStartingMoney(){
+function calcularGastos(){
 
-  if(!confirm(
-    "¿Querés cambiar el dinero inicial? Esto borrará los gastos actuales."
-  )) return;
-
-  data = {
-    balance:0,
-    spent:0,
-    count:0,
-    history:[]
-  };
-
-  saveData();
-  updateScreen();
-
-  document.getElementById("initialMoney").focus();
+return gastos.reduce(
+(total,gasto)=>
+total + gasto.monto,
+0
+);
 
 }
 
 
-/* GASTOS */
 
-function addExpense(category,inputId){
+/* ==================================================
+   ACTUALIZAR TODO
+================================================== */
 
-  const input =
-    document.getElementById(inputId);
+function actualizarPantalla(){
 
-  const amount =
-    Number(input.value);
+const total =
+calcularTotal();
 
-  if(!amount || amount <= 0){
+const cantidad =
+calcularCantidad();
 
-    alert("Poné un monto válido.");
+const totalGastos =
+calcularGastos();
 
-    return;
 
-  }
+/* GANAR */
 
-  if(data.balance <= 0){
+document.getElementById(
+"cantidad"
+).textContent =
+cantidad;
 
-    alert("No tenés dinero disponible.");
 
-    return;
+document.getElementById(
+"total"
+).textContent =
+formatoDinero(total);
 
-  }
 
-  if(amount > data.balance){
+document.getElementById(
+"progreso"
+).textContent =
+formatoDinero(total);
 
-    alert("Ese gasto supera el dinero disponible.");
 
-    return;
+document.getElementById(
+"cantidadTrabajos"
+).textContent =
+movimientos.length;
 
-  }
 
-  data.balance -= amount;
-  data.spent += amount;
-  data.count += 1;
+document.getElementById(
+"ingresosResumen"
+).textContent =
+formatoDinero(total);
 
-  data.history.unshift({
-    category:category,
-    amount:amount,
-    date:new Date().toLocaleString("es-AR")
-  });
 
-  saveData();
-  updateScreen();
+/* META */
 
-  input.value = "";
+document.getElementById(
+"meta"
+).value =
+meta || "";
+
+
+verificarMeta();
+
+
+/* INICIO */
+
+const saldo =
+total - totalGastos;
+
+
+document.getElementById(
+"saldoInicio"
+).textContent =
+formatoDinero(saldo);
+
+
+document.getElementById(
+"inicioIngresos"
+).textContent =
+formatoDinero(total);
+
+
+document.getElementById(
+"inicioGastos"
+).textContent =
+formatoDinero(totalGastos);
+
+
+document.getElementById(
+"inicioMetaProgreso"
+).textContent =
+formatoDinero(total);
+
+
+document.getElementById(
+"inicioMeta"
+).textContent =
+formatoDinero(meta);
+
+
+/* BARRA INICIO */
+
+let porcentajeMeta = 0;
+
+if(meta > 0){
+
+porcentajeMeta =
+Math.min(
+100,
+(total / meta) * 100
+);
+
+}
+
+document.getElementById(
+"barraInicio"
+).style.width =
+porcentajeMeta + "%";
+
+
+/* MOVIMIENTOS */
+
+mostrarMovimientos();
+
+
+mostrarGastos();
+
+
+actualizarAhorro();
+
+
+actualizarStats();
 
 }
 
 
-/* PANTALLA */
 
-function updateScreen(){
+/* ==================================================
+   SUMAR INGRESO
+================================================== */
 
-  document.getElementById("balance").textContent =
-    formatMoney(data.balance);
+function sumarIngreso(){
 
-  document.getElementById("statBalance").textContent =
-    formatMoney(data.balance);
+const actividad =
+document.getElementById(
+"actividad"
+).value;
 
-  document.getElementById("spent").textContent =
-    formatMoney(data.spent);
 
-  document.getElementById("count").textContent =
-    data.count;
+const nombre =
+document.getElementById(
+"nombreTrabajo"
+).value.trim();
 
 
-  const startCard =
-    document.getElementById("startCard");
-
-  startCard.style.display =
-    (
-      data.balance > 0 ||
-      data.spent > 0 ||
-      data.count > 0
-    )
-    ? "none"
-    : "block";
-
-
-  const dry =
-    document.getElementById("dryMode");
-
-  dry.style.display =
-    data.balance <= 0 && data.count > 0
-    ? "block"
-    : "none";
-
-
-  const history =
-    document.getElementById("history");
-
-
-  if(!data.history || data.history.length === 0){
-
-    history.innerHTML =
-      '<p style="color:#777;margin-top:10px">Todavía no tenés movimientos.</p>';
-
-    return;
-
-  }
-
-
-  history.innerHTML =
-    data.history.map(item => {
-
-      return `
-        <div class="history-item">
-          <strong>
-            ${getEmoji(item.category)}
-            ${item.category} —
-            ${formatMoney(item.amount)}
-          </strong>
-
-          <small>${item.date}</small>
-        </div>
-      `;
-
-    }).join("");
-
-}
-
-
-function getEmoji(category){
-
-  if(category === "Comida") return "🍔";
-  if(category === "Auto") return "🚗";
-  if(category === "Alquiler") return "🏠";
-
-  return "➕";
-
-}
-
-
-/* MODO CASH */
-
-function consultCash(){
-
-  const text =
-    document.getElementById("question").value
-    .trim();
-
-  const advice =
-    document.getElementById("advice");
-
-  const options =
-    document.getElementById("options");
-
-  if(!text){
-
-    advice.style.display = "block";
-
-    advice.innerHTML =
-      "💬 Contame un poco más. Por ejemplo: <b>“Tengo $500.000, faltan 15 días para cobrar y quiero comprar algo de $120.000.”</b>";
-
-    options.style.display = "none";
-
-    return;
-
-  }
-
-
-  /*
-    Buscamos números escritos en la consulta.
-  */
-
-  const numbers =
-    text.match(/\d[\d\.\,]*/g) || [];
-
-  let values =
-    numbers
-      .map(n => Number(
-        n.replace(/\./g,"").replace(",",".")
-      ))
-      .filter(n => n > 0);
-
-
-  let available =
-    data.balance > 0
-    ? data.balance
-    : null;
-
-  let days = null;
-  let purchase = null;
-
-
-  /*
-    Si hay varios números intentamos
-    interpretar días y compra.
-  */
-
-  const dayMatch =
-    text.match(/(\d+)\s*d[ií]as/i);
-
-  if(dayMatch){
-
-    days = Number(dayMatch[1]);
-
-  }
-
-
-  if(values.length){
-
-    const possibleMoney =
-      values.filter(v => v > 1000);
-
-    if(!available && possibleMoney.length){
-
-      available = possibleMoney[0];
-
-    }
-
-    if(possibleMoney.length > 1){
-
-      purchase =
-        possibleMoney[possibleMoney.length - 1];
-
-      if(purchase === available){
-
-        purchase = null;
-
-      }
-
-    }
-
-  }
-
-
-  /*
-    RESPUESTA
-  */
-
-  let message =
-    "🧠 <strong>Yo lo pensaría así:</strong><br><br>";
-
-  if(available){
-
-    message +=
-      "💰 Tenés aproximadamente <strong>" +
-      formatMoney(available) +
-      "</strong> para manejar.<br><br>";
-
-  }else{
-
-    message +=
-      "💰 Para ayudarte mejor, podés usar el saldo que ya cargaste o contarme cuánto dinero tenés.<br><br>";
-
-  }
-
-
-  if(days && available){
-
-    const daily =
-      available / days;
-
-    message +=
-      "📅 Si faltan <strong>" +
-      days +
-      " días</strong>, tu promedio sería de aproximadamente <strong>" +
-      formatMoney(daily) +
-      " por día</strong>.<br><br>";
-
-  }
-
-
-  if(purchase && available){
-
-    if(purchase <= available){
-
-      const remaining =
-        available - purchase;
-
-      message +=
-        "🛍️ Si hacés esa compra, te quedarían aproximadamente <strong>" +
-        formatMoney(remaining) +
-        "</strong>.<br><br>";
-
-    }else{
-
-      message +=
-        "⚠️ Esa compra supera el dinero que tenés disponible.<br><br>";
-
-    }
-
-  }
-
-
-  message +=
-    "No se trata de prohibirte gastar. La idea es que veas qué pasa antes de decidir.";
-
-  advice.innerHTML = message;
-  advice.style.display = "block";
-
-
-  /*
-    OPCIONES
-  */
-
-  let o1 =
-    "Si no es urgente, podés esperar y mantener más efectivo disponible. Es la opción que más protege tu colchón.";
-
-  let o2 =
-    "Podés hacerlo ahora si es una compra importante para vos, pero después tendrías menos margen para los próximos gastos.";
-
-  let o3 =
-    "Podés esperar unos días, reducir algún gasto y volver a calcular. Así buscás un punto medio.";
-
-  if(days && available){
-
-    const daily =
-      available / days;
-
-    o1 +=
-      " Tu objetivo sería conservar el mayor margen posible.";
-
-    o2 +=
-      " Después tendrías que manejarte con un promedio menor al de " +
-      formatMoney(daily) +
-      " diarios.";
-
-    o3 +=
-      " Volvé a calcular cuando cambie tu saldo.";
-
-  }
-
-
-  document.getElementById("option1").innerHTML = o1;
-  document.getElementById("option2").innerHTML = o2;
-  document.getElementById("option3").innerHTML = o3;
-
-  options.style.display = "block";
-
-}
-
-
-/* MODO GANAR */
-
-function openEarn(title,text,url){
-
-  document.getElementById("modalTitle").textContent =
-    title;
-
-  document.getElementById("modalText").textContent =
-    text;
-
-  document.getElementById("modalLink").onclick =
-    function(){
-
-      window.open(url,"_blank");
-
-    };
-
-  document.getElementById("modal").style.display =
-    "flex";
-
-}
-
-
-function closeModal(){
-
-  document.getElementById("modal").style.display =
-    "none";
-
-}
-
-
-document.getElementById("modal").addEventListener(
-  "click",
-  function(event){
-
-    if(event.target === this){
-
-      closeModal();
-
-    }
-
-  }
+const precio =
+Number(
+document.getElementById(
+"precio"
+).value
 );
 
 
-/* INICIAR */
+const unidades =
+Number(
+document.getElementById(
+"unidades"
+).value
+);
 
-loadData();
+
+if(!precio || precio <= 0){
+
+alert(
+"Poné un precio válido."
+);
+
+return;
+
+}
+
+
+if(!unidades || unidades <= 0){
+
+alert(
+"Poné una cantidad válida."
+);
+
+return;
+
+}
+
+
+const ingreso = {
+
+actividad:actividad,
+
+nombre:
+nombre || actividad,
+
+precio:precio,
+
+unidades:unidades,
+
+total:
+precio * unidades,
+
+fecha:
+new Date().toLocaleTimeString(
+"es-AR",
+{
+hour:"2-digit",
+minute:"2-digit"
+}
+)
+
+};
+
+
+movimientos.push(
+ingreso
+);
+
+
+guardarDatos();
+
+
+actualizarPantalla();
+
+
+document.getElementById(
+"nombreTrabajo"
+).value = "";
+
+}
+
+
+
+/* ==================================================
+   RESTAR ÚLTIMO
+================================================== */
+
+function restarIngreso(){
+
+if(movimientos.length === 0){
+
+alert(
+"No hay ingresos para quitar."
+);
+
+return;
+
+}
+
+
+movimientos.pop();
+
+
+guardarDatos();
+
+
+actualizarPantalla();
+
+}
+
+
+
+/* ==================================================
+   REINICIAR DÍA
+================================================== */
+
+function reiniciarContador(){
+
+if(
+!confirm(
+"¿Seguro que querés reiniciar los ingresos de hoy?"
+)
+){
+
+return;
+
+}
+
+
+movimientos = [];
+
+
+guardarDatos();
+
+
+actualizarPantalla();
+
+}
+
+
+
+/* ==================================================
+   META
+================================================== */
+
+function verificarMeta(){
+
+const total =
+calcularTotal();
+
+
+const mensaje =
+document.getElementById(
+"mensajeMeta"
+);
+
+
+if(
+meta > 0 &&
+total >= meta
+){
+
+mensaje.style.display =
+"block";
+
+}else{
+
+mensaje.style.display =
+"none";
+
+}
+
+
+let porcentaje = 0;
+
+
+if(meta > 0){
+
+porcentaje =
+Math.min(
+100,
+(total / meta) * 100
+);
+
+}
+
+
+document.getElementById(
+"barraMeta"
+).style.width =
+porcentaje + "%";
+
+}
+
+
+
+/* ==================================================
+   MOVIMIENTOS
+================================================== */
+
+function mostrarMovimientos(){
+
+const lista =
+document.getElementById(
+"listaMovimientos"
+);
+
+
+if(movimientos.length === 0){
+
+lista.innerHTML =
+'<p class="pequeno">Todavía no registraste ingresos.</p>';
+
+return;
+
+}
+
+
+lista.innerHTML = "";
+
+
+[...movimientos]
+.reverse()
+.forEach(function(movimiento){
+
+const elemento =
+document.createElement(
+"div"
+);
+
+
+elemento.className =
+"movimiento";
+
+
+elemento.innerHTML = `
+
+<strong>
++ $${formatoDinero(movimiento.total)}
+</strong>
+
+<br>
+
+<span class="pequeno">
+${movimiento.nombre}
+</span>
+
+<br>
+
+<span class="pequeno">
+${movimiento.actividad}
+· ${movimiento.unidades} unidad(es)
+· $${formatoDinero(movimiento.precio)} c/u
+</span>
+
+<div class="fecha">
+${movimiento.fecha}
+</div>
+
+`;
+
+
+lista.appendChild(
+elemento
+);
+
+});
+
+}
+
+
+
+/* ==================================================
+   GASTOS
+================================================== */
+
+function sumarGasto(){
+
+const categoria =
+document.getElementById(
+"categoriaGasto"
+).value;
+
+
+const descripcion =
+document.getElementById(
+"descripcionGasto"
+).value.trim();
+
+
+const monto =
+Number(
+document.getElementById(
+"montoGasto"
+).value
+);
+
+
+if(!monto || monto <= 0){
+
+alert(
+"Poné un monto válido."
+);
+
+return;
+
+}
+
+
+gastos.push({
+
+categoria:categoria,
+
+descripcion:
+descripcion || categoria,
+
+monto:monto,
+
+fecha:
+new Date().toLocaleTimeString(
+"es-AR",
+{
+hour:"2-digit",
+minute:"2-digit"
+}
+)
+
+});
+
+
+guardarDatos();
+
+
+actualizarPantalla();
+
+
+document.getElementById(
+"descripcionGasto"
+).value = "";
+
+
+document.getElementById(
+"montoGasto"
+).value = "";
+
+}
+
+
+
+/* ==================================================
+   MOSTRAR GASTOS
+================================================== */
+
+function mostrarGastos(){
+
+const lista =
+document.getElementById(
+"listaGastos"
+);
+
+
+if(gastos.length === 0){
+
+lista.innerHTML =
+'<p class="pequeno">Todavía no registraste gastos.</p>';
+
+return;
+
+}
+
+
+lista.innerHTML = "";
+
+
+[...gastos]
+.reverse()
+.forEach(function(gasto){
+
+const elemento =
+document.createElement(
+"div"
+);
+
+
+elemento.className =
+"movimiento";
+
+
+elemento.innerHTML = `
+
+<strong class="rojo">
+- $${formatoDinero(gasto.monto)}
+</strong>
+
+<br>
+
+<span class="pequeno">
+${gasto.descripcion}
+</span>
+
+<br>
+
+<span class="pequeno">
+${gasto.categoria}
+</span>
+
+<div class="fecha">
+${gasto.fecha}
+</div>
+
+`;
+
+
+lista.appendChild(
+elemento
+);
+
+});
+
+}
+
+
+
+/* ==================================================
+   AHORRO
+================================================== */
+
+function crearObjetivo(){
+
+const nombre =
+document.getElementById(
+"nombreObjetivo"
+).value.trim();
+
+
+const monto =
+Number(
+document.getElementById(
+"montoObjetivo"
+).value
+);
+
+
+if(!nombre){
+
+alert(
+"Poné un nombre para tu objetivo."
+);
+
+return;
+
+}
+
+
+if(!monto || monto <= 0){
+
+alert(
+"Poné un monto válido."
+);
+
+return;
+
+}
+
+
+objetivo = {
+
+nombre:nombre,
+
+meta:monto,
+
+ahorro:0
+
+};
+
+
+guardarDatos();
+
+
+actualizarPantalla();
+
+
+document.getElementById(
+"nombreObjetivo"
+).value = "";
+
+
+document.getElementById(
+"montoObjetivo"
+).value = "";
+
+}
+
+
+
+/* ==================================================
+   AGREGAR AHORRO
+================================================== */
+
+function agregarAhorro(){
+
+if(objetivo.meta <= 0){
+
+alert(
+"Primero creá un objetivo."
+);
+
+return;
+
+}
+
+
+const monto =
+Number(
+prompt(
+"¿Cuánto querés agregar al ahorro?"
+)
+);
+
+
+if(!monto || monto <= 0){
+
+return;
+
+}
+
+
+objetivo.ahorro += monto;
+
+
+guardarDatos();
+
+
+actualizarPantalla();
+
+}
+
+
+
+/* ==================================================
+   REINICIAR AHORRO
+================================================== */
+
+function reiniciarAhorro(){
+
+if(
+!confirm(
+"¿Seguro que querés reiniciar este objetivo?"
+)
+){
+
+return;
+
+}
+
+
+objetivo = {
+
+nombre:"",
+meta:0,
+ahorro:0
+
+};
+
+
+guardarDatos();
+
+
+actualizarPantalla();
+
+}
+
+
+
+/* ==================================================
+   ACTUALIZAR AHORRO
+================================================== */
+
+function actualizarAhorro(){
+
+document.getElementById(
+"tituloObjetivo"
+).textContent =
+objetivo.nombre
+? "🎯 " + objetivo.nombre
+: "🎯 Sin objetivo";
+
+
+document.getElementById(
+"ahorroActual"
+).textContent =
+formatoDinero(
+objetivo.ahorro
+);
+
+
+document.getElementById(
+"objetivoTotal"
+).textContent =
+formatoDinero(
+objetivo.meta
+);
+
+
+document.getElementById(
+"inicioAhorro"
+).textContent =
+formatoDinero(
+objetivo.ahorro
+);
+
+
+document.getElementById(
+"inicioObjetivo"
+).textContent =
+objetivo.nombre
+? objetivo.nombre
+: "Todavía no tenés un objetivo.";
+
+
+let porcentaje = 0;
+
+
+if(objetivo.meta > 0){
+
+porcentaje =
+Math.min(
+100,
+(objetivo.ahorro /
+objetivo.meta) * 100
+);
+
+}
+
+
+document.getElementById(
+"barraAhorro"
+).style.width =
+porcentaje + "%";
+
+}
+
+
+
+/* ==================================================
+   ESTADISTICAS
+================================================== */
+
+function actualizarStats(){
+
+const ingresos =
+calcularTotal();
+
+
+const gastosTotal =
+calcularGastos();
+
+
+document.getElementById(
+"statsIngresos"
+).textContent =
+formatoDinero(
+ingresos
+);
+
+
+document.getElementById(
+"statsGastos"
+).textContent =
+formatoDinero(
+gastosTotal
+);
+
+
+document.getElementById(
+"statsAhorro"
+).textContent =
+formatoDinero(
+objetivo.ahorro
+);
+
+
+document.getElementById(
+"statsMovimientos"
+).textContent =
+movimientos.length +
+gastos.length;
+
+
+document.getElementById(
+"statsIngresoGrande"
+).textContent =
+formatoDinero(
+ingresos
+);
+
+
+document.getElementById(
+"statsGastoGrande"
+).textContent =
+formatoDinero(
+gastosTotal
+);
+
+}
+
+
+
+/* ==================================================
+   GUARDAR
+================================================== */
+
+function guardarDatos(){
+
+/*
+Guardamos también usando las claves
+originales de Modo Plata.
+*/
+
+localStorage.setItem(
+"modoPlataMovimientos",
+JSON.stringify(
+movimientos
+)
+);
+
+
+localStorage.setItem(
+"modoPlataMeta",
+meta
+);
+
+
+localStorage.setItem(
+"modoPlataGastos",
+JSON.stringify(
+gastos
+)
+);
+
+
+localStorage.setItem(
+"modoPlataObjetivo",
+JSON.stringify(
+objetivo
+)
+);
+
+}
+
+
+
+/* ==================================================
+   META INPUT
+================================================== */
+
+document
+.getElementById("meta")
+.addEventListener(
+"input",
+function(){
+
+meta =
+Number(this.value) || 0;
+
+
+guardarDatos();
+
+
+verificarMeta();
+
+
+actualizarPantalla();
+
+}
+);
+
+
+
+/* ==================================================
+   NAVEGACION
+================================================== */
+
+function mostrarSeccion(nombre){
+
+document
+.querySelectorAll(".seccion")
+.forEach(
+function(seccion){
+
+seccion.classList.remove(
+"activa"
+);
+
+}
+);
+
+
+document
+.getElementById(nombre)
+.classList.add(
+"activa"
+);
+
+
+document
+.querySelectorAll(".navegacion button")
+.forEach(
+function(boton){
+
+boton.classList.remove(
+"activo"
+);
+
+}
+);
+
+
+const mapa = {
+
+inicio:"navInicio",
+
+ganar:"navGanar",
+
+gastar:"navGastar",
+
+ahorrar:"navAhorrar",
+
+stats:"navStats"
+
+};
+
+
+document
+.getElementById(
+mapa[nombre]
+)
+.classList.add(
+"activo"
+);
+
+
+window.scrollTo(
+{
+top:0,
+behavior:"smooth"
+}
+);
+
+}
+
+
+
+/* ==================================================
+   INICIO
+================================================== */
+
+actualizarPantalla();
 
 </script>
 
