@@ -4,10 +4,7 @@
 
 <meta charset="UTF-8">
 
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Modo Plata</title>
 
@@ -18,386 +15,254 @@ box-sizing:border-box;
 }
 
 body{
-
 margin:0;
-
-font-family:
--apple-system,
-BlinkMacSystemFont,
-"Segoe UI",
-sans-serif;
-
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 background:#f4f7fb;
-
 color:#172033;
-
 padding-bottom:90px;
-
 }
 
 header{
-
-background:linear-gradient(
-135deg,
-#0f172a,
-#2563eb
-);
-
+background:linear-gradient(135deg,#0f172a,#2563eb);
 color:white;
-
 padding:22px 18px;
-
 text-align:center;
-
 }
 
 header h1{
-
 margin:0;
-
 font-size:28px;
-
 }
 
 header p{
-
 margin:6px 0 0;
-
 opacity:.85;
-
 }
 
 .container{
-
 max-width:650px;
-
 margin:auto;
-
 padding:15px;
-
 }
 
 .seccion{
-
 display:none;
-
 }
 
 .seccion.activa{
-
 display:block;
-
 }
 
 .card{
-
 background:white;
-
 border-radius:18px;
-
 padding:18px;
-
 margin-bottom:15px;
-
-box-shadow:
-0 5px 18px
-rgba(0,0,0,.07);
-
+box-shadow:0 5px 18px rgba(0,0,0,.07);
 }
 
 .card h2{
-
 margin-top:0;
-
 }
 
 input,
 select{
-
 width:100%;
-
 padding:13px;
-
 margin-top:7px;
-
 margin-bottom:12px;
-
 border:1px solid #d7dce5;
-
 border-radius:12px;
-
 font-size:16px;
-
 }
 
 button{
-
 border:0;
-
 border-radius:12px;
-
 padding:13px 16px;
-
 font-size:15px;
-
 font-weight:700;
-
 cursor:pointer;
-
 }
 
 .azul{
-
 background:#2563eb;
-
 color:white;
-
 width:100%;
-
 }
 
 .ganar{
-
 background:#16a34a;
-
 color:white;
-
 }
 
 .rojo{
-
 background:#dc2626;
-
 color:white;
-
 }
 
 .gris{
-
 background:#64748b;
-
 color:white;
-
 }
 
 .amarillo{
-
 background:#f59e0b;
-
 color:white;
+}
 
+.violeta{
+background:#7c3aed;
+color:white;
+width:100%;
 }
 
 .botonera{
-
 display:flex;
-
 gap:8px;
-
 flex-wrap:wrap;
-
 }
 
 .numero{
-
 font-size:34px;
-
 font-weight:800;
-
 text-align:center;
-
 margin:12px 0;
-
 }
 
 .pequeno{
-
 font-size:14px;
-
 color:#64748b;
-
 }
 
 .movimiento{
-
 padding:12px;
-
 border-bottom:1px solid #e5e7eb;
-
 }
 
 .movimiento:last-child{
-
 border-bottom:0;
-
 }
 
 .ingreso{
-
 color:#16a34a;
-
 font-weight:700;
-
 }
 
 .gasto{
-
 color:#dc2626;
-
 font-weight:700;
-
 }
 
 .ahorro{
-
 color:#2563eb;
-
 font-weight:700;
-
 }
 
 .resumen{
-
 display:grid;
-
-grid-template-columns:
-1fr 1fr;
-
+grid-template-columns:1fr 1fr;
 gap:10px;
-
 }
 
 .resumen div{
-
 background:#f8fafc;
-
 padding:14px;
-
 border-radius:14px;
-
 }
 
 .resumen strong{
-
 display:block;
-
 font-size:20px;
-
 margin-top:4px;
-
 }
 
 .pro-destacado{
-
-background:
-linear-gradient(
-135deg,
-#111827,
-#2563eb
-);
-
+background:linear-gradient(135deg,#111827,#2563eb);
 color:white;
-
 }
 
 .pro-destacado .pequeno{
-
 color:#dbeafe;
+}
 
+.idea{
+border:1px solid #e5e7eb;
+border-radius:14px;
+padding:15px;
+margin-top:12px;
+background:#fafafa;
+}
+
+.idea h3{
+margin:0 0 7px;
+}
+
+.idea p{
+margin:6px 0;
+}
+
+.hacer-plata-destacado{
+background:linear-gradient(135deg,#065f46,#16a34a);
+color:white;
+}
+
+.hacer-plata-destacado .pequeno{
+color:#dcfce7;
 }
 
 .navegacion{
-
 position:fixed;
-
 bottom:0;
-
 left:0;
-
 right:0;
-
 height:75px;
-
 background:white;
-
 border-top:1px solid #ddd;
-
 display:flex;
-
 justify-content:space-around;
-
 align-items:center;
-
 z-index:1000;
-
-box-shadow:
-0 -4px 15px
-rgba(0,0,0,.08);
-
+box-shadow:0 -4px 15px rgba(0,0,0,.08);
+overflow-x:auto;
 }
 
 .navegacion button{
-
 background:transparent;
-
 color:#64748b;
-
-padding:7px 5px;
-
-font-size:11px;
-
+padding:7px 3px;
+font-size:10px;
+min-width:58px;
 flex:1;
-
 }
 
 .navegacion button span{
-
 display:block;
-
-font-size:20px;
-
+font-size:19px;
 margin-bottom:3px;
-
 }
 
 .navegacion button.activo{
-
 color:#2563eb;
-
 font-weight:800;
-
 }
 
 .meta-ok{
-
 background:#dcfce7;
-
 color:#166534;
-
 padding:12px;
-
 border-radius:12px;
-
 margin-top:10px;
-
 font-weight:700;
-
 }
 
 .alerta{
-
 background:#fef3c7;
-
 color:#92400e;
-
 padding:12px;
-
 border-radius:12px;
-
 margin-top:10px;
-
 font-weight:600;
-
 }
 
 </style>
@@ -427,24 +292,18 @@ font-weight:600;
 <h2>👋 Bienvenido a Modo Plata</h2>
 
 <p class="pequeno">
-
 Controlá tus ingresos, gastos y objetivos desde un solo lugar.
-
 </p>
 
 </div>
 
-
-<!-- INGRESO MENSUAL -->
 
 <div class="card">
 
 <h2>💵 ¿Cuánto ganás al mes?</h2>
 
 <p class="pequeno">
-
 Configurá tu ingreso mensual para saber cuánto dinero tenés disponible.
-
 </p>
 
 <label>Ingreso mensual</label>
@@ -469,9 +328,7 @@ placeholder="Ej: 5"
 class="azul"
 onclick="guardarIngresoMensual()"
 >
-
 💾 GUARDAR INGRESO MENSUAL
-
 </button>
 
 <p
@@ -490,60 +347,23 @@ style="margin-top:10px;"
 <div class="resumen">
 
 <div>
-
-<span class="pequeno">
-Ingreso mensual
-</span>
-
-<strong id="resumenIngreso">
-$0
-</strong>
-
+<span class="pequeno">Ingreso mensual</span>
+<strong id="resumenIngreso">$0</strong>
 </div>
 
 <div>
-
-<span class="pequeno">
-Gastos
-</span>
-
-<strong
-id="resumenGastos"
-class="gasto"
->
-$0
-</strong>
-
+<span class="pequeno">Gastos</span>
+<strong id="resumenGastos" class="gasto">$0</strong>
 </div>
 
 <div>
-
-<span class="pequeno">
-Disponible
-</span>
-
-<strong
-id="resumenDisponible"
-class="ingreso"
->
-$0
-</strong>
-
+<span class="pequeno">Disponible</span>
+<strong id="resumenDisponible" class="ingreso">$0</strong>
 </div>
 
 <div>
-
-<span class="pequeno">
-Ahorro
-</span>
-
-<strong
-id="resumenAhorro"
-class="ahorro"
->
-$0
-</strong>
-
+<span class="pequeno">Ahorro</span>
+<strong id="resumenAhorro" class="ahorro">$0</strong>
 </div>
 
 </div>
@@ -555,9 +375,7 @@ $0
 
 <h2>🎯 Meta diaria</h2>
 
-<label>
-¿Cuánto querés ganar por día?
-</label>
+<label>¿Cuánto querés ganar por día?</label>
 
 <input
 type="number"
@@ -569,9 +387,7 @@ placeholder="Ej: 50000"
 class="azul"
 onclick="guardarMeta()"
 >
-
 💾 GUARDAR META
-
 </button>
 
 <p
@@ -593,27 +409,28 @@ style="margin-top:10px;"
 class="ganar"
 onclick="mostrarSeccion('ganar')"
 >
-
 💰 GANAR
+</button>
 
+<button
+class="violeta"
+onclick="mostrarSeccion('hacerPlata')"
+>
+💡 HACER PLATA
 </button>
 
 <button
 class="rojo"
 onclick="mostrarSeccion('gastar')"
 >
-
 💸 GASTAR
-
 </button>
 
 <button
 class="azul"
 onclick="mostrarSeccion('ahorrar')"
 >
-
 🏦 AHORRAR
-
 </button>
 
 </div>
@@ -636,43 +453,18 @@ onclick="mostrarSeccion('ahorrar')"
 
 <select id="actividad">
 
-<option>
-Peluquería
-</option>
-
-<option>
-Venta de comidas
-</option>
-
-<option>
-Venta de productos
-</option>
-
-<option>
-Viajes / Repartos
-</option>
-
-<option>
-Servicios
-</option>
-
-<option>
-Trabajos
-</option>
-
-<option>
-Freelance
-</option>
-
-<option>
-Otro
-</option>
+<option>Peluquería</option>
+<option>Venta de comidas</option>
+<option>Venta de productos</option>
+<option>Viajes / Repartos</option>
+<option>Servicios</option>
+<option>Trabajos</option>
+<option>Freelance</option>
+<option>Otro</option>
 
 </select>
 
-<label>
-Nombre del trabajo
-</label>
+<label>Nombre del trabajo</label>
 
 <input
 type="text"
@@ -680,9 +472,7 @@ id="nombreTrabajo"
 placeholder="Ej: Viaje a Río Senguer"
 >
 
-<label>
-Precio por unidad
-</label>
+<label>Precio por unidad</label>
 
 <input
 type="number"
@@ -690,9 +480,7 @@ id="precio"
 value="20000"
 >
 
-<label>
-Cantidad
-</label>
+<label>Cantidad</label>
 
 <input
 type="number"
@@ -703,9 +491,7 @@ min="1"
 
 <div class="numero">
 
-$<span id="totalGanado">
-0
-</span>
+$<span id="totalGanado">0</span>
 
 </div>
 
@@ -715,27 +501,21 @@ $<span id="totalGanado">
 class="ganar"
 onclick="sumarIngreso()"
 >
-
 ➕ SUMAR INGRESO
-
 </button>
 
 <button
 class="rojo"
 onclick="restarIngreso()"
 >
-
 ➖ RESTAR
-
 </button>
 
 <button
 class="gris"
 onclick="reiniciarContador()"
 >
-
 🔄 REINICIAR
-
 </button>
 
 </div>
@@ -753,9 +533,132 @@ style="margin-top:10px;"
 
 <h2>📋 Movimientos</h2>
 
-<div id="listaMovimientos">
+<div id="listaMovimientos"></div>
 
 </div>
+
+</div>
+
+
+
+<!-- ================= HACER PLATA ================= -->
+
+<div id="hacerPlata" class="seccion">
+
+<div class="card hacer-plata-destacado">
+
+<h2>💡 Modo Hacer Plata</h2>
+
+<p class="pequeno">
+Ideas y oportunidades para generar ingresos según tus posibilidades.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>🚀 ¿Cómo querés hacer plata?</h2>
+
+<p class="pequeno">
+Elegí una categoría para encontrar ideas.
+</p>
+
+<button
+class="azul"
+onclick="mostrarIdeas('auto')"
+>
+🚗 TENGO AUTO
+</button>
+
+<br><br>
+
+<button
+class="azul"
+onclick="mostrarIdeas('manual')"
+>
+🛠️ SÉ HACER TRABAJOS
+</button>
+
+<br><br>
+
+<button
+class="azul"
+onclick="mostrarIdeas('comida')"
+>
+🍔 QUIERO VENDER COMIDA
+</button>
+
+<br><br>
+
+<button
+class="azul"
+onclick="mostrarIdeas('reventa')"
+>
+🛒 QUIERO REVENDER
+</button>
+
+<br><br>
+
+<button
+class="azul"
+onclick="mostrarIdeas('online')"
+>
+📱 QUIERO GANAR DESDE EL CELULAR
+</button>
+
+</div>
+
+
+<div
+id="ideasPlata"
+class="card"
+>
+
+<h2>💡 Ideas para vos</h2>
+
+<p class="pequeno">
+Elegí una categoría para ver opciones.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>🧮 Calculadora rápida</h2>
+
+<p class="pequeno">
+Calculá cuánto podrías generar con una actividad.
+</p>
+
+<label>Ganancia por trabajo</label>
+
+<input
+type="number"
+id="gananciaIdea"
+placeholder="Ej: 30000"
+>
+
+<label>Trabajos por semana</label>
+
+<input
+type="number"
+id="trabajosSemana"
+placeholder="Ej: 5"
+>
+
+<button
+class="ganar"
+onclick="calcularGananciaIdea()"
+>
+🧮 CALCULAR
+</button>
+
+<div
+id="resultadoIdea"
+style="margin-top:12px;"
+></div>
 
 </div>
 
@@ -771,9 +674,7 @@ style="margin-top:10px;"
 
 <h2>💸 Modo Gastar</h2>
 
-<label>
-¿En qué gastaste?
-</label>
+<label>¿En qué gastaste?</label>
 
 <input
 type="text"
@@ -781,9 +682,7 @@ id="nombreGasto"
 placeholder="Ej: Supermercado"
 >
 
-<label>
-Monto
-</label>
+<label>Monto</label>
 
 <input
 type="number"
@@ -795,9 +694,7 @@ placeholder="Ej: 25000"
 class="rojo"
 onclick="agregarGasto()"
 >
-
 💸 REGISTRAR GASTO
-
 </button>
 
 </div>
@@ -807,9 +704,7 @@ onclick="agregarGasto()"
 
 <h2>📋 Gastos registrados</h2>
 
-<div id="listaGastos">
-
-</div>
+<div id="listaGastos"></div>
 
 </div>
 
@@ -826,14 +721,10 @@ onclick="agregarGasto()"
 <h2>🏦 Modo Ahorrar</h2>
 
 <p class="pequeno">
-
 Creá un objetivo y empezá a acercarte a él.
-
 </p>
 
-<label>
-Nombre del objetivo
-</label>
+<label>Nombre del objetivo</label>
 
 <input
 type="text"
@@ -841,9 +732,7 @@ id="nombreObjetivo"
 placeholder="Ej: Auto nuevo"
 >
 
-<label>
-Monto objetivo
-</label>
+<label>Monto objetivo</label>
 
 <input
 type="number"
@@ -851,9 +740,7 @@ id="montoObjetivo"
 placeholder="Ej: 500000"
 >
 
-<label>
-¿Cuánto tenés ahorrado?
-</label>
+<label>¿Cuánto tenés ahorrado?</label>
 
 <input
 type="number"
@@ -865,9 +752,7 @@ placeholder="Ej: 100000"
 class="azul"
 onclick="guardarObjetivo()"
 >
-
 🎯 GUARDAR OBJETIVO
-
 </button>
 
 </div>
@@ -878,9 +763,7 @@ onclick="guardarObjetivo()"
 <h2>🎯 Mi objetivo</h2>
 
 <div id="objetivoMostrar">
-
 Todavía no tenés un objetivo.
-
 </div>
 
 </div>
@@ -900,61 +783,23 @@ Todavía no tenés un objetivo.
 <div class="resumen">
 
 <div>
-
-<span class="pequeno">
-Ingresos
-</span>
-
-<strong
-id="statsIngresos"
-class="ingreso"
->
-$0
-</strong>
-
+<span class="pequeno">Ingresos</span>
+<strong id="statsIngresos" class="ingreso">$0</strong>
 </div>
 
 <div>
-
-<span class="pequeno">
-Gastos
-</span>
-
-<strong
-id="statsGastos"
-class="gasto"
->
-$0
-</strong>
-
+<span class="pequeno">Gastos</span>
+<strong id="statsGastos" class="gasto">$0</strong>
 </div>
 
 <div>
-
-<span class="pequeno">
-Saldo
-</span>
-
-<strong
-id="statsSaldo"
->
-$0
-</strong>
-
+<span class="pequeno">Saldo</span>
+<strong id="statsSaldo">$0</strong>
 </div>
 
 <div>
-
-<span class="pequeno">
-Movimientos
-</span>
-
-<strong
-id="statsMovimientos"
->
-0
-</strong>
-
+<span class="pequeno">Movimientos</span>
+<strong id="statsMovimientos">0</strong>
 </div>
 
 </div>
@@ -967,36 +812,22 @@ id="statsMovimientos"
 <h2>📈 Información</h2>
 
 <p class="pequeno">
-
 Acá vamos a ir incorporando estadísticas cada vez más completas.
-
 </p>
 
 <p>
-
 💰 Total ganado:
-<strong id="statGanado">
-$0
-</strong>
-
+<strong id="statGanado">$0</strong>
 </p>
 
 <p>
-
 💸 Total gastado:
-<strong id="statGastado">
-$0
-</strong>
-
+<strong id="statGastado">$0</strong>
 </p>
 
 <p>
-
 💵 Dinero disponible:
-<strong id="statDisponible">
-$0
-</strong>
-
+<strong id="statDisponible">$0</strong>
 </p>
 
 </div>
@@ -1005,7 +836,7 @@ $0
 
 
 
-<!-- ================= MODO PRO ================= -->
+<!-- ================= PRO ================= -->
 
 <div id="pro" class="seccion">
 
@@ -1014,9 +845,7 @@ $0
 <h2>⭐ Modo Plata Pro</h2>
 
 <p class="pequeno">
-
 Herramientas avanzadas para llevar el control de tu plata al siguiente nivel.
-
 </p>
 
 </div>
@@ -1027,27 +856,21 @@ Herramientas avanzadas para llevar el control de tu plata al siguiente nivel.
 <h2>🤖 Ayuda con ChatGPT</h2>
 
 <p class="pequeno">
-
 Prepará un resumen de tus ingresos, gastos, ahorro y metas para consultarlo con ChatGPT.
-
 </p>
 
 <button
 class="azul"
 onclick="prepararChatGPT()"
 >
-
 🤖 CONSULTAR CON CHATGPT
-
 </button>
 
 <p
 id="mensajeChatGPT"
 class="pequeno"
 style="margin-top:10px;"
->
-
-</p>
+></p>
 
 </div>
 
@@ -1057,27 +880,21 @@ style="margin-top:10px;"
 <h2>📤 Compartir Modo Plata</h2>
 
 <p class="pequeno">
-
 Compartí la aplicación con otra persona.
-
 </p>
 
 <button
 class="azul"
 onclick="compartirModoPlata()"
 >
-
 📤 COMPARTIR MODO PLATA
-
 </button>
 
 <p
 id="mensajeCompartir"
 class="pequeno"
 style="margin-top:10px;"
->
-
-</p>
+></p>
 
 </div>
 
@@ -1087,18 +904,14 @@ style="margin-top:10px;"
 <h2>📊 Estadísticas avanzadas</h2>
 
 <p class="pequeno">
-
 Analizá tus ingresos y gastos con más detalle.
-
 </p>
 
 <button
 class="azul"
 onclick="alert('📊 Próximamente: estadísticas avanzadas')"
 >
-
 📈 PRÓXIMAMENTE
-
 </button>
 
 </div>
@@ -1109,18 +922,14 @@ onclick="alert('📊 Próximamente: estadísticas avanzadas')"
 <h2>📅 Presupuesto mensual</h2>
 
 <p class="pequeno">
-
 Organizá cuánto podés gastar durante todo el mes.
-
 </p>
 
 <button
 class="azul"
 onclick="alert('📅 Próximamente: presupuesto mensual')"
 >
-
 💰 PRÓXIMAMENTE
-
 </button>
 
 </div>
@@ -1131,18 +940,14 @@ onclick="alert('📅 Próximamente: presupuesto mensual')"
 <h2>🔔 Alertas de gastos</h2>
 
 <p class="pequeno">
-
 Recibí avisos cuando tus gastos estén aumentando demasiado.
-
 </p>
 
 <button
 class="azul"
 onclick="alert('🔔 Próximamente: alertas de gastos')"
 >
-
 🔔 PRÓXIMAMENTE
-
 </button>
 
 </div>
@@ -1153,18 +958,14 @@ onclick="alert('🔔 Próximamente: alertas de gastos')"
 <h2>☁️ Respaldo</h2>
 
 <p class="pequeno">
-
 Preparado para incorporar copias de seguridad de tus datos.
-
 </p>
 
 <button
 class="azul"
 onclick="alert('☁️ Próximamente: respaldo de datos')"
 >
-
 ☁️ PRÓXIMAMENTE
-
 </button>
 
 </div>
@@ -1175,18 +976,14 @@ onclick="alert('☁️ Próximamente: respaldo de datos')"
 <h2>💼 Modo Profesional</h2>
 
 <p class="pequeno">
-
 Herramientas para trabajadores independientes, emprendedores y pequeños negocios.
-
 </p>
 
 <button
 class="ganar"
 onclick="alert('🚀 Próximamente: Modo Profesional')"
 >
-
 🚀 PRÓXIMAMENTE
-
 </button>
 
 </div>
@@ -1206,10 +1003,8 @@ id="navInicio"
 class="activo"
 onclick="mostrarSeccion('inicio')"
 >
-
 <span>🏠</span>
 Inicio
-
 </button>
 
 
@@ -1217,10 +1012,17 @@ Inicio
 id="navGanar"
 onclick="mostrarSeccion('ganar')"
 >
-
 <span>💰</span>
 Ganar
+</button>
 
+
+<button
+id="navHacerPlata"
+onclick="mostrarSeccion('hacerPlata')"
+>
+<span>💡</span>
+Hacer Plata
 </button>
 
 
@@ -1228,10 +1030,8 @@ Ganar
 id="navGastar"
 onclick="mostrarSeccion('gastar')"
 >
-
 <span>💸</span>
 Gastar
-
 </button>
 
 
@@ -1239,10 +1039,8 @@ Gastar
 id="navAhorrar"
 onclick="mostrarSeccion('ahorrar')"
 >
-
 <span>🏦</span>
 Ahorrar
-
 </button>
 
 
@@ -1250,10 +1048,8 @@ Ahorrar
 id="navStats"
 onclick="mostrarSeccion('stats')"
 >
-
 <span>📊</span>
 Stats
-
 </button>
 
 
@@ -1261,10 +1057,8 @@ Stats
 id="navPro"
 onclick="mostrarSeccion('pro')"
 >
-
 <span>⭐</span>
 Pro
-
 </button>
 
 </div>
@@ -1273,62 +1067,46 @@ Pro
 
 <script>
 
-
 /* ================= DATOS ================= */
 
 let movimientos =
 JSON.parse(
-localStorage.getItem(
-"modoPlataMovimientos"
-)
+localStorage.getItem("modoPlataMovimientos")
 ) || [];
 
 
 let gastos =
 JSON.parse(
-localStorage.getItem(
-"modoPlataGastos"
-)
+localStorage.getItem("modoPlataGastos")
 ) || [];
 
 
 let meta =
 Number(
-localStorage.getItem(
-"modoPlataMeta"
-)
+localStorage.getItem("modoPlataMeta")
 ) || 0;
 
 
 let objetivo =
 JSON.parse(
-localStorage.getItem(
-"modoPlataObjetivo"
-)
+localStorage.getItem("modoPlataObjetivo")
 ) || {
-
 nombre:"",
 meta:0,
 ahorro:0
-
 };
 
 
 let ingresoMensual =
 Number(
-localStorage.getItem(
-"modoPlataIngresoMensual"
-)
+localStorage.getItem("modoPlataIngresoMensual")
 ) || 0;
 
 
 let diaCobro =
 Number(
-localStorage.getItem(
-"modoPlataDiaCobro"
-)
+localStorage.getItem("modoPlataDiaCobro")
 ) || 0;
-
 
 
 /* ================= DINERO ================= */
@@ -1336,12 +1114,9 @@ localStorage.getItem(
 function formatoDinero(numero){
 
 return Number(numero || 0)
-.toLocaleString(
-"es-AR"
-);
+.toLocaleString("es-AR");
 
 }
-
 
 
 /* ================= TOTAL INGRESOS ================= */
@@ -1349,20 +1124,16 @@ return Number(numero || 0)
 function calcularTotal(){
 
 return movimientos.reduce(
-
 function(total,movimiento){
 
 return total +
 Number(movimiento.total || 0);
 
 },
-
 0
-
 );
 
 }
-
 
 
 /* ================= TOTAL GASTOS ================= */
@@ -1370,162 +1141,100 @@ Number(movimiento.total || 0);
 function calcularGastos(){
 
 return gastos.reduce(
-
 function(total,gasto){
 
 return total +
 Number(gasto.monto || 0);
 
 },
-
 0
-
 );
 
 }
-
-
-
-/* ================= TOTAL ================= */
-
-function calcularCantidad(){
-
-return movimientos.reduce(
-
-function(total,movimiento){
-
-return total +
-Number(movimiento.unidades || 0);
-
-},
-
-0
-
-);
-
-}
-
 
 
 /* ================= PANTALLA ================= */
 
 function actualizarPantalla(){
 
-let total =
-calcularTotal();
+let total = calcularTotal();
 
-let totalGastos =
-calcularGastos();
+let totalGastos = calcularGastos();
 
 let disponible =
-ingresoMensual -
-totalGastos;
+ingresoMensual - totalGastos;
 
 
-document.getElementById(
-"totalGanado"
-).textContent =
+document.getElementById("totalGanado")
+.textContent =
 formatoDinero(total);
 
 
-document.getElementById(
-"resumenIngreso"
-).textContent =
-"$" +
-formatoDinero(ingresoMensual);
+document.getElementById("resumenIngreso")
+.textContent =
+"$" + formatoDinero(ingresoMensual);
 
 
-document.getElementById(
-"resumenGastos"
-).textContent =
-"$" +
-formatoDinero(totalGastos);
+document.getElementById("resumenGastos")
+.textContent =
+"$" + formatoDinero(totalGastos);
 
 
-document.getElementById(
-"resumenDisponible"
-).textContent =
-"$" +
-formatoDinero(disponible);
+document.getElementById("resumenDisponible")
+.textContent =
+"$" + formatoDinero(disponible);
 
 
-document.getElementById(
-"resumenAhorro"
-).textContent =
-"$" +
-formatoDinero(
-objetivo.ahorro
-);
+document.getElementById("resumenAhorro")
+.textContent =
+"$" + formatoDinero(objetivo.ahorro);
 
 
-document.getElementById(
-"statsIngresos"
-).textContent =
-"$" +
-formatoDinero(total);
+document.getElementById("statsIngresos")
+.textContent =
+"$" + formatoDinero(total);
 
 
-document.getElementById(
-"statsGastos"
-).textContent =
-"$" +
-formatoDinero(totalGastos);
+document.getElementById("statsGastos")
+.textContent =
+"$" + formatoDinero(totalGastos);
 
 
-document.getElementById(
-"statsSaldo"
-).textContent =
-"$" +
-formatoDinero(
-total - totalGastos
-);
+document.getElementById("statsSaldo")
+.textContent =
+"$" + formatoDinero(total-totalGastos);
 
 
-document.getElementById(
-"statsMovimientos"
-).textContent =
+document.getElementById("statsMovimientos")
+.textContent =
 movimientos.length;
 
 
-document.getElementById(
-"statGanado"
-).textContent =
-"$" +
-formatoDinero(total);
+document.getElementById("statGanado")
+.textContent =
+"$" + formatoDinero(total);
 
 
-document.getElementById(
-"statGastado"
-).textContent =
-"$" +
-formatoDinero(totalGastos);
+document.getElementById("statGastado")
+.textContent =
+"$" + formatoDinero(totalGastos);
 
 
-document.getElementById(
-"statDisponible"
-).textContent =
-"$" +
-formatoDinero(
-total - totalGastos
-);
+document.getElementById("statDisponible")
+.textContent =
+"$" + formatoDinero(total-totalGastos);
 
 
-document.getElementById(
-"meta"
-).value =
-meta || "";
+document.getElementById("meta")
+.value = meta || "";
 
 
-document.getElementById(
-"ingresoMensual"
-).value =
-ingresoMensual || "";
+document.getElementById("ingresoMensual")
+.value = ingresoMensual || "";
 
 
-document.getElementById(
-"diaCobro"
-).value =
-diaCobro || "";
+document.getElementById("diaCobro")
+.value = diaCobro || "";
 
 
 mostrarMovimientos();
@@ -1539,75 +1248,56 @@ verificarMeta();
 }
 
 
-
-/* ================= CALCULAR CONTADOR ================= */
+/* ================= CONTADOR ================= */
 
 function calcularContador(){
 
 let precio =
 Number(
-document.getElementById(
-"precio"
-).value
+document.getElementById("precio").value
 ) || 0;
 
 let unidades =
 Number(
-document.getElementById(
-"unidades"
-).value
+document.getElementById("unidades").value
 ) || 0;
 
 
-document.getElementById(
-"totalGanado"
-).textContent =
-formatoDinero(
-precio * unidades
-);
+document.getElementById("totalGanado")
+.textContent =
+formatoDinero(precio*unidades);
 
 }
 
 
-
-/* ================= SUMAR INGRESO ================= */
+/* ================= SUMAR ================= */
 
 function sumarIngreso(){
 
 let actividad =
-document.getElementById(
-"actividad"
-).value;
+document.getElementById("actividad").value;
 
 let nombre =
-document.getElementById(
-"nombreTrabajo"
-).value
-.trim();
+document.getElementById("nombreTrabajo")
+.value.trim();
 
 let precio =
 Number(
-document.getElementById(
-"precio"
-).value
+document.getElementById("precio").value
 ) || 0;
 
 let unidades =
 Number(
-document.getElementById(
-"unidades"
-).value
+document.getElementById("unidades").value
 ) || 0;
 
 let total =
-precio * unidades;
+precio*unidades;
 
 
-if(total <= 0){
+if(total<=0){
 
-alert(
-"Poné un precio y una cantidad válida."
-);
+alert("Poné un precio y una cantidad válida.");
 
 return;
 
@@ -1616,25 +1306,17 @@ return;
 
 movimientos.push({
 
-actividad:
-actividad,
+actividad:actividad,
 
-nombre:
-nombre || actividad,
+nombre:nombre || actividad,
 
-precio:
-precio,
+precio:precio,
 
-unidades:
-unidades,
+unidades:unidades,
 
-total:
-total,
+total:total,
 
-fecha:
-new Date().toLocaleString(
-"es-AR"
-)
+fecha:new Date().toLocaleString("es-AR")
 
 });
 
@@ -1644,65 +1326,49 @@ guardarDatos();
 actualizarPantalla();
 
 
-document.getElementById(
-"mensajeGanar"
-).textContent =
+document.getElementById("mensajeGanar")
+.textContent =
 "✅ Ingreso agregado correctamente.";
 
 }
 
 
-
-/* ================= RESTAR INGRESO ================= */
+/* ================= RESTAR ================= */
 
 function restarIngreso(){
 
 let precio =
 Number(
-document.getElementById(
-"precio"
-).value
+document.getElementById("precio").value
 ) || 0;
 
 let unidades =
 Number(
-document.getElementById(
-"unidades"
-).value
+document.getElementById("unidades").value
 ) || 0;
 
 let total =
-precio * unidades;
+precio*unidades;
 
 
-if(total <= 0){
-
+if(total<=0){
 return;
-
 }
 
 
 movimientos.push({
 
-actividad:
-"Corrección",
+actividad:"Corrección",
 
-nombre:
-"Restar ingreso",
+nombre:"Restar ingreso",
 
-precio:
--total,
+precio:-total,
 
-unidades:
-unidades,
+unidades:unidades,
 
-total:
--total,
+total:-total,
 
-fecha:
-new Date().toLocaleString(
-"es-AR"
-)
+fecha:new Date().toLocaleString("es-AR")
 
 });
 
@@ -1712,27 +1378,21 @@ guardarDatos();
 actualizarPantalla();
 
 }
-
 
 
 /* ================= REINICIAR ================= */
 
 function reiniciarContador(){
 
-document.getElementById(
-"precio"
-).value =
-20000;
+document.getElementById("precio")
+.value = 20000;
 
-document.getElementById(
-"unidades"
-).value =
-1;
+document.getElementById("unidades")
+.value = 1;
 
 calcularContador();
 
 }
-
 
 
 /* ================= META ================= */
@@ -1741,9 +1401,7 @@ function guardarMeta(){
 
 meta =
 Number(
-document.getElementById(
-"meta"
-).value
+document.getElementById("meta").value
 ) || 0;
 
 
@@ -1753,15 +1411,13 @@ meta
 );
 
 
-document.getElementById(
-"mensajeMeta"
-).textContent =
+document.getElementById("mensajeMeta")
+.textContent =
 "✅ Meta guardada.";
 
 verificarMeta();
 
 }
-
 
 
 /* ================= VERIFICAR META ================= */
@@ -1771,53 +1427,42 @@ function verificarMeta(){
 let total =
 calcularTotal();
 
-
 let elemento =
-document.getElementById(
-"mensajeMeta"
-);
+document.getElementById("mensajeMeta");
 
 
 if(!elemento){
-
 return;
-
 }
 
 
-if(meta > 0 && total >= meta){
+if(meta>0 && total>=meta){
 
-elemento.className =
-"meta-ok";
+elemento.className="meta-ok";
 
 elemento.textContent =
 "🎉 ¡Meta alcanzada! ¡Excelente trabajo!";
 
 }
 
-else if(meta > 0){
+else if(meta>0){
 
-elemento.className =
-"pequeno";
+elemento.className="pequeno";
 
 elemento.textContent =
 "💪 Te faltan $" +
-formatoDinero(
-meta - total
-) +
+formatoDinero(meta-total) +
 " para alcanzar tu meta.";
 
 }
 
 else{
 
-elemento.className =
-"pequeno";
+elemento.className="pequeno";
 
 }
 
 }
-
 
 
 /* ================= MOVIMIENTOS ================= */
@@ -1825,12 +1470,10 @@ elemento.className =
 function mostrarMovimientos(){
 
 let lista =
-document.getElementById(
-"listaMovimientos"
-);
+document.getElementById("listaMovimientos");
 
 
-if(movimientos.length === 0){
+if(movimientos.length===0){
 
 lista.innerHTML =
 "<p class='pequeno'>Todavía no hay ingresos registrados.</p>";
@@ -1840,61 +1483,51 @@ return;
 }
 
 
-lista.innerHTML =
-"";
+lista.innerHTML="";
 
 
 movimientos
 .slice()
 .reverse()
-.forEach(
-
-function(movimiento){
+.forEach(function(movimiento){
 
 let div =
-document.createElement(
-"div"
-);
+document.createElement("div");
 
-div.className =
-"movimiento";
+div.className="movimiento";
+
 
 let clase =
-Number(movimiento.total) >= 0
+Number(movimiento.total)>=0
 ? "ingreso"
 : "gasto";
 
 
 div.innerHTML = `
 
-<strong>
-${movimiento.nombre}
-</strong>
+<strong>${movimiento.nombre}</strong>
 
 <br>
 
 <span class="${clase}">
-${Number(movimiento.total) >= 0 ? "+" : ""}
+${Number(movimiento.total)>=0?"+":""}
 $${formatoDinero(movimiento.total)}
 </span>
 
 <br>
 
 <span class="pequeno">
-${movimiento.actividad}
-· ${movimiento.fecha}
+${movimiento.actividad} · ${movimiento.fecha}
 </span>
 
 `;
 
+
 lista.appendChild(div);
 
-}
-
-);
+});
 
 }
-
 
 
 /* ================= GASTOS ================= */
@@ -1902,34 +1535,27 @@ lista.appendChild(div);
 function agregarGasto(){
 
 let nombre =
-document.getElementById(
-"nombreGasto"
-).value.trim();
+document.getElementById("nombreGasto")
+.value.trim();
 
 let monto =
 Number(
-document.getElementById(
-"montoGasto"
-).value
+document.getElementById("montoGasto").value
 ) || 0;
 
 
 if(!nombre){
 
-alert(
-"Escribí en qué gastaste."
-);
+alert("Escribí en qué gastaste.");
 
 return;
 
 }
 
 
-if(monto <= 0){
+if(monto<=0){
 
-alert(
-"Poné un monto válido."
-);
+alert("Poné un monto válido.");
 
 return;
 
@@ -1938,16 +1564,11 @@ return;
 
 gastos.push({
 
-nombre:
-nombre,
+nombre:nombre,
 
-monto:
-monto,
+monto:monto,
 
-fecha:
-new Date().toLocaleString(
-"es-AR"
-)
+fecha:new Date().toLocaleString("es-AR")
 
 });
 
@@ -1957,18 +1578,13 @@ guardarDatos();
 actualizarPantalla();
 
 
-document.getElementById(
-"nombreGasto"
-).value =
-"";
+document.getElementById("nombreGasto")
+.value="";
 
-document.getElementById(
-"montoGasto"
-).value =
-"";
+document.getElementById("montoGasto")
+.value="";
 
 }
-
 
 
 /* ================= MOSTRAR GASTOS ================= */
@@ -1976,19 +1592,15 @@ document.getElementById(
 function mostrarGastos(){
 
 let lista =
-document.getElementById(
-"listaGastos"
-);
+document.getElementById("listaGastos");
 
 
 if(!lista){
-
 return;
-
 }
 
 
-if(gastos.length === 0){
+if(gastos.length===0){
 
 lista.innerHTML =
 "<p class='pequeno'>Todavía no hay gastos registrados.</p>";
@@ -1998,31 +1610,23 @@ return;
 }
 
 
-lista.innerHTML =
-"";
+lista.innerHTML="";
 
 
 gastos
 .slice()
 .reverse()
-.forEach(
-
-function(gasto){
+.forEach(function(gasto){
 
 let div =
-document.createElement(
-"div"
-);
+document.createElement("div");
 
-div.className =
-"movimiento";
+div.className="movimiento";
 
 
 div.innerHTML = `
 
-<strong>
-${gasto.nombre}
-</strong>
+<strong>${gasto.nombre}</strong>
 
 <br>
 
@@ -2041,12 +1645,9 @@ ${gasto.fecha}
 
 lista.appendChild(div);
 
-}
-
-);
+});
 
 }
-
 
 
 /* ================= AHORRO ================= */
@@ -2054,47 +1655,34 @@ lista.appendChild(div);
 function guardarObjetivo(){
 
 let nombre =
-document.getElementById(
-"nombreObjetivo"
-).value.trim();
+document.getElementById("nombreObjetivo")
+.value.trim();
 
 let monto =
 Number(
-document.getElementById(
-"montoObjetivo"
-).value
+document.getElementById("montoObjetivo").value
 ) || 0;
 
 let ahorro =
 Number(
-document.getElementById(
-"ahorroActual"
-).value
+document.getElementById("ahorroActual").value
 ) || 0;
 
 
-objetivo = {
+objetivo={
 
-nombre:
-nombre,
+nombre:nombre,
 
-meta:
-monto,
+meta:monto,
 
-ahorro:
-ahorro
+ahorro:ahorro
 
 };
 
 
 localStorage.setItem(
-
 "modoPlataObjetivo",
-
-JSON.stringify(
-objetivo
-)
-
+JSON.stringify(objetivo)
 );
 
 
@@ -2105,21 +1693,16 @@ actualizarPantalla();
 }
 
 
-
 /* ================= MOSTRAR OBJETIVO ================= */
 
 function mostrarObjetivo(){
 
 let elemento =
-document.getElementById(
-"objetivoMostrar"
-);
+document.getElementById("objetivoMostrar");
 
 
 if(!elemento){
-
 return;
-
 }
 
 
@@ -2134,20 +1717,17 @@ return;
 
 
 let porcentaje =
-objetivo.meta > 0
+objetivo.meta>0
 ? Math.min(
 100,
-(objetivo.ahorro /
-objetivo.meta) * 100
+(objetivo.ahorro/objetivo.meta)*100
 )
-: 0;
+:0;
 
 
 elemento.innerHTML = `
 
-<h3>
-🎯 ${objetivo.nombre}
-</h3>
+<h3>🎯 ${objetivo.nombre}</h3>
 
 <p>
 Ahorrado:
@@ -2175,24 +1755,19 @@ ${porcentaje.toFixed(0)}%
 }
 
 
-
 /* ================= INGRESO MENSUAL ================= */
 
 function guardarIngresoMensual(){
 
 ingresoMensual =
 Number(
-document.getElementById(
-"ingresoMensual"
-).value
+document.getElementById("ingresoMensual").value
 ) || 0;
 
 
 diaCobro =
 Number(
-document.getElementById(
-"diaCobro"
-).value
+document.getElementById("diaCobro").value
 ) || 0;
 
 
@@ -2218,6 +1793,196 @@ actualizarPantalla();
 }
 
 
+/* ================= HACER PLATA ================= */
+
+function mostrarIdeas(categoria){
+
+let contenido =
+document.getElementById("ideasPlata");
+
+
+let ideas = {
+
+
+auto:`
+
+<h2>🚗 Ideas con tu auto</h2>
+
+<div class="idea">
+<h3>🚕 Viajes particulares</h3>
+<p>Realizá viajes y registrá cada ingreso en Modo Ganar.</p>
+<p>💰 Podés calcular tu ganancia por viaje.</p>
+</div>
+
+<div class="idea">
+<h3>📦 Repartos</h3>
+<p>Trabajá haciendo entregas de productos o comidas.</p>
+<p>💡 Registrá combustible como gasto para conocer tu ganancia real.</p>
+</div>
+
+<div class="idea">
+<h3>🚗 Traslados programados</h3>
+<p>Ofrecé traslados previamente coordinados.</p>
+</div>
+
+`,
+
+manual:`
+
+<h2>🛠️ Ideas con tus habilidades</h2>
+
+<div class="idea">
+<h3>🔧 Reparaciones</h3>
+<p>Pequeños arreglos, mantenimiento y trabajos domiciliarios.</p>
+</div>
+
+<div class="idea">
+<h3>🎨 Pintura</h3>
+<p>Trabajos de pintura y mantenimiento de viviendas.</p>
+</div>
+
+<div class="idea">
+<h3>🌳 Jardinería</h3>
+<p>Corte de pasto, mantenimiento y limpieza de patios.</p>
+</div>
+
+`,
+
+comida:`
+
+<h2>🍔 Venta de comida</h2>
+
+<div class="idea">
+<h3>🍕 Comida casera</h3>
+<p>Prepará comidas por pedido y calculá el costo de cada unidad.</p>
+</div>
+
+<div class="idea">
+<h3>🥟 Empanadas</h3>
+<p>Podés vender por docena o por unidad.</p>
+</div>
+
+<div class="idea">
+<h3>🍰 Repostería</h3>
+<p>Tortas, budines, postres y productos personalizados.</p>
+</div>
+
+`,
+
+reventa:`
+
+<h2>🛒 Compra y reventa</h2>
+
+<div class="idea">
+<h3>👕 Ropa</h3>
+<p>Comprá productos a buen precio y revendelos.</p>
+</div>
+
+<div class="idea">
+<h3>📱 Accesorios</h3>
+<p>Fundas, cables, cargadores y accesorios para celulares.</p>
+</div>
+
+<div class="idea">
+<h3>🏠 Productos para el hogar</h3>
+<p>Buscá productos con demanda y calculá el margen antes de comprar.</p>
+</div>
+
+`,
+
+online:`
+
+<h2>📱 Ideas desde el celular</h2>
+
+<div class="idea">
+<h3>💻 Freelance</h3>
+<p>Ofrecé servicios digitales según tus habilidades.</p>
+</div>
+
+<div class="idea">
+<h3>📱 Redes sociales</h3>
+<p>Ayudá a pequeños negocios con publicaciones y contenido.</p>
+</div>
+
+<div class="idea">
+<h3>🛍️ Venta online</h3>
+<p>Publicá productos y coordiná las ventas desde el celular.</p>
+</div>
+
+`
+
+};
+
+
+contenido.innerHTML =
+ideas[categoria] || `
+
+<h2>💡 Ideas</h2>
+
+<p class="pequeno">
+Elegí una categoría.
+</p>
+
+`;
+
+}
+
+
+/* ================= CALCULADORA DE GANANCIA ================= */
+
+function calcularGananciaIdea(){
+
+let ganancia =
+Number(
+document.getElementById("gananciaIdea").value
+) || 0;
+
+let trabajos =
+Number(
+document.getElementById("trabajosSemana").value
+) || 0;
+
+
+if(ganancia<=0 || trabajos<=0){
+
+alert("Completá los dos valores.");
+
+return;
+
+}
+
+
+let semanal =
+ganancia*trabajos;
+
+let mensual =
+semanal*4;
+
+
+document.getElementById(
+"resultadoIdea"
+).innerHTML = `
+
+<div class="meta-ok">
+
+💰 Ganancia semanal estimada:
+<strong>
+$${formatoDinero(semanal)}
+</strong>
+
+<br><br>
+
+📅 Ganancia mensual estimada:
+<strong>
+$${formatoDinero(mensual)}
+</strong>
+
+</div>
+
+`;
+
+}
+
 
 /* ================= CHATGPT ================= */
 
@@ -2230,13 +1995,10 @@ const gastosTotal =
 calcularGastos();
 
 const ahorro =
-Number(
-objetivo.ahorro || 0
-);
+Number(objetivo.ahorro || 0);
 
 const saldo =
-ingresoMensual -
-gastosTotal;
+ingresoMensual-gastosTotal;
 
 
 const texto = `
@@ -2279,14 +2041,13 @@ Monto del objetivo:
 $${formatoDinero(objetivo.meta || 0)}
 
 Quiero que me ayudes a analizar estos números y me des ideas concretas para organizar mejor mi dinero.
+
 `;
 
 
 try{
 
-await navigator.clipboard.writeText(
-texto
-);
+await navigator.clipboard.writeText(texto);
 
 document.getElementById(
 "mensajeChatGPT"
@@ -2307,34 +2068,26 @@ texto
 }
 
 
-
 /* ================= COMPARTIR ================= */
 
 async function compartirModoPlata(){
 
-const datos = {
+const datos={
 
-title:
-"💰 Modo Plata",
+title:"💰 Modo Plata",
 
-text:
-"Estoy usando Modo Plata para organizar mi dinero 💰",
+text:"Estoy usando Modo Plata para organizar mi dinero 💰",
 
-url:
-window.location.href
+url:window.location.href
 
 };
 
 
 try{
 
-if(
-navigator.share
-){
+if(navigator.share){
 
-await navigator.share(
-datos
-);
+await navigator.share(datos);
 
 }
 
@@ -2355,10 +2108,7 @@ document.getElementById(
 
 catch(error){
 
-if(
-error.name !==
-"AbortError"
-){
+if(error.name!=="AbortError"){
 
 try{
 
@@ -2378,8 +2128,7 @@ catch(e){
 document.getElementById(
 "mensajeCompartir"
 ).textContent =
-"Copiá este link: " +
-window.location.href;
+"Copiá este link: "+window.location.href;
 
 }
 
@@ -2388,7 +2137,6 @@ window.location.href;
 }
 
 }
-
 
 
 /* ================= GUARDAR ================= */
@@ -2396,41 +2144,21 @@ window.location.href;
 function guardarDatos(){
 
 localStorage.setItem(
-
 "modoPlataMovimientos",
-
-JSON.stringify(
-movimientos
-)
-
+JSON.stringify(movimientos)
 );
 
-
 localStorage.setItem(
-
 "modoPlataGastos",
-
-JSON.stringify(
-gastos
-)
-
+JSON.stringify(gastos)
 );
-
 
 localStorage.setItem(
-
 "modoPlataObjetivo",
-
-JSON.stringify(
-objetivo
-)
-
+JSON.stringify(objetivo)
 );
-
-
 
 }
-
 
 
 /* ================= NAVEGACIÓN ================= */
@@ -2439,73 +2167,49 @@ function mostrarSeccion(nombre){
 
 document
 .querySelectorAll(".seccion")
-.forEach(
+.forEach(function(seccion){
 
-function(seccion){
+seccion.classList.remove("activa");
 
-seccion.classList.remove(
-"activa"
-);
-
-}
-
-);
+});
 
 
 const seccion =
-document.getElementById(
-nombre
-);
+document.getElementById(nombre);
 
 
 if(!seccion){
-
 return;
-
 }
 
 
-seccion.classList.add(
-"activa"
-);
+seccion.classList.add("activa");
 
 
 document
-.querySelectorAll(
-".navegacion button"
-)
-.forEach(
+.querySelectorAll(".navegacion button")
+.forEach(function(boton){
 
-function(boton){
+boton.classList.remove("activo");
 
-boton.classList.remove(
-"activo"
-);
-
-}
-
-);
+});
 
 
-const mapa = {
+const mapa={
 
-inicio:
-"navInicio",
+inicio:"navInicio",
 
-ganar:
-"navGanar",
+ganar:"navGanar",
 
-gastar:
-"navGastar",
+hacerPlata:"navHacerPlata",
 
-ahorrar:
-"navAhorrar",
+gastar:"navGastar",
 
-stats:
-"navStats",
+ahorrar:"navAhorrar",
 
-pro:
-"navPro"
+stats:"navStats",
+
+pro:"navPro"
 
 };
 
@@ -2513,12 +2217,8 @@ pro:
 if(mapa[nombre]){
 
 document
-.getElementById(
-mapa[nombre]
-)
-.classList.add(
-"activo"
-);
+.getElementById(mapa[nombre])
+.classList.add("activo");
 
 }
 
@@ -2532,7 +2232,6 @@ behavior:"smooth"
 });
 
 }
-
 
 
 /* ================= EVENTOS ================= */
@@ -2553,13 +2252,11 @@ calcularContador
 );
 
 
-
 /* ================= INICIO ================= */
 
 calcularContador();
 
 actualizarPantalla();
-
 
 </script>
 
