@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#111827">
 <meta name="apple-mobile-web-app-capable" content="yes">
+
 <title>Modo Plata</title>
 
 <style>
@@ -15,294 +16,302 @@
 }
 
 :root{
+  --azul:#2563eb;
+  --azul2:#1d4ed8;
+  --verde:#16a34a;
+  --rojo:#dc2626;
+  --amarillo:#f59e0b;
+  --violeta:#7c3aed;
   --fondo:#f3f4f6;
   --blanco:#ffffff;
   --texto:#111827;
   --gris:#6b7280;
   --borde:#e5e7eb;
-  --azul:#2563eb;
-  --azul2:#1d4ed8;
-  --verde:#16a34a;
-  --rojo:#dc2626;
-  --amarillo:#d97706;
-  --violeta:#7c3aed;
-  --oscuro:#111827;
-  --sombra:0 8px 25px rgba(0,0,0,.08);
 }
 
 body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  font-family:Arial,Helvetica,sans-serif;
   background:var(--fondo);
   color:var(--texto);
   padding-bottom:90px;
 }
 
 header{
-  background:linear-gradient(135deg,#111827,#1e3a8a,#2563eb);
+  background:linear-gradient(135deg,#111827,#1e3a8a);
   color:white;
-  padding:24px 18px 28px;
+  padding:28px 20px 25px;
   text-align:center;
-  box-shadow:0 4px 20px rgba(0,0,0,.15);
+  border-radius:0 0 28px 28px;
+  box-shadow:0 5px 20px rgba(0,0,0,.15);
 }
 
-header h1{
-  font-size:30px;
-  margin-bottom:5px;
+.logo-modo-plata{
+  font-family:Arial Black,Impact,sans-serif;
+  font-size:32px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1;
+}
+
+.logo-modo-plata .modo{
+  font-weight:600;
+  opacity:.92;
+}
+
+.logo-modo-plata .plata{
+  font-weight:900;
+  letter-spacing:-1px;
 }
 
 header p{
-  opacity:.9;
+  margin-top:9px;
+  opacity:.8;
   font-size:14px;
 }
 
 .container{
-  width:min(100%,850px);
+  width:100%;
+  max-width:850px;
   margin:auto;
-  padding:15px;
+  padding:18px 14px;
 }
 
 .seccion{
   display:none;
-  animation:aparecer .25s ease;
 }
 
 .seccion.activa{
   display:block;
 }
 
-@keyframes aparecer{
-  from{opacity:0;transform:translateY(8px)}
-  to{opacity:1;transform:translateY(0)}
-}
-
-.card{
-  background:var(--blanco);
-  border-radius:18px;
-  padding:18px;
-  margin-bottom:15px;
-  box-shadow:var(--sombra);
-  border:1px solid rgba(0,0,0,.03);
-}
-
-.pequeno{
-  font-size:13px;
-  color:var(--gris);
-}
-
 h2{
-  font-size:23px;
-  margin-bottom:8px;
+  font-size:24px;
+  margin-bottom:15px;
 }
 
 h3{
   margin-bottom:10px;
 }
 
-input,select{
-  width:100%;
-  padding:13px;
-  margin:6px 0 10px;
-  border:1px solid #d1d5db;
-  border-radius:12px;
-  font-size:16px;
+.card{
   background:white;
-  color:var(--texto);
+  border-radius:20px;
+  padding:18px;
+  margin-bottom:15px;
+  box-shadow:0 4px 14px rgba(0,0,0,.07);
+  border:1px solid rgba(0,0,0,.03);
 }
 
-input:focus,select:focus{
-  outline:2px solid rgba(37,99,235,.2);
+.card-titulo{
+  font-weight:bold;
+  margin-bottom:12px;
+  font-size:17px;
+}
+
+input,
+select,
+button{
+  width:100%;
+  border-radius:13px;
+  padding:13px;
+  font-size:16px;
+}
+
+input,
+select{
+  border:1px solid var(--borde);
+  background:#fff;
+  margin-bottom:10px;
+  outline:none;
+}
+
+input:focus,
+select:focus{
   border-color:var(--azul);
 }
 
 button{
   border:0;
-  border-radius:12px;
-  padding:12px 15px;
-  font-size:15px;
-  font-weight:700;
+  background:var(--azul);
+  color:white;
+  font-weight:bold;
   cursor:pointer;
-  transition:.15s;
-  margin:4px 2px;
+  margin-top:5px;
 }
 
 button:active{
-  transform:scale(.97);
+  transform:scale(.98);
 }
 
-.azul{background:var(--azul);color:white}
-.verde{background:var(--verde);color:white}
-.rojo{background:var(--rojo);color:white}
-.gris{background:#e5e7eb;color:#111827}
-.violeta{background:var(--violeta);color:white}
-.amarillo{background:#f59e0b;color:#111827}
-.oscuro{background:#111827;color:white}
-
-.botonera{
-  display:flex;
-  flex-wrap:wrap;
-  gap:5px;
+.btn-verde{
+  background:var(--verde);
 }
 
-.botonera button{
-  flex:1;
-  min-width:130px;
+.btn-rojo{
+  background:var(--rojo);
 }
 
-.numero{
-  font-size:28px;
-  font-weight:800;
+.btn-amarillo{
+  background:var(--amarillo);
+  color:#111827;
 }
 
-.resumen{
+.btn-violeta{
+  background:var(--violeta);
+}
+
+.btn-gris{
+  background:#374151;
+}
+
+.grid{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+  grid-template-columns:1fr 1fr;
   gap:10px;
 }
 
-.resumen-box{
-  padding:15px;
-  border-radius:15px;
-  background:#f9fafb;
-  border:1px solid var(--borde);
-}
-
-.ingreso{color:var(--verde)}
-.gasto{color:var(--rojo)}
-.ahorro{color:var(--violeta)}
-
-.movimiento{
-  padding:13px;
-  border-bottom:1px solid var(--borde);
-}
-
-.movimiento:last-child{
-  border-bottom:0;
-}
-
-.movimiento strong{
-  display:block;
-}
-
-.meta-ok{
-  color:var(--verde);
-  font-weight:700;
-}
-
-.alerta{
-  padding:13px;
-  border-radius:12px;
-  background:#fff7ed;
-  color:#9a3412;
-  margin-top:10px;
-  font-weight:600;
-}
-
-.exito{
-  padding:13px;
-  border-radius:12px;
-  background:#ecfdf5;
-  color:#166534;
-  margin-top:10px;
-  font-weight:600;
-}
-
-.error{
-  padding:13px;
-  border-radius:12px;
-  background:#fef2f2;
-  color:#991b1b;
-  margin-top:10px;
-  font-weight:600;
-}
-
-.barra{
-  width:100%;
-  height:14px;
-  background:#e5e7eb;
-  border-radius:20px;
-  overflow:hidden;
-  margin:10px 0;
-}
-
-.barra-interna{
-  height:100%;
-  width:0%;
-  background:linear-gradient(90deg,#2563eb,#16a34a);
-  transition:.4s;
-}
-
-.idea{
-  padding:15px;
-  border:1px solid var(--borde);
-  border-radius:14px;
-  margin:8px 0;
-  cursor:pointer;
-  background:#fff;
-}
-
-.idea:hover{
-  border-color:var(--azul);
-}
-
-.destacado-verde{
-  background:linear-gradient(135deg,#ecfdf5,#dcfce7);
-  border:1px solid #bbf7d0;
-}
-
-.destacado-pro{
-  background:linear-gradient(135deg,#faf5ff,#ede9fe);
-  border:1px solid #ddd6fe;
-}
-
-.presupuesto-destacado{
-  background:linear-gradient(135deg,#eff6ff,#dbeafe);
-  border:1px solid #bfdbfe;
-}
-
-.presupuesto-ok{
-  background:#ecfdf5!important;
-  border-color:#86efac!important;
-}
-
-.presupuesto-alerta{
-  background:#fffbeb!important;
-  border-color:#fcd34d!important;
-}
-
-.presupuesto-peligro{
-  background:#fef2f2!important;
-  border-color:#fca5a5!important;
-}
-
-.numero-presupuesto{
-  font-size:34px;
-  font-weight:900;
-  margin:8px 0;
-}
-
-.grid3{
+.grid-3{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:10px;
 }
 
-.grid2{
+.resumen{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+  grid-template-columns:1fr 1fr;
   gap:10px;
 }
 
-.stat-card{
+.resumen-box{
   background:#f9fafb;
-  border:1px solid var(--borde);
-  border-radius:15px;
   padding:15px;
+  border-radius:16px;
 }
 
-.stat-card .valor{
-  font-size:23px;
-  font-weight:800;
-  margin-top:5px;
+.resumen-box span{
+  display:block;
+  color:var(--gris);
+  font-size:13px;
+  margin-bottom:5px;
+}
+
+.resumen-box strong{
+  font-size:20px;
+}
+
+.verde{
+  color:var(--verde);
+}
+
+.rojo{
+  color:var(--rojo);
+}
+
+.azul{
+  color:var(--azul);
+}
+
+.violeta{
+  color:var(--violeta);
+}
+
+.amarillo{
+  color:#b45309;
+}
+
+.mensaje{
+  margin-top:10px;
+  padding:10px;
+  border-radius:10px;
+  background:#eff6ff;
+  color:#1e40af;
+  font-size:14px;
+  display:none;
+}
+
+.mensaje.mostrar{
+  display:block;
+}
+
+.movimiento,
+.gasto-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  padding:12px 0;
+  border-bottom:1px solid var(--borde);
+}
+
+.movimiento:last-child,
+.gasto-item:last-child{
+  border-bottom:0;
+}
+
+.item-info{
+  flex:1;
+}
+
+.item-info strong{
+  display:block;
+}
+
+.item-info small{
+  color:var(--gris);
+}
+
+.item-monto{
+  font-weight:bold;
+  white-space:nowrap;
+}
+
+.btn-eliminar{
+  width:auto;
+  padding:7px 10px;
+  font-size:13px;
+  background:#fee2e2;
+  color:#991b1b;
+  margin:0;
+}
+
+.acciones-rapidas{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin-top:15px;
+}
+
+.accion{
+  padding:17px;
+  background:white;
+  border-radius:17px;
+  border:1px solid var(--borde);
+  text-align:center;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 3px 10px rgba(0,0,0,.05);
+}
+
+.accion span{
+  display:block;
+  font-size:25px;
+  margin-bottom:5px;
+}
+
+.progreso{
+  height:18px;
+  background:#e5e7eb;
+  border-radius:20px;
+  overflow:hidden;
+  margin-top:10px;
+}
+
+.progreso div{
+  height:100%;
+  width:0%;
+  background:var(--azul);
+  border-radius:20px;
+  transition:.3s;
 }
 
 .mini-barra{
@@ -310,7 +319,7 @@ button:active{
   background:#e5e7eb;
   border-radius:20px;
   overflow:hidden;
-  margin:7px 0 13px;
+  margin-top:6px;
 }
 
 .mini-barra div{
@@ -319,49 +328,105 @@ button:active{
   border-radius:20px;
 }
 
-.lista-simple{
-  margin-top:8px;
+.idea-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
 }
 
-.badge{
-  display:inline-block;
-  padding:5px 9px;
-  border-radius:20px;
-  background:#eef2ff;
-  color:#3730a3;
-  font-size:12px;
-  font-weight:700;
+.idea{
+  padding:16px;
+  border-radius:16px;
+  background:#f9fafb;
+  border:1px solid var(--borde);
+  cursor:pointer;
+}
+
+.idea strong{
+  display:block;
+  margin-bottom:5px;
+}
+
+.idea small{
+  color:var(--gris);
 }
 
 canvas{
   width:100%;
   max-width:100%;
-  background:white;
-  border-radius:12px;
-}
-
-.wallet{
-  background:linear-gradient(135deg,#111827,#374151);
-  color:white;
-  border-radius:20px;
-  padding:22px;
+  background:#fafafa;
+  border-radius:15px;
   margin-top:10px;
 }
 
-.wallet .saldo{
-  font-size:35px;
-  font-weight:900;
-  margin:8px 0;
-}
-
-.pro-lock{
+.stat-card{
   text-align:center;
-  padding:18px;
-  border-radius:15px;
-  background:#faf5ff;
+  padding:15px;
+  border-radius:16px;
+  background:#f9fafb;
 }
 
-.navegacion{
+.stat-card span{
+  display:block;
+  color:var(--gris);
+  font-size:13px;
+}
+
+.stat-card strong{
+  display:block;
+  font-size:21px;
+  margin-top:5px;
+}
+
+.alerta{
+  padding:14px;
+  border-radius:14px;
+  margin-top:10px;
+  font-weight:bold;
+}
+
+.alerta-ok{
+  background:#dcfce7;
+  color:#166534;
+}
+
+.alerta-cuidado{
+  background:#fef3c7;
+  color:#92400e;
+}
+
+.alerta-peligro{
+  background:#fee2e2;
+  color:#991b1b;
+}
+
+.wallet{
+  background:linear-gradient(135deg,#111827,#312e81);
+  color:white;
+  border-radius:22px;
+  padding:22px;
+}
+
+.wallet small{
+  opacity:.75;
+}
+
+.wallet strong{
+  display:block;
+  font-size:32px;
+  margin-top:7px;
+}
+
+.seguridad{
+  background:#ecfdf5;
+  color:#166534;
+  padding:15px;
+  border-radius:15px;
+  font-size:14px;
+  line-height:1.5;
+}
+
+nav{
   position:fixed;
   bottom:0;
   left:0;
@@ -370,60 +435,48 @@ canvas{
   border-top:1px solid var(--borde);
   display:flex;
   justify-content:space-around;
+  padding:8px 3px;
   z-index:100;
-  box-shadow:0 -5px 20px rgba(0,0,0,.08);
+  box-shadow:0 -4px 15px rgba(0,0,0,.08);
 }
 
-.navegacion button{
+nav button{
   background:transparent;
   color:#6b7280;
-  border-radius:0;
   margin:0;
-  padding:10px 4px 8px;
+  padding:7px 2px;
   font-size:11px;
-  flex:1;
+  font-weight:normal;
 }
 
-.navegacion button span{
+nav button.activo{
+  color:var(--azul);
+  font-weight:bold;
+}
+
+nav button span{
   display:block;
   font-size:21px;
   margin-bottom:2px;
 }
 
-.navegacion button.activo{
-  color:var(--azul);
-  font-weight:800;
+.vacio{
+  text-align:center;
+  color:var(--gris);
+  padding:18px 5px;
 }
 
-.oculto{
-  display:none!important;
-}
-
-.separador{
-  height:1px;
-  background:var(--borde);
-  margin:15px 0;
-}
-
-@media(max-width:600px){
-  .resumen{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .grid3{
+@media(max-width:500px){
+  .grid-3{
     grid-template-columns:1fr;
   }
 
-  .grid2{
-    grid-template-columns:1fr;
+  .logo-modo-plata{
+    font-size:29px;
   }
 
-  .numero{
-    font-size:24px;
-  }
-
-  header h1{
-    font-size:27px;
+  h2{
+    font-size:22px;
   }
 }
 </style>
@@ -432,334 +485,522 @@ canvas{
 <body>
 
 <header>
-  <h1>💰 Modo Plata</h1>
+  <h1 class="logo-modo-plata">
+    💰 <span class="modo">Modo</span> <span class="plata">PLATA</span>
+  </h1>
   <p>Tu dinero, más ordenado</p>
 </header>
 
 <div class="container">
 
-<!-- ================= INICIO ================= -->
-
+<!-- INICIO -->
 <section id="inicio" class="seccion activa">
 
-  <div class="card">
-    <h2>👋 Bienvenido</h2>
-    <p class="pequeno">
-      Organizá tus ingresos, gastos, ahorro y objetivos desde un solo lugar.
-    </p>
-  </div>
+  <h2>🏠 Inicio</h2>
 
   <div class="card">
-    <h3>💵 Ingreso mensual</h3>
+    <div class="card-titulo">💰 Configurá tu mes</div>
 
-    <label class="pequeno">¿Cuánto cobrás por mes?</label>
-    <input id="inputIngresoMensual" type="number" placeholder="Ej: 2800000">
+    <input
+      type="number"
+      id="inputIngresoMensual"
+      placeholder="¿Cuánto cobrás por mes?"
+    >
 
-    <label class="pequeno">Día de cobro</label>
-    <input id="inputDiaCobro" type="number" min="1" max="31" placeholder="Ej: 5">
+    <input
+      type="number"
+      id="inputDiaCobro"
+      min="1"
+      max="31"
+      placeholder="¿Qué día cobrás?"
+    >
 
-    <button class="azul" id="btnGuardarIngreso">
-      💾 Guardar ingreso
+    <button id="btnGuardarIngreso">
+      Guardar datos del mes
     </button>
 
-    <div id="mensajeIngreso"></div>
+    <div id="mensajeIngreso" class="mensaje"></div>
   </div>
 
   <div class="card">
-    <h3>📊 Resumen</h3>
+
+    <div class="card-titulo">📊 Resumen</div>
 
     <div class="resumen">
 
       <div class="resumen-box">
-        <div class="pequeno">Ingresos registrados</div>
-        <div id="resumenIngreso" class="numero ingreso">$0</div>
+        <span>Ingreso mensual</span>
+        <strong id="resumenIngreso" class="azul">$0</strong>
       </div>
 
       <div class="resumen-box">
-        <div class="pequeno">Gastos</div>
-        <div id="resumenGastos" class="numero gasto">$0</div>
+        <span>Gastos</span>
+        <strong id="resumenGastos" class="rojo">$0</strong>
       </div>
 
       <div class="resumen-box">
-        <div class="pequeno">Disponible mensual</div>
-        <div id="resumenDisponible" class="numero">$0</div>
+        <span>Disponible</span>
+        <strong id="resumenDisponible" class="verde">$0</strong>
       </div>
 
       <div class="resumen-box">
-        <div class="pequeno">Ahorro</div>
-        <div id="resumenAhorro" class="numero ahorro">$0</div>
+        <span>Ahorro</span>
+        <strong id="resumenAhorro" class="violeta">$0</strong>
       </div>
 
     </div>
+
   </div>
 
   <div class="card">
-    <h3>🎯 Meta diaria</h3>
 
-    <input id="inputMeta" type="number" placeholder="Ej: 50000">
+    <div class="card-titulo">🎯 Meta diaria</div>
 
-    <button class="verde" id="btnGuardarMeta">
+    <input
+      type="number"
+      id="inputMeta"
+      placeholder="Ej: $50.000 por día"
+    >
+
+    <button id="btnGuardarMeta">
       Guardar meta
     </button>
 
-    <div id="progresoMeta" class="pequeno">Sin meta configurada</div>
-
-    <div class="barra">
-      <div id="barraMeta" class="barra-interna"></div>
-    </div>
-  </div>
-
-  <div class="card presupuesto-destacado" id="cardPresupuesto">
-    <h3>🧠 Presupuesto inteligente</h3>
-
-    <div class="grid2">
-
-      <div>
-        <label class="pequeno">Gastos fijos mensuales</label>
-        <input id="gastosFijos" type="number" placeholder="Ej: 800000">
-      </div>
-
-      <div>
-        <label class="pequeno">Ahorro planeado</label>
-        <input id="ahorroPlaneado" type="number" placeholder="Ej: 300000">
-      </div>
-
+    <div class="progreso">
+      <div id="barraMeta"></div>
     </div>
 
-    <button class="azul" id="btnGuardarPresupuesto">
-      🧠 Calcular presupuesto
-    </button>
+    <p id="progresoMeta" style="margin-top:8px;font-size:14px;">
+      Sin meta configurada
+    </p>
 
-    <div class="separador"></div>
-
-    <div class="grid2">
-
-      <div class="stat-card">
-        <div class="pequeno">Disponible para variables</div>
-        <div id="presupuestoVariables" class="valor">$0</div>
-      </div>
-
-      <div class="stat-card">
-        <div class="pequeno">Días hasta cobro</div>
-        <div id="diasCobro" class="valor">0</div>
-      </div>
-
-      <div class="stat-card">
-        <div class="pequeno">Límite diario</div>
-        <div id="limiteDiario" class="numero-presupuesto">$0</div>
-      </div>
-
-      <div class="stat-card">
-        <div class="pequeno">Disponible real</div>
-        <div id="presupuestoDisponible" class="valor">$0</div>
-      </div>
-
-    </div>
-
-    <div id="estadoPresupuesto" class="alerta">
-      Configurá tu ingreso para calcular el presupuesto.
-    </div>
   </div>
 
   <div class="card">
-    <h3>⚡ Accesos rápidos</h3>
 
-    <div class="botonera">
-      <button class="verde" data-seccion="ganar">💵 Ganar</button>
-      <button class="violeta" data-seccion="hacerPlata">💡 Hacer Plata</button>
-      <button class="rojo" data-seccion="gastar">🛒 Gastar</button>
-      <button class="azul" data-seccion="ahorrar">🎯 Ahorrar</button>
+    <div class="card-titulo">🧠 Presupuesto inteligente</div>
+
+    <input
+      type="number"
+      id="gastosFijos"
+      placeholder="Gastos fijos del mes"
+    >
+
+    <input
+      type="number"
+      id="ahorroPlaneado"
+      placeholder="Ahorro que querés separar"
+    >
+
+    <button id="btnGuardarPresupuesto">
+      Calcular presupuesto
+    </button>
+
+    <div class="resumen" style="margin-top:12px;">
+
+      <div class="resumen-box">
+        <span>Para gastos variables</span>
+        <strong id="presupuestoVariables">$0</strong>
+      </div>
+
+      <div class="resumen-box">
+        <span>Disponible</span>
+        <strong id="presupuestoDisponible">$0</strong>
+      </div>
+
+      <div class="resumen-box">
+        <span>Días hasta cobro</span>
+        <strong id="diasCobro">-</strong>
+      </div>
+
+      <div class="resumen-box">
+        <span>Límite diario</span>
+        <strong id="limiteDiario">$0</strong>
+      </div>
+
     </div>
+
+    <div id="estadoPresupuesto" class="alerta alerta-ok">
+      Configurá tus datos para calcular tu límite diario.
+    </div>
+
+  </div>
+
+  <div class="acciones-rapidas">
+
+    <div class="accion" data-seccion="ganar">
+      <span>💰</span>
+      Ganar
+    </div>
+
+    <div class="accion" data-seccion="hacerPlata">
+      <span>🚀</span>
+      Hacer plata
+    </div>
+
+    <div class="accion" data-seccion="gastar">
+      <span>💸</span>
+      Registrar gasto
+    </div>
+
+    <div class="accion" data-seccion="ahorrar">
+      <span>🏦</span>
+      Ahorrar
+    </div>
+
   </div>
 
 </section>
 
 
-<!-- ================= GANAR ================= -->
-
+<!-- GANAR -->
 <section id="ganar" class="seccion">
 
-  <div class="card">
-    <h2>💵 Modo Ganar</h2>
-    <p class="pequeno">
-      Registrá lo que ganás con cada trabajo.
-    </p>
-  </div>
+  <h2>💰 Modo Ganar</h2>
 
   <div class="card">
 
-    <label class="pequeno">Actividad</label>
-
-    <select id="actividad">
-      <option value="Peluquería">Peluquería</option>
-      <option value="Venta de comidas">Venta de comidas</option>
-      <option value="Venta de productos">Venta de productos</option>
-      <option value="Viajes / Repartos">Viajes / Repartos</option>
-      <option value="Servicios">Servicios</option>
-      <option value="Trabajos">Trabajos</option>
-      <option value="Freelance">Freelance</option>
-      <option value="Otro">Otro</option>
-    </select>
-
-    <input id="nombreTrabajo" type="text" placeholder="Nombre del trabajo">
-
-    <label class="pequeno">Precio por unidad</label>
-    <input id="precio" type="number" placeholder="Ej: 15000">
-
-    <label class="pequeno">Cantidad</label>
-    <input id="unidades" type="number" value="1" min="1">
-
-    <div class="stat-card">
-      <div class="pequeno">Total</div>
-      <div id="totalGanado" class="numero ingreso">$0</div>
+    <div class="card-titulo">
+      Registrá lo que generás
     </div>
 
-    <button class="verde" id="btnSumarIngreso">
-      ➕ Registrar ingreso
-    </button>
+    <select id="actividad">
 
-    <button class="rojo" id="btnRestarIngreso">
-      ➖ Restar ingreso
-    </button>
+      <option value="Peluquería">
+        💈 Peluquería
+      </option>
 
-    <button class="gris" id="btnReiniciarGanador">
+      <option value="Venta de comidas">
+        🍔 Venta de comidas
+      </option>
+
+      <option value="Venta de productos">
+        📦 Venta de productos
+      </option>
+
+      <option value="Viajes / Repartos">
+        🚗 Viajes / Repartos
+      </option>
+
+      <option value="Servicios">
+        🔧 Servicios
+      </option>
+
+      <option value="Trabajos">
+        🛠️ Trabajos
+      </option>
+
+      <option value="Freelance">
+        💻 Freelance
+      </option>
+
+      <option value="Otro">
+        ⭐ Otro
+      </option>
+
+    </select>
+
+    <input
+      type="text"
+      id="nombreTrabajo"
+      placeholder="Nombre del trabajo"
+    >
+
+    <input
+      type="number"
+      id="precio"
+      placeholder="Precio por unidad"
+    >
+
+    <input
+      type="number"
+      id="unidades"
+      value="1"
+      min="1"
+      placeholder="Cantidad"
+    >
+
+    <p style="margin:10px 0;font-weight:bold;">
+      Total: <span id="totalGanado">$0</span>
+    </p>
+
+    <div class="grid">
+
+      <button
+        id="btnSumarIngreso"
+        class="btn-verde"
+      >
+        ➕ Sumar
+      </button>
+
+      <button
+        id="btnRestarIngreso"
+        class="btn-rojo"
+      >
+        ➖ Restar
+      </button>
+
+    </div>
+
+    <button
+      id="btnReiniciarGanador"
+      class="btn-gris"
+    >
       🗑️ Reiniciar formulario
     </button>
 
-    <div id="mensajeGanar"></div>
+    <div id="mensajeGanar" class="mensaje"></div>
+
   </div>
 
   <div class="card">
-    <h3>📋 Movimientos</h3>
+
+    <div class="card-titulo">
+      📋 Movimientos
+    </div>
+
     <div id="listaMovimientos"></div>
+
   </div>
 
 </section>
 
 
-<!-- ================= HACER PLATA ================= -->
-
+<!-- HACER PLATA -->
 <section id="hacerPlata" class="seccion">
 
-  <div class="card">
-    <h2>💡 Modo Hacer Plata</h2>
-    <p class="pequeno">
-      Ideas para generar ingresos adicionales.
-    </p>
-  </div>
+  <h2>🚀 Hacer Plata</h2>
 
   <div class="card">
 
-    <div class="botonera">
-      <button class="azul" data-idea="auto">🚗 Auto</button>
-      <button class="verde" data-idea="manual">🔧 Manual</button>
-      <button class="amarillo" data-idea="comida">🍔 Comida</button>
-      <button class="violeta" data-idea="reventa">📦 Reventa</button>
-      <button class="oscuro" data-idea="online">💻 Online</button>
+    <div class="card-titulo">
+      💡 Ideas para generar ingresos
     </div>
 
-    <div id="ideasPlata"></div>
+    <div class="idea-grid">
+
+      <div class="idea" data-idea="auto">
+        <strong>🚗 Auto</strong>
+        <small>Viajes y repartos</small>
+      </div>
+
+      <div class="idea" data-idea="manual">
+        <strong>🔧 Manual</strong>
+        <small>Servicios y arreglos</small>
+      </div>
+
+      <div class="idea" data-idea="comida">
+        <strong>🍔 Comida</strong>
+        <small>Ventas caseras</small>
+      </div>
+
+      <div class="idea" data-idea="reventa">
+        <strong>📦 Reventa</strong>
+        <small>Comprar y vender</small>
+      </div>
+
+      <div class="idea" data-idea="online">
+        <strong>💻 Online</strong>
+        <small>Trabajos digitales</small>
+      </div>
+
+    </div>
+
+    <div
+      id="ideasPlata"
+      class="mensaje"
+      style="margin-top:15px;"
+    ></div>
 
   </div>
 
   <div class="card">
-    <h3>🧮 Calculadora de ganancias</h3>
 
-    <label class="pequeno">Ganancia por trabajo</label>
-    <input id="gananciaIdea" type="number" placeholder="Ej: 25000">
+    <div class="card-titulo">
+      🧮 Calculadora de ganancias
+    </div>
 
-    <label class="pequeno">Trabajos por semana</label>
-    <input id="trabajosSemana" type="number" placeholder="Ej: 5">
+    <input
+      type="number"
+      id="gananciaIdea"
+      placeholder="Ganancia por trabajo"
+    >
 
-    <button class="verde" id="btnCalcularIdea">
+    <input
+      type="number"
+      id="trabajosSemana"
+      placeholder="Trabajos por semana"
+    >
+
+    <button id="btnCalcularIdea">
       Calcular
     </button>
 
-    <div id="resultadoIdea"></div>
+    <div
+      id="resultadoIdea"
+      class="mensaje"
+    ></div>
+
   </div>
 
 </section>
 
 
-<!-- ================= GASTAR ================= -->
-
+<!-- GASTAR -->
 <section id="gastar" class="seccion">
 
-  <div class="card">
-    <h2>🛒 Modo Gastar</h2>
-    <p class="pequeno">
-      Registrá cada gasto para saber exactamente dónde se va tu plata.
-    </p>
-  </div>
+  <h2>💸 Gastos</h2>
 
   <div class="card">
 
-    <input id="nombreGasto" type="text" placeholder="Ej: Supermercado">
+    <div class="card-titulo">
+      Registrar gasto
+    </div>
 
-    <input id="categoriaGasto" type="text" placeholder="Categoría: comida, casa, auto...">
+    <input
+      type="text"
+      id="nombreGasto"
+      placeholder="¿En qué gastaste?"
+    >
 
-    <input id="montoGasto" type="number" placeholder="Monto">
+    <select id="categoriaGasto">
 
-    <button class="rojo" id="btnAgregarGasto">
-      ➕ Agregar gasto
+      <option value="Comida">
+        🍔 Comida
+      </option>
+
+      <option value="Casa">
+        🏠 Casa
+      </option>
+
+      <option value="Transporte">
+        🚗 Transporte
+      </option>
+
+      <option value="Ropa">
+        👕 Ropa
+      </option>
+
+      <option value="Familia">
+        👨‍👩‍👧 Familia
+      </option>
+
+      <option value="Entretenimiento">
+        🎮 Entretenimiento
+      </option>
+
+      <option value="Otros">
+        📌 Otros
+      </option>
+
+    </select>
+
+    <input
+      type="number"
+      id="montoGasto"
+      placeholder="Monto"
+    >
+
+    <button
+      id="btnAgregarGasto"
+      class="btn-rojo"
+    >
+      💸 Agregar gasto
     </button>
 
-    <div id="mensajeGasto"></div>
+    <div id="mensajeGasto" class="mensaje"></div>
+
   </div>
 
   <div class="card">
-    <h3>📋 Gastos registrados</h3>
+
+    <div class="card-titulo">
+      📋 Gastos registrados
+    </div>
+
     <div id="listaGastos"></div>
+
   </div>
 
 </section>
 
 
-<!-- ================= AHORRAR ================= -->
-
+<!-- AHORRAR -->
 <section id="ahorrar" class="seccion">
 
-  <div class="card">
-    <h2>🎯 Modo Ahorrar</h2>
-    <p class="pequeno">
-      Creá objetivos y seguí tu progreso.
-    </p>
-  </div>
+  <h2>🏦 Ahorros</h2>
 
   <div class="card">
 
-    <input id="nombreObjetivo" type="text" placeholder="Ej: Auto nuevo">
-
-    <input id="montoObjetivo" type="number" placeholder="Monto objetivo">
-
-    <input id="montoAhorro" type="number" placeholder="Ahorro inicial">
-
-    <button class="violeta" id="btnGuardarObjetivo">
+    <div class="card-titulo">
       🎯 Crear objetivo
+    </div>
+
+    <input
+      type="text"
+      id="nombreObjetivo"
+      placeholder="Ej: Auto, viaje, casa..."
+    >
+
+    <input
+      type="number"
+      id="montoObjetivo"
+      placeholder="¿Cuánto necesitás?"
+    >
+
+    <input
+      type="number"
+      id="montoAhorro"
+      placeholder="Ahorro inicial"
+    >
+
+    <button
+      id="btnGuardarObjetivo"
+      class="btn-violeta"
+    >
+      Guardar objetivo
     </button>
 
-    <div id="mensajeAhorro"></div>
+    <div id="mensajeAhorro" class="mensaje"></div>
+
   </div>
 
   <div class="card">
 
-    <h3 id="objetivoMostrar">Sin objetivo</h3>
+    <div class="card-titulo">
+      🎯 Tu objetivo
+    </div>
 
-    <div id="detalleObjetivo" class="pequeno">
+    <h3 id="objetivoMostrar">
+      Sin objetivo
+    </h3>
+
+    <p id="detalleObjetivo">
       Todavía no configuraste un objetivo.
+    </p>
+
+    <div class="progreso">
+      <div id="barraObjetivo"></div>
     </div>
 
-    <div class="barra">
-      <div id="barraObjetivo" class="barra-interna"></div>
-    </div>
+    <input
+      type="number"
+      id="aporteAhorro"
+      placeholder="Agregar dinero al ahorro"
+      style="margin-top:15px;"
+    >
 
-    <input id="aporteAhorro" type="number" placeholder="¿Cuánto querés agregar?">
-
-    <button class="verde" id="btnAgregarAhorro">
+    <button
+      id="btnAgregarAhorro"
+      class="btn-verde"
+    >
       ➕ Agregar ahorro
     </button>
 
-    <button class="rojo" id="btnBorrarObjetivo">
+    <button
+      id="btnBorrarObjetivo"
+      class="btn-rojo"
+    >
       🗑️ Borrar objetivo
     </button>
 
@@ -768,195 +1009,224 @@ canvas{
 </section>
 
 
-<!-- ================= STATS ================= -->
-
+<!-- ESTADISTICAS -->
 <section id="stats" class="seccion">
 
-  <div class="card">
-    <h2>📊 Estadísticas</h2>
-    <p class="pequeno">
-      Mirá cómo se está moviendo tu plata.
-    </p>
+  <h2>📊 Estadísticas</h2>
+
+  <div class="grid-3">
+
+    <div class="stat-card">
+      <span>Ganado</span>
+      <strong id="statGanado" class="verde">
+        $0
+      </strong>
+    </div>
+
+    <div class="stat-card">
+      <span>Gastado</span>
+      <strong id="statGastado" class="rojo">
+        $0
+      </strong>
+    </div>
+
+    <div class="stat-card">
+      <span>Disponible</span>
+      <strong id="statDisponible" class="azul">
+        $0
+      </strong>
+    </div>
+
+  </div>
+
+  <div class="card" style="margin-top:15px;">
+
+    <div class="card-titulo">
+      📈 Ingresos
+    </div>
+
+    <canvas id="graficoIngresos" width="700" height="250"></canvas>
+
   </div>
 
   <div class="card">
 
-    <div class="grid3">
+    <div class="card-titulo">
+      📉 Gastos
+    </div>
 
-      <div class="stat-card">
-        <div class="pequeno">Ingresos</div>
-        <div id="statsIngresos" class="valor ingreso">$0</div>
-      </div>
+    <canvas id="graficoGastos" width="700" height="250"></canvas>
 
-      <div class="stat-card">
-        <div class="pequeno">Gastos</div>
-        <div id="statsGastos" class="valor gasto">$0</div>
-      </div>
+  </div>
 
-      <div class="stat-card">
-        <div class="pequeno">Saldo</div>
-        <div id="statsSaldo" class="valor">$0</div>
-      </div>
+  <div class="card">
 
+    <div class="card-titulo">
+      🏆 Mejor ingreso
+    </div>
+
+    <div id="mejorIngreso" class="vacio">
+      Todavía no hay ingresos.
     </div>
 
   </div>
 
   <div class="card">
-    <h3>📈 Resumen</h3>
 
-    <div class="grid3">
-
-      <div class="stat-card">
-        <div class="pequeno">Total ganado</div>
-        <div id="statGanado" class="valor ingreso">$0</div>
-      </div>
-
-      <div class="stat-card">
-        <div class="pequeno">Total gastado</div>
-        <div id="statGastado" class="valor gasto">$0</div>
-      </div>
-
-      <div class="stat-card">
-        <div class="pequeno">Disponible</div>
-        <div id="statDisponible" class="valor">$0</div>
-      </div>
-
+    <div class="card-titulo">
+      📂 Gastos por categoría
     </div>
-  </div>
 
-  <div class="card">
-    <h3>📅 Ingresos por día</h3>
-    <canvas id="graficoIngresos" width="700" height="280"></canvas>
-  </div>
-
-  <div class="card">
-    <h3>📉 Gastos por día</h3>
-    <canvas id="graficoGastos" width="700" height="280"></canvas>
-  </div>
-
-  <div class="card">
-    <h3>🛒 Gastos por categoría</h3>
     <div id="statsCategorias"></div>
+
   </div>
 
   <div class="card">
-    <h3>💼 Ingresos por actividad</h3>
+
+    <div class="card-titulo">
+      💼 Ingresos por actividad
+    </div>
+
     <div id="statsActividades"></div>
-  </div>
 
-  <div class="card">
-    <h3>⭐ Mejor ingreso</h3>
-    <div id="mejorIngreso" class="numero ingreso">$0</div>
   </div>
 
 </section>
 
 
-<!-- ================= PRO ================= -->
-
+<!-- PRO -->
 <section id="pro" class="seccion">
 
-  <div class="card destacado-pro">
-
-    <h2>⭐ Modo Plata Pro</h2>
-
-    <p>
-      Herramientas avanzadas para llevar tus finanzas a otro nivel.
-    </p>
-
-    <div class="separador"></div>
-
-    <button class="violeta" id="btnChatGPT">
-      🤖 Analizar con ChatGPT
-    </button>
-
-    <button class="azul" id="btnCompartir">
-      📤 Compartir Modo Plata
-    </button>
-
-    <div id="mensajeChatGPT"></div>
-    <div id="mensajeCompartir"></div>
-
-  </div>
-
+  <h2>⭐ Modo Pro</h2>
 
   <div class="card">
-    <h3>💾 Copia de seguridad</h3>
-
-    <p class="pequeno">
-      Guardá tus datos en un archivo para recuperarlos cuando quieras.
-    </p>
-
-    <button class="azul" id="btnExportar">
-      📥 Exportar backup
-    </button>
-
-    <button class="verde" id="btnImportar">
-      📤 Importar backup
-    </button>
-
-    <input
-      id="archivoBackup"
-      type="file"
-      accept=".json"
-      class="oculto"
-    >
-
-    <div id="mensajeBackup"></div>
-  </div>
-
-
-  <div class="card">
-    <h3>🔐 Seguridad</h3>
-
-    <p class="pequeno">
-      Tus datos financieros se guardan localmente en este dispositivo.
-      No se envían automáticamente a un servidor.
-    </p>
-
-    <div class="exito">
-      🛡️ Datos guardados localmente
-    </div>
-  </div>
-
-
-  <div class="card">
-    <h3>💳 Futura Billetera Modo Plata</h3>
 
     <div class="wallet">
 
-      <div class="pequeno" style="color:#d1d5db">
-        SALDO DISPONIBLE
-      </div>
+      <small>
+        💳 Futura Billetera Modo Plata
+      </small>
 
-      <div id="saldoWallet" class="saldo">$0</div>
+      <strong id="saldoWallet">
+        $0
+      </strong>
 
-      <div class="pequeno" style="color:#d1d5db">
-        Esta función será ampliada en próximas versiones.
-      </div>
+      <p style="margin-top:8px;opacity:.75;">
+        Base preparada para futuras funciones.
+      </p>
 
     </div>
 
   </div>
 
+  <div class="card">
+
+    <div class="card-titulo">
+      🤖 Ayuda inteligente
+    </div>
+
+    <button
+      id="btnChatGPT"
+      class="btn-violeta"
+    >
+      🤖 Analizar mis finanzas
+    </button>
+
+    <div
+      id="mensajeChatGPT"
+      class="mensaje"
+    ></div>
+
+  </div>
 
   <div class="card">
-    <h3>🧑‍💼 Modo Profesional</h3>
 
-    <div class="pro-lock">
-
-      <div style="font-size:40px">📊</div>
-
-      <h3>Panel profesional</h3>
-
-      <p class="pequeno">
-        Preparado para estadísticas avanzadas,
-        reportes, planificación y herramientas para
-        administrar mejor tus ingresos.
-      </p>
-
+    <div class="card-titulo">
+      📤 Compartir resumen
     </div>
+
+    <button
+      id="btnCompartir"
+      class="btn-gris"
+    >
+      📤 Compartir
+    </button>
+
+    <div
+      id="mensajeCompartir"
+      class="mensaje"
+    ></div>
+
+  </div>
+
+  <div class="card">
+
+    <div class="card-titulo">
+      💾 Copia de seguridad
+    </div>
+
+    <p style="color:#6b7280;font-size:14px;margin-bottom:12px;">
+      Guardá una copia de tus datos para no perderlos.
+    </p>
+
+    <button
+      id="btnExportar"
+      class="btn-verde"
+    >
+      💾 Exportar copia
+    </button>
+
+    <input
+      type="file"
+      id="archivoBackup"
+      accept=".json"
+      style="margin-top:10px;"
+    >
+
+    <button
+      id="btnImportar"
+      class="btn-gris"
+    >
+      📥 Importar copia
+    </button>
+
+    <div
+      id="mensajeBackup"
+      class="mensaje"
+    ></div>
+
+  </div>
+
+  <div class="card">
+
+    <div class="card-titulo">
+      🔐 Seguridad
+    </div>
+
+    <div class="seguridad">
+      🔒 Tus datos se guardan localmente en este dispositivo.
+      <br><br>
+      Modo Plata no necesita enviar tus gastos o ingresos a un servidor para funcionar.
+      <br><br>
+      💡 Recomendación: realizá una copia de seguridad periódicamente.
+    </div>
+
+  </div>
+
+  <div class="card">
+
+    <div class="card-titulo">
+      🚀 Próximamente
+    </div>
+
+    <ul style="padding-left:20px;line-height:1.9;color:#4b5563;">
+      <li>Billetera Modo Plata</li>
+      <li>Más estadísticas</li>
+      <li>Alertas inteligentes</li>
+      <li>Objetivos avanzados</li>
+      <li>Modo profesional</li>
+      <li>Más herramientas para ganar plata</li>
+    </ul>
 
   </div>
 
@@ -965,41 +1235,61 @@ canvas{
 </div>
 
 
-<!-- ================= NAVEGACIÓN ================= -->
+<!-- NAVEGACION -->
+<nav>
 
-<nav class="navegacion">
-
-  <button class="activo" data-seccion="inicio">
+  <button
+    class="nav-btn activo"
+    data-seccion="inicio"
+  >
     <span>🏠</span>
     Inicio
   </button>
 
-  <button data-seccion="ganar">
-    <span>💵</span>
+  <button
+    class="nav-btn"
+    data-seccion="ganar"
+  >
+    <span>💰</span>
     Ganar
   </button>
 
-  <button data-seccion="hacerPlata">
-    <span>💡</span>
+  <button
+    class="nav-btn"
+    data-seccion="hacerPlata"
+  >
+    <span>🚀</span>
     Hacer
   </button>
 
-  <button data-seccion="gastar">
-    <span>🛒</span>
+  <button
+    class="nav-btn"
+    data-seccion="gastar"
+  >
+    <span>💸</span>
     Gastar
   </button>
 
-  <button data-seccion="ahorrar">
-    <span>🎯</span>
+  <button
+    class="nav-btn"
+    data-seccion="ahorrar"
+  >
+    <span>🏦</span>
     Ahorrar
   </button>
 
-  <button data-seccion="stats">
+  <button
+    class="nav-btn"
+    data-seccion="stats"
+  >
     <span>📊</span>
     Stats
   </button>
 
-  <button data-seccion="pro">
+  <button
+    class="nav-btn"
+    data-seccion="pro"
+  >
     <span>⭐</span>
     Pro
   </button>
@@ -1008,14 +1298,6 @@ canvas{
 
 
 <script>
-
-/* =========================================================
-   MODO PLATA
-   SISTEMA PRINCIPAL
-========================================================= */
-
-
-/* ================= DATOS ================= */
 
 let movimientos = JSON.parse(
   localStorage.getItem("modoPlataMovimientos") || "[]"
@@ -1051,11 +1333,14 @@ let ahorroPlaneado = Number(
 );
 
 
-/* ================= UTILIDADES ================= */
-
 function dinero(numero){
 
-  return "$" + Number(numero || 0).toLocaleString("es-AR");
+  numero = Number(numero) || 0;
+
+  return "$" + numero.toLocaleString("es-AR",{
+    minimumFractionDigits:0,
+    maximumFractionDigits:0
+  });
 
 }
 
@@ -1063,8 +1348,7 @@ function dinero(numero){
 function totalIngresos(){
 
   return movimientos.reduce(
-    (total,movimiento) =>
-      total + Number(movimiento.total || 0),
+    (total,mov) => total + Number(mov.monto || 0),
     0
   );
 
@@ -1074,8 +1358,7 @@ function totalIngresos(){
 function totalGastos(){
 
   return gastos.reduce(
-    (total,gasto) =>
-      total + Number(gasto.monto || 0),
+    (total,gasto) => total + Number(gasto.monto || 0),
     0
   );
 
@@ -1127,49 +1410,43 @@ function guardarTodo(){
 }
 
 
-function mostrarMensaje(id,texto,tipo="exito"){
+function mostrarMensaje(id,texto){
 
-  const elemento=document.getElementById(id);
+  const elemento = document.getElementById(id);
 
   if(!elemento) return;
 
-  elemento.className=tipo;
+  elemento.textContent = texto;
 
-  elemento.textContent=texto;
+  elemento.classList.add("mostrar");
 
   setTimeout(()=>{
-
-    elemento.textContent="";
-    elemento.className="";
-
+    elemento.classList.remove("mostrar");
   },3500);
 
 }
 
 
-/* ================= NAVEGACIÓN ================= */
-
 function mostrarSeccion(nombre){
 
-  document.querySelectorAll(".seccion")
-    .forEach(seccion=>{
-      seccion.classList.remove("activa");
-    });
+  document.querySelectorAll(".seccion").forEach(seccion=>{
+    seccion.classList.remove("activa");
+  });
 
-  const destino=document.getElementById(nombre);
+  const seleccionada =
+    document.getElementById(nombre);
 
-  if(destino){
-    destino.classList.add("activa");
+  if(seleccionada){
+    seleccionada.classList.add("activa");
   }
 
-  document.querySelectorAll(".navegacion button")
-    .forEach(boton=>{
-      boton.classList.remove("activo");
+  document.querySelectorAll(".nav-btn").forEach(btn=>{
+    btn.classList.remove("activo");
 
-      if(boton.dataset.seccion===nombre){
-        boton.classList.add("activo");
-      }
-    });
+    if(btn.dataset.seccion === nombre){
+      btn.classList.add("activo");
+    }
+  });
 
   window.scrollTo({
     top:0,
@@ -1179,107 +1456,126 @@ function mostrarSeccion(nombre){
 }
 
 
-document.querySelectorAll("[data-seccion]")
-.forEach(boton=>{
+document.querySelectorAll(".nav-btn").forEach(btn=>{
 
-  boton.addEventListener("click",()=>{
+  btn.addEventListener("click",()=>{
 
-    mostrarSeccion(
-      boton.dataset.seccion
-    );
+    mostrarSeccion(btn.dataset.seccion);
 
   });
 
 });
 
 
-/* ================= INGRESO MENSUAL ================= */
+document.querySelectorAll("[data-seccion]").forEach(elemento=>{
+
+  if(!elemento.classList.contains("nav-btn")){
+
+    elemento.addEventListener("click",()=>{
+
+      mostrarSeccion(elemento.dataset.seccion);
+
+    });
+
+  }
+
+});
+
+
+/* INGRESO MENSUAL */
+
+document.getElementById("inputIngresoMensual")
+  .value = ingresoMensual || "";
+
+document.getElementById("inputDiaCobro")
+  .value = diaCobro || "";
+
 
 document.getElementById("btnGuardarIngreso")
 .addEventListener("click",()=>{
 
-  const valor=Number(
+  ingresoMensual = Number(
     document.getElementById("inputIngresoMensual").value
-  );
+  ) || 0;
 
-  const dia=Number(
+  diaCobro = Number(
     document.getElementById("inputDiaCobro").value
-  );
-
-  if(valor<0){
-
-    mostrarMensaje(
-      "mensajeIngreso",
-      "El ingreso no puede ser negativo.",
-      "error"
-    );
-
-    return;
-  }
-
-  ingresoMensual=valor;
-
-  if(dia>=1 && dia<=31){
-    diaCobro=dia;
-  }
+  ) || 0;
 
   guardarTodo();
-  actualizar();
 
   mostrarMensaje(
     "mensajeIngreso",
-    "Ingreso mensual guardado correctamente."
+    "✅ Datos del mes guardados."
   );
+
+  actualizar();
 
 });
 
 
-/* ================= META ================= */
+/* META */
+
+document.getElementById("inputMeta")
+  .value = meta || "";
+
 
 document.getElementById("btnGuardarMeta")
 .addEventListener("click",()=>{
 
-  const valor=Number(
+  meta = Number(
     document.getElementById("inputMeta").value
-  );
-
-  if(valor<=0){
-
-    mostrarMensaje(
-      "progresoMeta",
-      "Ingresá una meta válida.",
-      "error"
-    );
-
-    return;
-  }
-
-  meta=valor;
+  ) || 0;
 
   guardarTodo();
+
+  mostrarMensaje(
+    "mensajeIngreso",
+    "🎯 Meta diaria guardada."
+  );
+
   actualizar();
 
 });
 
 
-/* ================= FORMULARIO GANAR ================= */
+/* PRESUPUESTO */
+
+document.getElementById("gastosFijos")
+  .value = gastosFijos || "";
+
+document.getElementById("ahorroPlaneado")
+  .value = ahorroPlaneado || "";
+
+
+document.getElementById("btnGuardarPresupuesto")
+.addEventListener("click",()=>{
+
+  gastosFijos = Number(
+    document.getElementById("gastosFijos").value
+  ) || 0;
+
+  ahorroPlaneado = Number(
+    document.getElementById("ahorroPlaneado").value
+  ) || 0;
+
+  guardarTodo();
+
+  actualizar();
+
+});
+
 
 function calcularTotalFormulario(){
 
-  const precio=Number(
-    document.getElementById("precio").value || 0
-  );
+  const precio =
+    Number(document.getElementById("precio").value) || 0;
 
-  const unidades=Number(
-    document.getElementById("unidades").value || 0
-  );
-
-  const total=precio*unidades;
+  const unidades =
+    Number(document.getElementById("unidades").value) || 0;
 
   document.getElementById("totalGanado")
-    .textContent=dinero(total);
-
-  return total;
+    .textContent = dinero(precio * unidades);
 
 }
 
@@ -1291,212 +1587,207 @@ document.getElementById("unidades")
 .addEventListener("input",calcularTotalFormulario);
 
 
-/* ================= AGREGAR INGRESO ================= */
+/* AGREGAR INGRESO */
 
-document.getElementById("btnSumarIngreso")
-.addEventListener("click",()=>{
+function agregarIngreso(signo){
 
-  const total=calcularTotalFormulario();
+  const actividad =
+    document.getElementById("actividad").value;
 
-  if(total<=0){
+  const nombre =
+    document.getElementById("nombreTrabajo").value.trim();
 
-    mostrarMensaje(
-      "mensajeGanar",
-      "Ingresá un precio y una cantidad.",
-      "error"
-    );
+  const precio =
+    Number(document.getElementById("precio").value) || 0;
 
-    return;
-  }
+  const unidades =
+    Number(document.getElementById("unidades").value) || 1;
 
-  const movimiento={
+  const total =
+    precio * unidades * signo;
 
-    actividad:
-      document.getElementById("actividad").value,
-
-    nombre:
-      document.getElementById("nombreTrabajo").value ||
-      "Ingreso",
-
-    precio:
-      Number(document.getElementById("precio").value || 0),
-
-    unidades:
-      Number(document.getElementById("unidades").value || 1),
-
-    total:total,
-
-    fecha:new Date().toLocaleString("es-AR")
-
-  };
-
-  movimientos.push(movimiento);
-
-  guardarTodo();
-  actualizar();
-
-  mostrarMensaje(
-    "mensajeGanar",
-    "Ingreso registrado correctamente."
-  );
-
-});
-
-
-/* ================= RESTAR INGRESO ================= */
-
-document.getElementById("btnRestarIngreso")
-.addEventListener("click",()=>{
-
-  const total=calcularTotalFormulario();
-
-  if(total<=0){
+  if(precio <= 0){
 
     mostrarMensaje(
       "mensajeGanar",
-      "Ingresá un monto para restar.",
-      "error"
+      "⚠️ Ingresá un precio válido."
     );
 
     return;
+
   }
 
   movimientos.push({
 
-    actividad:"Ajuste",
+    actividad:actividad,
 
-    nombre:"Ajuste negativo",
+    nombre:nombre || actividad,
 
-    precio:-total,
+    monto:total,
 
-    unidades:1,
+    unidades:unidades,
 
-    total:-total,
-
-    fecha:new Date().toLocaleString("es-AR")
+    fecha:new Date().toLocaleDateString("es-AR")
 
   });
 
   guardarTodo();
-  actualizar();
 
   mostrarMensaje(
     "mensajeGanar",
-    "Ajuste registrado."
+    signo > 0
+      ? "✅ Ingreso agregado."
+      : "➖ Movimiento descontado."
   );
 
+  document.getElementById("nombreTrabajo").value = "";
+
+  document.getElementById("precio").value = "";
+
+  document.getElementById("unidades").value = "1";
+
+  calcularTotalFormulario();
+
+  actualizar();
+
+}
+
+
+document.getElementById("btnSumarIngreso")
+.addEventListener("click",()=>{
+  agregarIngreso(1);
 });
 
 
-/* ================= REINICIAR FORMULARIO ================= */
+document.getElementById("btnRestarIngreso")
+.addEventListener("click",()=>{
+  agregarIngreso(-1);
+});
+
 
 document.getElementById("btnReiniciarGanador")
 .addEventListener("click",()=>{
 
-  document.getElementById("nombreTrabajo").value="";
-  document.getElementById("precio").value="";
-  document.getElementById("unidades").value=1;
+  document.getElementById("nombreTrabajo").value = "";
+
+  document.getElementById("precio").value = "";
+
+  document.getElementById("unidades").value = "1";
 
   calcularTotalFormulario();
 
 });
 
 
-/* ================= MOSTRAR INGRESOS ================= */
-
 function mostrarMovimientos(){
 
-  const lista=
+  const contenedor =
     document.getElementById("listaMovimientos");
 
-  if(movimientos.length===0){
+  if(movimientos.length === 0){
 
-    lista.innerHTML=
-      '<p class="pequeno">Todavía no hay ingresos registrados.</p>';
+    contenedor.innerHTML =
+      '<div class="vacio">Todavía no hay movimientos.</div>';
 
     return;
+
   }
 
-  lista.innerHTML=
+  contenedor.innerHTML =
     movimientos
       .slice()
       .reverse()
-      .map((mov,index)=>`
+      .map((mov,indexReverse)=>{
+
+        const index =
+          movimientos.length - 1 - indexReverse;
+
+        const clase =
+          mov.monto >= 0
+            ? "verde"
+            : "rojo";
+
+        const signo =
+          mov.monto >= 0
+            ? "+"
+            : "";
+
+        return `
 
         <div class="movimiento">
 
-          <strong>
-            ${mov.nombre || "Ingreso"}
-          </strong>
+          <div class="item-info">
 
-          <span class="badge">
-            ${mov.actividad || "Otro"}
-          </span>
+            <strong>${escapeHTML(mov.nombre)}</strong>
 
-          <div class="${
-            Number(mov.total)>=0
-            ? "ingreso"
-            : "gasto"
-          }">
-
-            ${dinero(mov.total)}
+            <small>
+              ${escapeHTML(mov.actividad)}
+              · ${mov.fecha}
+            </small>
 
           </div>
 
-          <div class="pequeno">
-            ${mov.fecha || ""}
+          <div class="item-monto ${clase}">
+            ${signo}${dinero(mov.monto)}
           </div>
 
           <button
-            class="rojo"
-            onclick="eliminarMovimiento(${movimientos.length-1-index})"
+            class="btn-eliminar"
+            onclick="eliminarMovimiento(${index})"
           >
-            Eliminar
+            🗑️
           </button>
 
         </div>
 
-      `).join("");
+        `;
+
+      })
+      .join("");
 
 }
 
 
 function eliminarMovimiento(index){
 
-  if(!confirm("¿Eliminar este ingreso?")) return;
+  if(!confirm("¿Eliminar este movimiento?")){
+    return;
+  }
 
   movimientos.splice(index,1);
 
   guardarTodo();
+
   actualizar();
 
 }
 
 
-/* ================= GASTOS ================= */
+/* GASTOS */
 
 document.getElementById("btnAgregarGasto")
 .addEventListener("click",()=>{
 
-  const nombre=
-    document.getElementById("nombreGasto").value.trim();
+  const nombre =
+    document.getElementById("nombreGasto")
+      .value.trim();
 
-  const categoria=
-    document.getElementById("categoriaGasto").value.trim() ||
-    "General";
+  const categoria =
+    document.getElementById("categoriaGasto")
+      .value;
 
-  const monto=
-    Number(document.getElementById("montoGasto").value || 0);
+  const monto =
+    Number(document.getElementById("montoGasto").value) || 0;
 
-  if(!nombre || monto<=0){
+  if(!nombre || monto <= 0){
 
     mostrarMensaje(
       "mensajeGasto",
-      "Completá el nombre y un monto válido.",
-      "error"
+      "⚠️ Completá el nombre y un monto válido."
     );
 
     return;
+
   }
 
   gastos.push({
@@ -1507,119 +1798,180 @@ document.getElementById("btnAgregarGasto")
 
     monto:monto,
 
-    fecha:new Date().toLocaleString("es-AR")
+    fecha:new Date().toLocaleDateString("es-AR")
 
   });
 
-  document.getElementById("nombreGasto").value="";
-  document.getElementById("categoriaGasto").value="";
-  document.getElementById("montoGasto").value="";
-
   guardarTodo();
-  actualizar();
+
+  document.getElementById("nombreGasto").value = "";
+
+  document.getElementById("montoGasto").value = "";
 
   mostrarMensaje(
     "mensajeGasto",
-    "Gasto registrado correctamente."
+    "✅ Gasto agregado."
   );
+
+  actualizar();
 
 });
 
 
 function mostrarGastos(){
 
-  const lista=
+  const contenedor =
     document.getElementById("listaGastos");
 
-  if(gastos.length===0){
+  if(gastos.length === 0){
 
-    lista.innerHTML=
-      '<p class="pequeno">Todavía no hay gastos registrados.</p>';
+    contenedor.innerHTML =
+      '<div class="vacio">Todavía no hay gastos.</div>';
 
     return;
+
   }
 
-  lista.innerHTML=
+  contenedor.innerHTML =
     gastos
       .slice()
       .reverse()
-      .map((gasto,index)=>`
+      .map((gasto,indexReverse)=>{
 
-        <div class="movimiento">
+        const index =
+          gastos.length - 1 - indexReverse;
 
-          <strong>
-            ${gasto.nombre}
-          </strong>
+        return `
 
-          <span class="badge">
-            ${gasto.categoria}
-          </span>
+        <div class="gasto-item">
 
-          <div class="gasto">
-            ${dinero(gasto.monto)}
+          <div class="item-info">
+
+            <strong>
+              ${escapeHTML(gasto.nombre)}
+            </strong>
+
+            <small>
+              ${escapeHTML(gasto.categoria)}
+              · ${gasto.fecha}
+            </small>
+
           </div>
 
-          <div class="pequeno">
-            ${gasto.fecha}
+          <div class="item-monto rojo">
+            -${dinero(gasto.monto)}
           </div>
 
           <button
-            class="rojo"
-            onclick="eliminarGasto(${gastos.length-1-index})"
+            class="btn-eliminar"
+            onclick="eliminarGasto(${index})"
           >
-            Eliminar
+            🗑️
           </button>
 
         </div>
 
-      `).join("");
+        `;
+
+      })
+      .join("");
 
 }
 
 
 function eliminarGasto(index){
 
-  if(!confirm("¿Eliminar este gasto?")) return;
+  if(!confirm("¿Eliminar este gasto?")){
+    return;
+  }
 
   gastos.splice(index,1);
 
   guardarTodo();
+
   actualizar();
 
 }
 
 
-/* ================= AHORRO ================= */
+/* AHORROS */
+
+function mostrarObjetivo(){
+
+  const nombre =
+    document.getElementById("objetivoMostrar");
+
+  const detalle =
+    document.getElementById("detalleObjetivo");
+
+  const barra =
+    document.getElementById("barraObjetivo");
+
+  if(!objetivo.nombre || !objetivo.meta){
+
+    nombre.textContent = "Sin objetivo";
+
+    detalle.textContent =
+      "Todavía no configuraste un objetivo.";
+
+    barra.style.width = "0%";
+
+    return;
+
+  }
+
+  const porcentaje =
+    Math.min(
+      100,
+      (objetivo.ahorro / objetivo.meta) * 100
+    );
+
+  nombre.textContent =
+    "🎯 " + objetivo.nombre;
+
+  detalle.textContent =
+    dinero(objetivo.ahorro) +
+    " de " +
+    dinero(objetivo.meta) +
+    " · " +
+    porcentaje.toFixed(0) +
+    "%";
+
+  barra.style.width =
+    porcentaje + "%";
+
+}
+
 
 document.getElementById("btnGuardarObjetivo")
 .addEventListener("click",()=>{
 
-  const nombre=
+  const nombre =
     document.getElementById("nombreObjetivo")
       .value.trim();
 
-  const metaObjetivo=
+  const metaObjetivo =
     Number(
-      document.getElementById("montoObjetivo").value || 0
-    );
+      document.getElementById("montoObjetivo").value
+    ) || 0;
 
-  const ahorroInicial=
+  const ahorroInicial =
     Number(
-      document.getElementById("montoAhorro").value || 0
-    );
+      document.getElementById("montoAhorro").value
+    ) || 0;
 
-  if(!nombre || metaObjetivo<=0){
+  if(!nombre || metaObjetivo <= 0){
 
     mostrarMensaje(
       "mensajeAhorro",
-      "Completá el nombre y el monto objetivo.",
-      "error"
+      "⚠️ Completá el objetivo y el monto."
     );
 
     return;
+
   }
 
-  objetivo={
+  objetivo = {
 
     nombre:nombre,
 
@@ -1630,90 +1982,58 @@ document.getElementById("btnGuardarObjetivo")
   };
 
   guardarTodo();
-  actualizar();
 
   mostrarMensaje(
     "mensajeAhorro",
-    "Objetivo creado correctamente."
+    "🎯 Objetivo guardado."
   );
 
+  actualizar();
+
 });
-
-
-function mostrarObjetivo(){
-
-  const titulo=
-    document.getElementById("objetivoMostrar");
-
-  const detalle=
-    document.getElementById("detalleObjetivo");
-
-  const barra=
-    document.getElementById("barraObjetivo");
-
-  if(!objetivo.nombre || objetivo.meta<=0){
-
-    titulo.textContent="Sin objetivo";
-
-    detalle.textContent=
-      "Todavía no configuraste un objetivo.";
-
-    barra.style.width="0%";
-
-    return;
-  }
-
-  const porcentaje=
-    Math.min(
-      100,
-      (objetivo.ahorro/objetivo.meta)*100
-    );
-
-  titulo.textContent=
-    "🎯 " + objetivo.nombre;
-
-  detalle.innerHTML=
-    "Ahorrado: <strong>" +
-    dinero(objetivo.ahorro) +
-    "</strong> de <strong>" +
-    dinero(objetivo.meta) +
-    "</strong> (" +
-    porcentaje.toFixed(1) +
-    "%)";
-
-  barra.style.width=
-    porcentaje + "%";
-
-}
 
 
 document.getElementById("btnAgregarAhorro")
 .addEventListener("click",()=>{
 
-  const aporte=
+  const aporte =
     Number(
-      document.getElementById("aporteAhorro").value || 0
+      document.getElementById("aporteAhorro").value
+    ) || 0;
+
+  if(aporte <= 0){
+
+    mostrarMensaje(
+      "mensajeAhorro",
+      "⚠️ Ingresá un monto válido."
     );
 
-  if(aporte<=0){
-
-    alert("Ingresá un monto válido.");
-
     return;
+
   }
 
-  if(!objetivo.nombre){
+  if(!objetivo.meta){
 
-    alert("Primero creá un objetivo.");
+    mostrarMensaje(
+      "mensajeAhorro",
+      "⚠️ Primero creá un objetivo."
+    );
 
     return;
+
   }
 
   objetivo.ahorro += aporte;
 
-  document.getElementById("aporteAhorro").value="";
-
   guardarTodo();
+
+  document.getElementById("aporteAhorro").value = "";
+
+  mostrarMensaje(
+    "mensajeAhorro",
+    "💚 Ahorro agregado."
+  );
+
   actualizar();
 
 });
@@ -1722,172 +2042,137 @@ document.getElementById("btnAgregarAhorro")
 document.getElementById("btnBorrarObjetivo")
 .addEventListener("click",()=>{
 
-  if(!objetivo.nombre) return;
+  if(!confirm("¿Borrar el objetivo de ahorro?")){
+    return;
+  }
 
-  if(!confirm("¿Borrar el objetivo?")) return;
-
-  objetivo={
+  objetivo = {
     nombre:"",
     meta:0,
     ahorro:0
   };
 
   guardarTodo();
+
   actualizar();
 
 });
 
 
-/* ================= HACER PLATA ================= */
-
-const ideas={
-
-  auto:[
-    "🚗 Hacer viajes particulares.",
-    "📦 Hacer repartos.",
-    "🚕 Aprovechar viajes programados.",
-    "⛽ Buscar recorridos rentables."
-  ],
-
-  manual:[
-    "🔧 Reparaciones pequeñas.",
-    "🎨 Pintura.",
-    "🌱 Jardinería.",
-    "🛠️ Mantenimiento de hogares."
-  ],
-
-  comida:[
-    "🍔 Hamburguesas caseras.",
-    "🥟 Empanadas.",
-    "🍰 Repostería.",
-    "🍕 Comida para vender."
-  ],
-
-  reventa:[
-    "👕 Ropa.",
-    "⌚ Accesorios.",
-    "🏠 Productos para el hogar.",
-    "📱 Accesorios tecnológicos."
-  ],
-
-  online:[
-    "💻 Freelance.",
-    "📱 Manejo de redes sociales.",
-    "🛒 Ventas online.",
-    "🎨 Diseño y contenido."
-  ]
-
-};
-
+/* HACER PLATA */
 
 document.querySelectorAll("[data-idea]")
-.forEach(boton=>{
+.forEach(idea=>{
 
-  boton.addEventListener("click",()=>{
+  idea.addEventListener("click",()=>{
 
-    const tipo=boton.dataset.idea;
+    const tipo =
+      idea.dataset.idea;
 
-    const contenedor=
+    const textos = {
+
+      auto:
+        "🚗 Podés generar plata haciendo viajes, repartos o traslados.",
+
+      manual:
+        "🔧 Ofrecé arreglos, mantenimiento, pintura, instalaciones o trabajos prácticos.",
+
+      comida:
+        "🍔 Probá vender comida casera, viandas, hamburguesas, pizzas o algo que sepas hacer bien.",
+
+      reventa:
+        "📦 Buscá productos con buen margen y revendelos.",
+
+      online:
+        "💻 Podés ofrecer edición, diseño, ventas, atención al cliente o servicios digitales."
+
+    };
+
+    const caja =
       document.getElementById("ideasPlata");
 
-    contenedor.innerHTML=
-      ideas[tipo]
-        .map(idea=>`
+    caja.textContent =
+      textos[tipo] || "";
 
-          <div class="idea">
-            ${idea}
-          </div>
-
-        `).join("");
+    caja.classList.add("mostrar");
 
   });
 
 });
 
 
-/* ================= CALCULADORA ================= */
-
 document.getElementById("btnCalcularIdea")
 .addEventListener("click",()=>{
 
-  const ganancia=
+  const ganancia =
     Number(
-      document.getElementById("gananciaIdea").value || 0
-    );
+      document.getElementById("gananciaIdea").value
+    ) || 0;
 
-  const trabajos=
+  const trabajos =
     Number(
-      document.getElementById("trabajosSemana").value || 0
-    );
+      document.getElementById("trabajosSemana").value
+    ) || 0;
 
-  if(ganancia<=0 || trabajos<=0){
+  const semanal =
+    ganancia * trabajos;
 
-    document.getElementById("resultadoIdea")
-      .innerHTML=
-      '<div class="error">Ingresá valores válidos.</div>';
+  const mensual =
+    semanal * 4;
 
-    return;
-  }
+  const resultado =
+    document.getElementById("resultadoIdea");
 
-  const semanal=
-    ganancia*trabajos;
+  resultado.innerHTML =
+    "💰 Ganancia estimada semanal: <strong>" +
+    dinero(semanal) +
+    "</strong><br><br>" +
+    "📅 Ganancia estimada mensual: <strong>" +
+    dinero(mensual) +
+    "</strong>";
 
-  const mensual=
-    semanal*4;
-
-  document.getElementById("resultadoIdea")
-    .innerHTML=`
-
-      <div class="exito">
-
-        💰 Ganancia semanal:
-        <strong>${dinero(semanal)}</strong>
-
-        <br><br>
-
-        📅 Aproximado mensual:
-        <strong>${dinero(mensual)}</strong>
-
-      </div>
-
-    `;
+  resultado.classList.add("mostrar");
 
 });
 
 
-/* ================= PRESUPUESTO ================= */
+/* PRESUPUESTO */
 
 function calcularDiasHastaCobro(){
 
-  if(!diaCobro) return 30;
+  if(!diaCobro){
+    return 30;
+  }
 
-  const hoy=new Date();
+  const hoy =
+    new Date();
 
-  let proximo=
+  let proximo =
     new Date(
       hoy.getFullYear(),
       hoy.getMonth(),
       diaCobro
     );
 
-  if(proximo<=hoy){
+  if(proximo <= hoy){
 
-    proximo=
+    proximo =
       new Date(
         hoy.getFullYear(),
-        hoy.getMonth()+1,
+        hoy.getMonth() + 1,
         diaCobro
       );
 
   }
 
-  const diferencia=
-    proximo-hoy;
+  const diferencia =
+    proximo - hoy;
 
   return Math.max(
     1,
     Math.ceil(
-      diferencia/(1000*60*60*24)
+      diferencia /
+      (1000 * 60 * 60 * 24)
     )
   );
 
@@ -1896,192 +2181,152 @@ function calcularDiasHastaCobro(){
 
 function actualizarPresupuesto(){
 
-  const dias=
+  const dias =
     calcularDiasHastaCobro();
 
-  const gastosVariables=
-    totalGastos();
-
-  const disponible=
+  const disponible =
     ingresoMensual -
     gastosFijos -
-    gastosVariables -
+    ahorroPlaneado -
+    totalGastos();
+
+  const variable =
+    ingresoMensual -
+    gastosFijos -
     ahorroPlaneado;
 
-  const limite=
-    disponible>0
-      ? disponible/dias
+  const limite =
+    disponible > 0
+      ? disponible / dias
       : 0;
 
   document.getElementById("presupuestoVariables")
-    .textContent=dinero(
-      Math.max(0,disponible)
-    );
+    .textContent = dinero(Math.max(0,variable));
 
   document.getElementById("presupuestoDisponible")
-    .textContent=dinero(
-      Math.max(0,ingresoMensual-totalGastos())
-    );
+    .textContent = dinero(Math.max(0,disponible));
 
   document.getElementById("diasCobro")
-    .textContent=dias;
+    .textContent = dias;
 
   document.getElementById("limiteDiario")
-    .textContent=dinero(limite);
+    .textContent = dinero(limite);
 
-  const estado=
+  const estado =
     document.getElementById("estadoPresupuesto");
 
-  const card=
-    document.getElementById("cardPresupuesto");
+  if(!ingresoMensual){
 
-  card.classList.remove(
-    "presupuesto-ok",
-    "presupuesto-alerta",
-    "presupuesto-peligro"
-  );
+    estado.className =
+      "alerta alerta-ok";
 
-  if(ingresoMensual<=0){
-
-    estado.className="alerta";
-
-    estado.textContent=
-      "⚠️ Primero configurá tu ingreso mensual.";
+    estado.textContent =
+      "💡 Configurá tu ingreso mensual para calcular tu presupuesto.";
 
     return;
+
   }
 
-  if(disponible<=0){
+  if(disponible <= 0){
 
-    card.classList.add(
-      "presupuesto-peligro"
-    );
+    estado.className =
+      "alerta alerta-peligro";
 
-    estado.className="error";
+    estado.textContent =
+      "🚨 Ojo: ya superaste el dinero disponible para este período.";
 
-    estado.textContent=
-      "🚨 Atención: tu presupuesto disponible está en cero o negativo.";
+  }else if(limite < ingresoMensual / 100){
 
-    return;
-  }
+    estado.className =
+      "alerta alerta-cuidado";
 
-  if(limite<10000){
-
-    card.classList.add(
-      "presupuesto-alerta"
-    );
-
-    estado.className="alerta";
-
-    estado.textContent=
+    estado.textContent =
       "⚠️ Tu límite diario está bastante ajustado.";
 
-    return;
+  }else{
+
+    estado.className =
+      "alerta alerta-ok";
+
+    estado.textContent =
+      "✅ Vas bien. Tu límite diario aproximado es " +
+      dinero(limite) +
+      ".";
+
   }
 
-  card.classList.add(
-    "presupuesto-ok"
+}
+
+
+/* ESTADISTICAS */
+
+function actualizarEstadisticas(){
+
+  const ingresos =
+    totalIngresos();
+
+  const gastosTotal =
+    totalGastos();
+
+  const saldo =
+    ingresos - gastosTotal;
+
+  document.getElementById("statsIngresos")
+    ?.textContent = dinero(ingresos);
+
+  document.getElementById("statsGastos")
+    ?.textContent = dinero(gastosTotal);
+
+  document.getElementById("statsSaldo")
+    ?.textContent = dinero(saldo);
+
+  document.getElementById("statGanado")
+    .textContent = dinero(ingresos);
+
+  document.getElementById("statGastado")
+    .textContent = dinero(gastosTotal);
+
+  document.getElementById("statDisponible")
+    .textContent = dinero(saldo);
+
+  dibujarGrafico(
+    "graficoIngresos",
+    movimientos
+      .filter(m=>m.monto > 0)
+      .map(m=>m.monto),
+    "Ingresos"
   );
 
-  estado.className="exito";
+  dibujarGrafico(
+    "graficoGastos",
+    gastos.map(g=>g.monto),
+    "Gastos"
+  );
 
-  estado.textContent=
-    "✅ Vas bien. Tu presupuesto diario está controlado.";
+  actualizarCategorias();
 
-}
+  actualizarActividades();
 
-
-document.getElementById("btnGuardarPresupuesto")
-.addEventListener("click",()=>{
-
-  gastosFijos=
-    Number(
-      document.getElementById("gastosFijos").value || 0
-    );
-
-  ahorroPlaneado=
-    Number(
-      document.getElementById("ahorroPlaneado").value || 0
-    );
-
-  guardarTodo();
-  actualizar();
-
-});
-
-
-/* ================= ESTADÍSTICAS ================= */
-
-function obtenerClaveFecha(fecha){
-
-  if(!fecha) return "Sin fecha";
-
-  const partes=
-    fecha.split(",");
-
-  return partes[0] || fecha;
+  actualizarMejorIngreso();
 
 }
 
 
-function agruparIngresosPorDia(){
+function dibujarGrafico(id,valores,titulo){
 
-  const datos={};
-
-  movimientos.forEach(mov=>{
-
-    if(Number(mov.total)<=0) return;
-
-    const dia=
-      obtenerClaveFecha(mov.fecha);
-
-    datos[dia]=
-      (datos[dia]||0) +
-      Number(mov.total);
-
-  });
-
-  return datos;
-
-}
-
-
-function agruparGastosPorDia(){
-
-  const datos={};
-
-  gastos.forEach(gasto=>{
-
-    const dia=
-      obtenerClaveFecha(gasto.fecha);
-
-    datos[dia]=
-      (datos[dia]||0) +
-      Number(gasto.monto);
-
-  });
-
-  return datos;
-
-}
-
-
-function dibujarGrafico(
-  canvasId,
-  datos,
-  esGasto=false
-){
-
-  const canvas=
-    document.getElementById(canvasId);
+  const canvas =
+    document.getElementById(id);
 
   if(!canvas) return;
 
-  const ctx=
+  const ctx =
     canvas.getContext("2d");
 
-  const ancho=canvas.width;
-  const alto=canvas.height;
+  const ancho =
+    canvas.width;
+
+  const alto =
+    canvas.height;
 
   ctx.clearRect(
     0,
@@ -2090,383 +2335,387 @@ function dibujarGrafico(
     alto
   );
 
-  const claves=
-    Object.keys(datos).slice(-10);
+  ctx.fillStyle =
+    "#6b7280";
 
-  if(claves.length===0){
+  ctx.font =
+    "14px Arial";
 
-    ctx.fillStyle="#6b7280";
+  ctx.fillText(
+    titulo,
+    15,
+    25
+  );
 
-    ctx.font="16px Arial";
+  if(!valores.length){
 
     ctx.fillText(
       "Todavía no hay datos",
-      20,
-      40
+      15,
+      alto / 2
     );
 
     return;
+
   }
 
-  const valores=
-    claves.map(k=>datos[k]);
-
-  const max=
+  const max =
     Math.max(...valores,1);
 
-  const margen=35;
+  const margen =
+    35;
 
-  const anchoBarra=
-    (ancho-margen*2) /
-    claves.length;
+  const anchoBarra =
+    (ancho - margen * 2) /
+    valores.length;
 
-  claves.forEach((clave,i)=>{
+  valores.forEach((valor,index)=>{
 
-    const valor=datos[clave];
+    const altura =
+      (valor / max) *
+      (alto - 75);
 
-    const altura=
-      (valor/max) *
-      (alto-75);
-
-    const x=
+    const x =
       margen +
-      i*anchoBarra +
-      8;
+      index * anchoBarra +
+      5;
 
-    const y=
-      alto-40-altura;
+    const y =
+      alto -
+      35 -
+      altura;
 
-    ctx.fillStyle=
-      esGasto
-        ? "#dc2626"
-        : "#16a34a";
+    ctx.fillStyle =
+      "#2563eb";
 
     ctx.fillRect(
       x,
       y,
-      Math.max(
-        8,
-        anchoBarra-16
-      ),
+      Math.max(8,anchoBarra - 10),
       altura
     );
 
-    ctx.fillStyle="#374151";
+    ctx.fillStyle =
+      "#6b7280";
 
-    ctx.font="11px Arial";
-
-    ctx.save();
-
-    ctx.translate(
-      x,
-      alto-22
-    );
-
-    ctx.rotate(-0.45);
+    ctx.font =
+      "11px Arial";
 
     ctx.fillText(
-      clave.substring(0,10),
-      0,
-      0
+      dinero(valor),
+      x,
+      y - 5
     );
-
-    ctx.restore();
 
   });
 
 }
 
 
-function mostrarBarras(
-  datos,
-  contenedorId
-){
+function actualizarCategorias(){
 
-  const contenedor=
-    document.getElementById(
-      contenedorId
-    );
+  const contenedor =
+    document.getElementById("statsCategorias");
 
-  if(!contenedor) return;
-
-  const entradas=
-    Object.entries(datos);
-
-  if(entradas.length===0){
-
-    contenedor.innerHTML=
-      '<p class="pequeno">Sin datos todavía.</p>';
-
-    return;
-  }
-
-  const max=
-    Math.max(
-      ...entradas.map(x=>x[1]),
-      1
-    );
-
-  contenedor.innerHTML=
-    entradas
-      .sort((a,b)=>b[1]-a[1])
-      .map(([nombre,valor])=>{
-
-        const porcentaje=
-          (valor/max)*100;
-
-        return `
-
-          <div class="pequeno">
-            <strong>${nombre}</strong>
-            — ${dinero(valor)}
-          </div>
-
-          <div class="mini-barra">
-            <div style="width:${porcentaje}%"></div>
-          </div>
-
-        `;
-
-      }).join("");
-
-}
-
-
-function actualizarEstadisticas(){
-
-  const ingresos=
-    totalIngresos();
-
-  const gastosTotal=
-    totalGastos();
-
-  const saldo=
-    ingresos-gastosTotal;
-
-  document.getElementById("statsIngresos")
-    .textContent=dinero(ingresos);
-
-  document.getElementById("statsGastos")
-    .textContent=dinero(gastosTotal);
-
-  document.getElementById("statsSaldo")
-    .textContent=dinero(saldo);
-
-  document.getElementById("statGanado")
-    .textContent=dinero(ingresos);
-
-  document.getElementById("statGastado")
-    .textContent=dinero(gastosTotal);
-
-  document.getElementById("statDisponible")
-    .textContent=dinero(saldo);
-
-  const ingresosDia=
-    agruparIngresosPorDia();
-
-  const gastosDia=
-    agruparGastosPorDia();
-
-  dibujarGrafico(
-    "graficoIngresos",
-    ingresosDia,
-    false
-  );
-
-  dibujarGrafico(
-    "graficoGastos",
-    gastosDia,
-    true
-  );
-
-
-  const categorias={};
+  const datos = {};
 
   gastos.forEach(gasto=>{
 
-    const categoria=
-      gasto.categoria ||
-      "General";
+    const categoria =
+      gasto.categoria || "Otros";
 
-    categorias[categoria]=
-      (categorias[categoria]||0) +
-      Number(gasto.monto);
-
-  });
-
-  mostrarBarras(
-    categorias,
-    "statsCategorias"
-  );
-
-
-  const actividades={};
-
-  movimientos.forEach(mov=>{
-
-    if(Number(mov.total)<=0) return;
-
-    const actividad=
-      mov.actividad ||
-      "Otro";
-
-    actividades[actividad]=
-      (actividades[actividad]||0) +
-      Number(mov.total);
+    datos[categoria] =
+      (datos[categoria] || 0) +
+      Number(gasto.monto || 0);
 
   });
 
-  mostrarBarras(
-    actividades,
-    "statsActividades"
-  );
+  const lista =
+    Object.entries(datos)
+      .sort((a,b)=>b[1]-a[1]);
 
+  if(!lista.length){
 
-  const mejor=
-    movimientos.reduce(
-      (max,mov)=>
-        Number(mov.total)>Number(max?.total||0)
-          ? mov
-          : max,
-      null
-    );
+    contenedor.innerHTML =
+      '<div class="vacio">Todavía no hay gastos.</div>';
 
-  document.getElementById("mejorIngreso")
-    .textContent=
-      mejor
-        ? dinero(mejor.total)
-        : "$0";
+    return;
+
+  }
+
+  const max =
+    lista[0][1];
+
+  contenedor.innerHTML =
+    lista.map(([categoria,monto])=>{
+
+      const porcentaje =
+        (monto / max) * 100;
+
+      return `
+
+      <div style="margin-bottom:13px;">
+
+        <div style="display:flex;justify-content:space-between;gap:10px;">
+
+          <strong>${escapeHTML(categoria)}</strong>
+
+          <span>${dinero(monto)}</span>
+
+        </div>
+
+        <div class="mini-barra">
+          <div style="width:${porcentaje}%"></div>
+        </div>
+
+      </div>
+
+      `;
+
+    }).join("");
 
 }
 
 
-/* ================= CHATGPT ================= */
+function actualizarActividades(){
 
-document.getElementById("btnChatGPT")
-.addEventListener("click",async()=>{
+  const contenedor =
+    document.getElementById("statsActividades");
 
-  const ingresos=
-    totalIngresos();
+  const datos = {};
 
-  const gastosTotal=
-    totalGastos();
+  movimientos
+    .filter(m=>m.monto > 0)
+    .forEach(mov=>{
 
-  const saldo=
-    ingresos-gastosTotal;
+      const actividad =
+        mov.actividad || "Otro";
 
-  const texto=
+      datos[actividad] =
+        (datos[actividad] || 0) +
+        Number(mov.monto || 0);
 
-`Analizá mis finanzas de Modo Plata.
+    });
 
-Ingreso mensual:
-${dinero(ingresoMensual)}
+  const lista =
+    Object.entries(datos)
+      .sort((a,b)=>b[1]-a[1]);
 
-Ingresos registrados:
-${dinero(ingresos)}
+  if(!lista.length){
 
-Gastos:
-${dinero(gastosTotal)}
+    contenedor.innerHTML =
+      '<div class="vacio">Todavía no hay ingresos.</div>';
 
-Saldo:
-${dinero(saldo)}
-
-Gastos fijos:
-${dinero(gastosFijos)}
-
-Ahorro planeado:
-${dinero(ahorroPlaneado)}
-
-Objetivo de ahorro:
-${objetivo.nombre || "Sin objetivo"}
-
-Monto ahorrado:
-${dinero(objetivo.ahorro)}
-
-Quiero recomendaciones concretas para administrar mejor mi dinero, gastar menos y aumentar mis ingresos.`;
-
-  try{
-
-    await navigator.clipboard.writeText(texto);
-
-    mostrarMensaje(
-      "mensajeChatGPT",
-      "📋 Resumen copiado. Ahora podés pegarlo en ChatGPT."
-    );
-
-  }catch(e){
-
-    mostrarMensaje(
-      "mensajeChatGPT",
-      texto,
-      "exito"
-    );
+    return;
 
   }
+
+  const max =
+    lista[0][1];
+
+  contenedor.innerHTML =
+    lista.map(([actividad,monto])=>{
+
+      const porcentaje =
+        (monto / max) * 100;
+
+      return `
+
+      <div style="margin-bottom:13px;">
+
+        <div style="display:flex;justify-content:space-between;gap:10px;">
+
+          <strong>${escapeHTML(actividad)}</strong>
+
+          <span>${dinero(monto)}</span>
+
+        </div>
+
+        <div class="mini-barra">
+          <div style="width:${porcentaje}%"></div>
+        </div>
+
+      </div>
+
+      `;
+
+    }).join("");
+
+}
+
+
+function actualizarMejorIngreso(){
+
+  const contenedor =
+    document.getElementById("mejorIngreso");
+
+  const positivos =
+    movimientos.filter(
+      m=>Number(m.monto) > 0
+    );
+
+  if(!positivos.length){
+
+    contenedor.textContent =
+      "Todavía no hay ingresos.";
+
+    return;
+
+  }
+
+  const mejor =
+    positivos.reduce(
+      (a,b)=>
+        Number(a.monto) >
+        Number(b.monto)
+          ? a
+          : b
+    );
+
+  contenedor.innerHTML = `
+
+    <strong>
+      ${escapeHTML(mejor.nombre)}
+    </strong>
+
+    <br>
+
+    <span class="verde">
+      ${dinero(mejor.monto)}
+    </span>
+
+    <br>
+
+    <small>
+      ${escapeHTML(mejor.actividad)}
+    </small>
+
+  `;
+
+}
+
+
+/* CHATGPT */
+
+document.getElementById("btnChatGPT")
+.addEventListener("click",()=>{
+
+  const ingresos =
+    totalIngresos();
+
+  const gastosTotal =
+    totalGastos();
+
+  const saldo =
+    ingresos - gastosTotal;
+
+  let consejo = "";
+
+  if(saldo > 0){
+
+    consejo =
+      "Vas positivo. Seguí controlando los gastos y tratá de separar una parte para ahorro.";
+
+  }else if(saldo === 0){
+
+    consejo =
+      "Estás empatado entre ingresos y gastos. Sería bueno buscar una fuente extra de ingresos o reducir algún gasto.";
+
+  }else{
+
+    consejo =
+      "Tus gastos superan tus ingresos registrados. Revisá los gastos y buscá una forma de aumentar tus ingresos.";
+
+  }
+
+  const texto =
+
+    "📊 Resumen de Modo Plata\n\n" +
+
+    "💰 Ingresos: " +
+    dinero(ingresos) +
+
+    "\n💸 Gastos: " +
+    dinero(gastosTotal) +
+
+    "\n💵 Saldo: " +
+    dinero(saldo) +
+
+    "\n\n🤖 Consejo:\n" +
+    consejo;
+
+  const caja =
+    document.getElementById("mensajeChatGPT");
+
+  caja.textContent = texto;
+
+  caja.classList.add("mostrar");
 
 });
 
 
-/* ================= COMPARTIR ================= */
+/* COMPARTIR */
 
 document.getElementById("btnCompartir")
 .addEventListener("click",async()=>{
 
-  const datos={
-    titulo:"Modo Plata",
-    texto:"Estoy usando Modo Plata para ordenar mis finanzas.",
-    url:window.location.href
-  };
+  const texto =
 
-  if(navigator.share){
+    "💰 Modo Plata\n\n" +
 
-    try{
+    "Ingresos: " +
+    dinero(totalIngresos()) +
 
-      await navigator.share(datos);
+    "\nGastos: " +
+    dinero(totalGastos()) +
 
-      mostrarMensaje(
-        "mensajeCompartir",
-        "¡Compartido!"
-      );
+    "\nDisponible: " +
+    dinero(
+      totalIngresos() -
+      totalGastos()
+    );
 
-    }catch(e){}
+  try{
 
-  }else{
+    if(navigator.share){
 
-    try{
+      await navigator.share({
 
-      await navigator.clipboard.writeText(
-        window.location.href
-      );
+        title:"Modo Plata",
 
-      mostrarMensaje(
-        "mensajeCompartir",
-        "📋 Link copiado."
-      );
+        text:texto
 
-    }catch(e){
+      });
 
-      mostrarMensaje(
-        "mensajeCompartir",
-        window.location.href
-      );
+      return;
 
     }
+
+    await navigator.clipboard.writeText(texto);
+
+    mostrarMensaje(
+      "mensajeCompartir",
+      "📋 Resumen copiado."
+    );
+
+  }catch(error){
+
+    mostrarMensaje(
+      "mensajeCompartir",
+      "No se pudo compartir."
+    );
 
   }
 
 });
 
 
-/* ================= BACKUP ================= */
+/* BACKUP */
 
 document.getElementById("btnExportar")
 .addEventListener("click",()=>{
 
-  const backup={
-
-    version:1,
-
-    fecha:new Date().toISOString(),
+  const datos = {
 
     movimientos:movimientos,
 
@@ -2482,24 +2731,29 @@ document.getElementById("btnExportar")
 
     gastosFijos:gastosFijos,
 
-    ahorroPlaneado:ahorroPlaneado
+    ahorroPlaneado:ahorroPlaneado,
+
+    fecha:new Date().toISOString()
 
   };
 
-  const archivo=new Blob(
-    [JSON.stringify(backup,null,2)],
-    {type:"application/json"}
-  );
+  const blob =
+    new Blob(
+      [JSON.stringify(datos,null,2)],
+      {
+        type:"application/json"
+      }
+    );
 
-  const url=
-    URL.createObjectURL(archivo);
+  const url =
+    URL.createObjectURL(blob);
 
-  const enlace=
+  const enlace =
     document.createElement("a");
 
-  enlace.href=url;
+  enlace.href = url;
 
-  enlace.download=
+  enlace.download =
     "modo-plata-backup.json";
 
   enlace.click();
@@ -2508,7 +2762,7 @@ document.getElementById("btnExportar")
 
   mostrarMensaje(
     "mensajeBackup",
-    "✅ Backup descargado correctamente."
+    "✅ Copia de seguridad descargada."
   );
 
 });
@@ -2517,91 +2771,97 @@ document.getElementById("btnExportar")
 document.getElementById("btnImportar")
 .addEventListener("click",()=>{
 
-  document.getElementById("archivoBackup")
-    .click();
+  const archivo =
+    document.getElementById("archivoBackup")
+      .files[0];
 
-});
+  if(!archivo){
 
+    mostrarMensaje(
+      "mensajeBackup",
+      "⚠️ Seleccioná una copia .json primero."
+    );
 
-document.getElementById("archivoBackup")
-.addEventListener("change",(evento)=>{
+    return;
 
-  const archivo=
-    evento.target.files[0];
+  }
 
-  if(!archivo) return;
-
-  const lector=
+  const lector =
     new FileReader();
 
-  lector.onload=(e)=>{
+  lector.onload = function(){
 
     try{
 
-      const datos=
-        JSON.parse(e.target.result);
+      const datos =
+        JSON.parse(lector.result);
 
-      if(!datos ||
-         !Array.isArray(datos.movimientos) ||
-         !Array.isArray(datos.gastos)
+      if(
+        !Array.isArray(datos.movimientos) ||
+        !Array.isArray(datos.gastos)
       ){
 
-        throw new Error(
-          "Backup inválido"
-        );
+        throw new Error("Archivo inválido");
 
       }
 
-      movimientos=
+      movimientos =
         datos.movimientos;
 
-      gastos=
+      gastos =
         datos.gastos;
 
-      meta=
-        Number(datos.meta||0);
+      meta =
+        Number(datos.meta || 0);
 
-      objetivo=
+      objetivo =
         datos.objetivo || {
           nombre:"",
           meta:0,
           ahorro:0
         };
 
-      ingresoMensual=
-        Number(
-          datos.ingresoMensual||0
-        );
+      ingresoMensual =
+        Number(datos.ingresoMensual || 0);
 
-      diaCobro=
-        Number(
-          datos.diaCobro||0
-        );
+      diaCobro =
+        Number(datos.diaCobro || 0);
 
-      gastosFijos=
-        Number(
-          datos.gastosFijos||0
-        );
+      gastosFijos =
+        Number(datos.gastosFijos || 0);
 
-      ahorroPlaneado=
-        Number(
-          datos.ahorroPlaneado||0
-        );
+      ahorroPlaneado =
+        Number(datos.ahorroPlaneado || 0);
 
       guardarTodo();
+
+      document.getElementById("inputIngresoMensual")
+        .value = ingresoMensual || "";
+
+      document.getElementById("inputDiaCobro")
+        .value = diaCobro || "";
+
+      document.getElementById("inputMeta")
+        .value = meta || "";
+
+      document.getElementById("gastosFijos")
+        .value = gastosFijos || "";
+
+      document.getElementById("ahorroPlaneado")
+        .value = ahorroPlaneado || "";
+
       actualizar();
 
       mostrarMensaje(
         "mensajeBackup",
-        "✅ Backup restaurado correctamente."
+        "✅ Copia restaurada correctamente."
       );
 
     }catch(error){
 
       mostrarMensaje(
         "mensajeBackup",
-        "❌ El archivo no parece ser un backup válido.",
-        "error"
+        "❌ La copia no es válida."
       );
 
     }
@@ -2613,103 +2873,84 @@ document.getElementById("archivoBackup")
 });
 
 
-/* ================= ACTUALIZAR TODO ================= */
+/* SEGURIDAD HTML */
+
+function escapeHTML(texto){
+
+  return String(texto)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+
+}
+
+
+/* ACTUALIZAR TODO */
 
 function actualizar(){
 
-  const ingresos=
+  const ingresos =
     totalIngresos();
 
-  const gastosTotal=
+  const gastosTotal =
     totalGastos();
 
-  const saldoReal=
-    ingresos-gastosTotal;
+  const saldoReal =
+    ingresos -
+    gastosTotal;
 
-  const disponibleMensual=
-    ingresoMensual-gastosTotal;
-
-
-  /* RESUMEN */
+  const disponibleMensual =
+    ingresoMensual -
+    gastosTotal;
 
   document.getElementById("resumenIngreso")
-    .textContent=dinero(ingresos);
+    .textContent =
+    dinero(ingresoMensual);
 
   document.getElementById("resumenGastos")
-    .textContent=dinero(gastosTotal);
+    .textContent =
+    dinero(gastosTotal);
 
   document.getElementById("resumenDisponible")
-    .textContent=dinero(disponibleMensual);
+    .textContent =
+    dinero(Math.max(0,disponibleMensual));
 
   document.getElementById("resumenAhorro")
-    .textContent=dinero(
-      objetivo.ahorro || 0
-    );
+    .textContent =
+    dinero(objetivo.ahorro || 0);
 
+  const progreso =
+    meta > 0
+      ? Math.min(
+          100,
+          Math.max(
+            0,
+            (ingresos / meta) * 100
+          )
+        )
+      : 0;
 
-  /* INPUTS */
+  document.getElementById("barraMeta")
+    .style.width =
+    progreso + "%";
 
-  document.getElementById("inputIngresoMensual")
-    .value=
-      ingresoMensual || "";
-
-  document.getElementById("inputDiaCobro")
-    .value=
-      diaCobro || "";
-
-  document.getElementById("inputMeta")
-    .value=
-      meta || "";
-
-  document.getElementById("gastosFijos")
-    .value=
-      gastosFijos || "";
-
-  document.getElementById("ahorroPlaneado")
-    .value=
-      ahorroPlaneado || "";
-
-
-  /* META */
-
-  if(meta>0){
-
-    const porcentaje=
-      Math.min(
-        100,
-        (ingresos/meta)*100
-      );
-
-    document.getElementById("progresoMeta")
-      .innerHTML=
-      `Meta: <strong>${dinero(meta)}</strong>
-       — Registrado: <strong>${dinero(ingresos)}</strong>
-       — ${porcentaje.toFixed(1)}%`;
-
-    document.getElementById("barraMeta")
-      .style.width=
-        porcentaje+"%";
-
-  }else{
-
-    document.getElementById("progresoMeta")
-      .textContent=
-        "Sin meta configurada.";
-
-    document.getElementById("barraMeta")
-      .style.width="0%";
-
-  }
-
-
-  /* WALLET */
+  document.getElementById("progresoMeta")
+    .textContent =
+    meta > 0
+      ? "Llevás " +
+        dinero(ingresos) +
+        " de " +
+        dinero(meta) +
+        " · " +
+        progreso.toFixed(0) +
+        "%"
+      : "Sin meta configurada";
 
   document.getElementById("saldoWallet")
-    .textContent=
-      dinero(saldoReal);
-
-
-  /* LISTAS */
+    .textContent =
+    dinero(saldoReal);
 
   mostrarMovimientos();
 
@@ -2717,25 +2958,18 @@ function actualizar(){
 
   mostrarObjetivo();
 
-
-  /* PRESUPUESTO */
-
   actualizarPresupuesto();
-
-
-  /* ESTADÍSTICAS */
 
   actualizarEstadisticas();
 
 }
 
 
-/* ================= ARRANQUE ================= */
+/* INICIO */
 
 calcularTotalFormulario();
 
 actualizar();
-
 
 </script>
 
